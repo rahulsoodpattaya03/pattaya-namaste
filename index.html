@@ -148,7 +148,7 @@ body.night .bubble{background:#2A2236}
 footer{margin-top:24px;text-align:center;font-size:11.5px;color:var(--muted);line-height:1.6}
 footer a{text-decoration:underline}
 /* bottom nav */
-nav.bottom{position:fixed;left:50%;transform:translateX(-50%);z-index:6;display:flex;justify-content:space-around;align-items:center}
+nav.bottom{position:fixed;left:50%;transform:translateX(-50%);z-index:15;display:flex;justify-content:space-around;align-items:center}
 body.night nav.bottom{bottom:0;width:100%;max-width:480px;height:calc(78px + env(safe-area-inset-bottom,0px));padding-bottom:calc(6px + env(safe-area-inset-bottom,0px));background:var(--nav);border-top:1px solid var(--line)}
 body.family nav.bottom{bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(448px,calc(100% - 32px));height:64px;border-radius:32px;background:#1D1630}
 nav.bottom a{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;color:#B9B0CC;min-width:52px}
@@ -295,6 +295,53 @@ body.night .st button{background:var(--g)}
 .sdots{display:flex;justify-content:center;gap:8px;margin-top:2px}
 .sdots button{width:9px;height:9px;border-radius:5px;border:0;padding:0;background:var(--line)}
 .sdots button.on{width:26px;background:var(--g,var(--accent))}
+/* 4 club tabs */
+.tabs4{grid-template-columns:1fr 1fr}
+.tabs4 button{height:auto;min-height:44px;padding:6px 8px;line-height:1.2}
+/* 3D circle slider */
+.ringwrap{position:relative;height:430px;perspective:1100px;overflow:hidden;margin:4px -20px 0;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.ring{position:absolute;left:50%;top:14px;width:0;height:0;transform-style:preserve-3d}
+.rcard{position:absolute;left:-115px;top:0;width:230px;border-radius:22px;overflow:hidden;background:var(--surf);border:3px solid var(--fr);box-shadow:var(--sh);backface-visibility:hidden;-webkit-backface-visibility:hidden;pointer-events:none}
+.rcard.front{pointer-events:auto}
+.rcard img{width:100%;height:190px;object-fit:cover;display:block;border-bottom:3px solid var(--fr)}
+.rbody{padding:12px;display:flex;flex-direction:column;gap:4px}
+.rbody b{font-size:16px;line-height:1.25}
+.rbody small{font-size:12.5px;color:var(--muted);line-height:1.35}
+.rbody em{font-style:normal;font-size:13px;font-weight:700;color:var(--link)}
+.rrow{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.ringnav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:4px;font-weight:600;color:var(--muted)}
+/* trip teaser (small) */
+.tteaser{display:block;margin-top:16px;padding:14px 16px;border-radius:20px;background:var(--surf);border:3px solid var(--fr);box-shadow:var(--sh)}
+.tt1{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.tt1 b{font-family:Syne,Inter,sans-serif;font-size:17px}
+.tteaser small{display:block;font-size:12.5px;color:var(--muted);margin:4px 0 10px;line-height:1.4}
+.tt2{display:flex;align-items:center;gap:6px}
+.tt2 span{padding:5px 9px;border-radius:999px;background:var(--bg);border:2px solid var(--line);font-size:11.5px;font-weight:600}
+.tt2 em{margin-left:auto;font-style:normal;display:inline-flex;align-items:center;gap:4px;height:34px;padding:0 12px;border-radius:17px;background:var(--accent);color:var(--onacc);font-size:13px;font-weight:700}
+body.night .tt2 em{background:var(--g)}
+.disc{flex:none;padding:4px 9px;border-radius:999px;background:#16A34A;color:#fff;font-size:11.5px;font-weight:700;box-shadow:0 4px 10px rgba(22,163,74,.35)}
+/* discount tag on service tiles */
+.svc i.off{position:absolute;top:8px;left:8px;z-index:2;padding:3px 7px;border-radius:999px;background:#16A34A;color:#fff;font-style:normal;font-size:10.5px;font-weight:700;box-shadow:0 3px 8px rgba(0,0,0,.35)}
+.svc a.noimg i.off{display:block}
+/* trip planner screen */
+.tripscr{position:fixed;inset:0;z-index:20;background:var(--bg);color:var(--ink);overflow-y:auto;display:none}
+.tripscr.open{display:block}
+.tinner{max-width:480px;margin:0 auto;padding:calc(16px + env(safe-area-inset-top,0px)) 20px 150px}
+.thdr{display:flex;align-items:center;gap:10px}
+.thdr b{flex:1;font-family:Syne,Inter,sans-serif;font-size:19px}
+.tsub{margin:20px 0 10px;font-size:15px;font-weight:700}
+.pkgs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pkg{text-align:left;padding:10px;border-radius:16px;border:3px solid var(--fr);background:var(--surf);color:var(--ink);box-shadow:var(--sh);display:flex;flex-direction:column;gap:2px}
+.pkg b{font-size:13.5px;line-height:1.2}.pkg small{font-size:11px;color:var(--muted)}
+.pkg em{font-style:normal;font-weight:800;font-size:15px;margin-top:6px;color:var(--link)}.pkg span{font-size:10.5px;color:var(--muted)}
+.pkg.on{border-color:var(--accent);background:var(--card2)}
+body.night .pkg.on{border-color:#D42A6A;background:#1E1828}
+.tcat{margin-bottom:12px}
+.tcat h4{margin:0 0 6px;font-size:13px;color:var(--muted);font-weight:600}
+.tcat .it+.it{margin-top:8px}
+.tbar{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:480px;padding:12px 20px calc(18px + env(safe-area-inset-bottom,0px));background:var(--surf);border-top:3px solid var(--fr);display:flex;align-items:center;gap:12px;box-shadow:0 -10px 24px rgba(0,0,0,.25)}
+.tbar small{display:block;font-size:11.5px;color:var(--muted)}.tbar b{display:block;font-family:Syne,Inter,sans-serif;font-size:21px}.tbar span{font-size:12.5px;color:var(--muted)}
+.tbar .cta{flex:1;height:50px;font-size:14px;text-align:center}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
 </head>
@@ -372,21 +419,12 @@ body.night .st button{background:var(--g)}
     <button data-mode="family">With family</button>
   </div>
 
-  <!-- ===== Customize my trip (top) ===== -->
-  <section class="trip" id="trip" aria-label="Customize my trip">
-    <div class="head"><h2>Customize my trip</h2><span>Sample prices</span></div>
-    <div class="steps">
-      <div class="st"><small>Nights</small><div><button type="button" data-k="n" data-d="-1" aria-label="Fewer nights">−</button><b id="vN">3</b><button type="button" data-k="n" data-d="1" aria-label="More nights">+</button></div></div>
-      <div class="st"><small>Adults</small><div><button type="button" data-k="a" data-d="-1" aria-label="Fewer adults">−</button><b id="vA">2</b><button type="button" data-k="a" data-d="1" aria-label="More adults">+</button></div></div>
-      <div class="st"><small>Children</small><div><button type="button" data-k="c" data-d="-1" aria-label="Fewer children">−</button><b id="vC">0</b><button type="button" data-k="c" data-d="1" aria-label="More children">+</button></div></div>
-    </div>
-    <div class="items" id="tripItems"></div>
-    <div class="quote">
-      <div><small>Estimated total</small><b id="qTHB">฿0</b><span id="qINR">₹0</span></div>
-      <a class="cta wa" id="qSend" href="#" target="_blank" rel="noopener">Send quotation on WhatsApp</a>
-    </div>
-    <p class="note">Sample prices for planning. Final price confirmed by Namaste Pattaya.</p>
-  </section>
+  <!-- ===== Customize my trip (compact teaser) ===== -->
+  <a class="tteaser" href="#trip" aria-label="Customize my trip">
+    <div class="tt1"><b>Customize my trip</b><span class="disc">Up to 30% off</span></div>
+    <small>Hotel, taxi, car or bike, tours, food, clubs and more. Pick a package, add what you like, get your price.</small>
+    <div class="tt2"><span>Budget</span><span>Mid-range</span><span>Luxury</span><em>Start <svg class="ic" style="width:16px;height:16px"><use href="#i-arrow"/></svg></em></div>
+  </a>
 
   <!-- ===== Currency converter ===== -->
   <section class="fx" aria-label="Currency converter">
@@ -406,7 +444,7 @@ body.night .st button{background:var(--g)}
       <button data-c="night"><i><svg class="ic"><use href="#i-music"/></svg></i>Clubs</button>
       <button data-c="beach"><i><svg class="ic"><use href="#i-palm"/></svg></i>Beach</button>
       <button data-c="after"><i><svg class="ic"><use href="#i-star"/></svg></i>Ladies night</button>
-      <button data-c="after"><i><svg class="ic"><use href="#i-roof"/></svg></i>Rooftop</button>
+      <button data-c="sky"><i><svg class="ic"><use href="#i-roof"/></svg></i>Rooftop</button>
     </div>
     <section>
       <div class="head"><h2>Tonight near you</h2><a href="#clubs">View all</a></div>
@@ -467,8 +505,15 @@ body.night .st button{background:var(--g)}
 
   <section id="clubs" class="night-only">
     <div class="head"><h2>Clubs tonight</h2><span>20+ only · ID at the door</span></div>
-    <div class="tabs" id="clubTabs"><button class="on" data-t="night">Night clubs</button><button data-t="after">After-party</button><button data-t="beach">VIP Beach Clubs</button></div>
-    <div id="clubList"></div>
+    <div class="tabs tabs4" id="clubTabs"><button class="on" data-t="night">Indian Nightclubs</button><button data-t="after">Indian &amp; International After-parties</button><button data-t="beach">Beach Clubs</button><button data-t="sky">Sky Bars &amp; Rooftop Bars</button></div>
+    <div class="ringwrap" id="ringWrap" aria-roledescription="carousel">
+      <div class="ring" id="ring"></div>
+    </div>
+    <div class="ringnav">
+      <button type="button" class="rbtn" id="ringPrev" aria-label="Previous"><svg class="ic"><use href="#i-back"/></svg></button>
+      <span id="ringCount">1 / 1</span>
+      <button type="button" class="rbtn" id="ringNext" aria-label="Next"><svg class="ic" style="transform:scaleX(-1)"><use href="#i-back"/></svg></button>
+    </div>
   </section>
 
   <section class="fam-only">
@@ -531,6 +576,28 @@ body.night .st button{background:var(--g)}
       <button type="button" class="cta" id="age20">I am 20 or older</button>
       <button type="button" class="wbtn2" id="ageU20">I am under 20</button>
     </div>
+  </div>
+</div>
+
+<!-- ===== Trip planner screen ===== -->
+<div class="tripscr" id="scrTrip" role="dialog" aria-label="Customize my trip">
+  <div class="tinner">
+    <div class="thdr"><a class="rbtn" href="#" data-back aria-label="Back"><svg class="ic"><use href="#i-back"/></svg></a><b>Customize my trip</b><span class="disc">Up to 30% off</span></div>
+    <h3 class="tsub">1. Choose your package</h3>
+    <div class="pkgs" id="pkgs"></div>
+    <h3 class="tsub">2. Who is travelling</h3>
+    <div class="steps">
+      <div class="st"><small>Nights</small><div><button type="button" data-k="n" data-d="-1" aria-label="Fewer nights">−</button><b id="vN">3</b><button type="button" data-k="n" data-d="1" aria-label="More nights">+</button></div></div>
+      <div class="st"><small>Adults</small><div><button type="button" data-k="a" data-d="-1" aria-label="Fewer adults">−</button><b id="vA">2</b><button type="button" data-k="a" data-d="1" aria-label="More adults">+</button></div></div>
+      <div class="st"><small>Children</small><div><button type="button" data-k="c" data-d="-1" aria-label="Fewer children">−</button><b id="vC">0</b><button type="button" data-k="c" data-d="1" aria-label="More children">+</button></div></div>
+    </div>
+    <h3 class="tsub">3. Add or remove services</h3>
+    <div id="tripCats"></div>
+    <p class="note">Sample prices for planning. Final price and discount confirmed by Namaste Pattaya.</p>
+  </div>
+  <div class="tbar">
+    <div><small id="qPkg">Mid-range</small><b id="qTHB">฿0</b><span id="qINR">₹0</span></div>
+    <a class="cta" id="qSend" href="#" target="_blank" rel="noopener">Send quote on WhatsApp</a>
   </div>
 </div>
 
@@ -605,7 +672,8 @@ body.night .st button{background:var(--g)}
 var P="images/Photos/";
 var CLUBS=[["night","The Nashaa Club","Indian superclub · lasers & guest DJs · Walking Street",15000,"xnashaaclub.jpg"],["night","Jalwa Club","Luxury, high-energy, celebrity DJs · Walking Street",12000,"xjalwa.jpg"],["night","Leela Club","Upscale club, executive crowd · Walking Street",12000,"xleela.jpg"],["night","Jannaat Club","Multi-level party, heavy bass · South Pattaya Road",10000,"xjannatclub.jpg"],["night","Kamaa Club","3D lasers & giant screens · Walking Street",10000,"xkamaa.jpg"],["night","Tonys Club","Legendary party venue · Walking Street",10000,"xtonysbynashaaclub.jpg"],["night","Boss Club","High-energy clubbing · City Center",10000,"xbossclub.jpg"],["night","Ikka Club","Bollywood, Punjabi & hip-hop · Walking Street",8000,"xikka.jpg"],["night","Myst Pattaya","International DJs · off Walking Street",10000,"xmyst.jpg"],
   ["after","Nashaa Space","After-party by Nashaa, till dawn",8000,"xnashaaspace.jpg"],["after","Barone by Nashaa","Bar & lounge after-party",8000,"xbaronebynashaa.jpg"],["after","Sutraa by Kamaa","Lounge-meets-party, late night",8000,"xkamaa.jpg"],["after","Mashaal","After-party with late beats · Central Pattaya",8000,"nightclub.jpg"],
-  ["beach","Cave Beach Club","Day beds, pool & sunset DJ",0,"xcavebeachclub.jpg"],["beach","Byblos Beach Club","Pool, sea and music",0,"xbyblosbeachclub.jpg"],["beach","Sina Beach Club","Beach day with music",0,"xsinabeachclub.jpg"],["beach","Alexa Beach Club","Sun, sea & sunset parties",0,"xalexabeach.jpg"]];
+  ["beach","Cave Beach Club","Day beds, pool & sunset DJ",0,"xcavebeachclub.jpg"],["beach","Byblos Beach Club","Pool, sea and music",0,"xbyblosbeachclub.jpg"],["beach","Sina Beach Club","Beach day with music",0,"xsinabeachclub.jpg"],["beach","Alexa Beach Club","Sun, sea & sunset parties",0,"xalexabeach.jpg"],
+  ["sky","Horizon Rooftop Restaurant & Bar","34th floor, Hilton Pattaya · Beach Road",0,"pattaya-viewpoint-sunset.jpg","Avg ฿3,500 for 2"],["sky","[Sky bar name]","[Area] · Pattaya",0,"pattaya-viewpoint-sunset.jpg","Price on request"],["sky","[Rooftop bar name]","[Area] · Pattaya",0,"pattaya-viewpoint-sunset.jpg","Price on request"]];
 var SVC=[["Night clubs & After party","xnashaaclub.jpg"],["VIP Beach Clubs","xcavebeachclub.jpg"],["Indian Restaurants – Only Veg","pure-veg-thali.jpg"],["Indian Restaurants – Veg & Non-Veg","indian-food.jpg"],["Indian Groceries","indian-groceries.jpg","bag"],["Hotels & Resorts","hotels-resorts.jpg"],["Cars & Bikes Rental","car-rental-suv.jpg"],["Spa & Massage","spa.jpg"],["Tours & Excursions","speedboat-island.jpg"],["Water Sports","adventure-parasailing.jpg"],["Golf & Shooting Range","golf-sunset.jpg"],["Yacht & Boat Charter","yacht-sunset.jpg"],["Airport Transfers","taxi.jpg"],["Namaste Shopping Mall","shopping-mall.jpg"],["Events, Groups & Gala Parties","pink-cafe-lounge.jpg"],["Medical & Pharmacy","medical-pharmacy.jpg","med"],["Concierge & VIP Services","villa-infinity-pool.jpg"],["Visa & Legal Information","payments-money-passport.jpg"],["Flights & Tickets","flights-tickets.jpg","plane"],["Private Jet","private-jet.jpg"],["Buy, Sell & Rent Property","condos-property.jpg"],["Friends Location & Bill Splitter","boomer-friends.jpg"]];
 var PLACES=[["Koh Larn snorkelling","koh-larn-snorkeling.jpg"],["Flyboard & jet ski","water-sports-flyboard.jpg"],["Pattaya Viewpoint","pattaya-viewpoint-sunset.jpg"],["Buddha Mountain","buddha-mountain.jpg"],["Nong Nooch Garden","nong-nooch-garden.jpg"],["Khao Kheow Open Zoo","khao-kheow-zoo.jpg"],["Ramayana Water Park","ramayana-water-park.jpg"],["Underwater World","underwater-world.jpg"],["Teddy Island","teddy-island.jpg"],["Sheep Farm","sheep-farm.jpg"],["Frost Ice of Siam","frost-ice-of-siam.jpg"],["Mini Siam","mini-siam.jpg"],["Upside Down House","upside-down-house.jpg"],["Bottle Art Museum","bottle-art-museum.jpg"],["Elephant Village","elephant-village.jpg"],["Silverlake Vineyard","silverlake-vineyard.jpg"]];
 var FAM=["Ramayana Water Park","Khao Kheow Open Zoo","Nong Nooch Garden","Underwater World","Sheep Farm","Teddy Island"];
@@ -624,13 +692,31 @@ function setMode(m){if(m==="night"&&under20()){m="family"}mode=m;document.body.c
   try{localStorage.setItem("np_mode",m==="family"?"family":"single")}catch(e){}drawWatch();drawTrip()}
 $$(".mode button").forEach(function(b){b.onclick=function(){setMode(b.dataset.mode);window.scrollTo(0,0)}});
 /* clubs */
-function drawClubs(t){$("#clubList").innerHTML=CLUBS.filter(function(c){return c[0]===t}).map(function(c){return '<a class="club" href="https://namastepattaya.com/index.html#clubs"><img src="'+P+c[4]+'" alt="" loading="lazy"><div><b>'+c[1]+'</b><small>'+c[2]+'</small><em>'+(c[3]?"VIP table from ฿"+c[3].toLocaleString("en-US"):"Day bed – ask for price")+'</em><span class="age">20+</span></div><span class="btn">Book</span></a>'}).join("")}
+var ringAng=0,ringN=1,ringStep=360,ringIdx=0;
+function drawClubs(t){var list=CLUBS.filter(function(c){return c[0]===t});ringN=list.length;ringStep=360/ringN;ringAng=0;ringIdx=0;
+  $("#ring").innerHTML=list.map(function(c,i){var price=c[5]||(c[3]?"VIP table from ฿"+c[3].toLocaleString("en-US"):"Day bed – ask for price");
+    return '<div class="rcard" data-i="'+i+'"><img src="'+P+c[4]+'" alt="" loading="lazy" onerror="this.onerror=null;this.src=\''+P+'nightclub.jpg\'"><div class="rbody"><b>'+c[1]+'</b><small>'+c[2]+'</small><em>'+price+'</em><div class="rrow"><span class="age">20+</span><a class="btn" href="https://namastepattaya.com/index.html#clubs">Book</a></div></div></div>'}).join("");
+  ringLayout()}
+function ringRadius(){var w=$("#ring").querySelector(".rcard");w=w?w.offsetWidth:230;return ringN<3?0:Math.round((w/2+14)/Math.tan(Math.PI/ringN))}
+function ringLayout(drag){var r=ringRadius(),cards=$$("#ring .rcard");$("#ring").style.transition=drag?"none":"transform .55s cubic-bezier(.2,.8,.2,1)";
+  $("#ring").style.transform="translateZ("+(-r)+"px) rotateY("+ringAng+"deg)";
+  cards.forEach(function(el,i){var a=i*ringStep;el.style.transform="rotateY("+a+"deg) translateZ("+r+"px)";
+    var rel=((a+ringAng)%360+540)%360-180,c=Math.cos(rel*Math.PI/180);el.style.opacity=Math.max(0,.15+.85*c).toFixed(2);el.classList.toggle("front",Math.abs(rel)<ringStep/2)});
+  ringIdx=((Math.round(-ringAng/ringStep)%ringN)+ringN)%ringN;$("#ringCount").textContent=(ringIdx+1)+" / "+ringN}
+function ringGo(d){ringAng=Math.round(ringAng/ringStep)*ringStep-d*ringStep;ringLayout()}
+$("#ringPrev").onclick=function(){ringGo(-1)};$("#ringNext").onclick=function(){ringGo(1)};
+(function(){var w=$("#ringWrap"),x0=null,a0=0,moved=false;
+  w.addEventListener("pointerdown",function(e){x0=e.clientX;a0=ringAng;moved=false});
+  window.addEventListener("pointermove",function(e){if(x0===null)return;var dx=e.clientX-x0;if(Math.abs(dx)>6)moved=true;if(moved){ringAng=a0+dx*0.35;ringLayout(true)}});
+  window.addEventListener("pointerup",function(){if(x0===null)return;x0=null;if(moved){ringAng=Math.round(ringAng/ringStep)*ringStep;ringLayout()}});
+  w.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation()}},true);
+  window.addEventListener("resize",function(){ringLayout()})})();
 function setTab(t){$$("#clubTabs button").forEach(function(x){x.classList.toggle("on",x.dataset.t===t)});drawClubs(t)}
 $$("#clubTabs button").forEach(function(b){b.onclick=function(){setTab(b.dataset.t)}});
 $$("#cats button").forEach(function(b){b.onclick=function(){$$("#cats button").forEach(function(x){x.classList.toggle("on",x===b)});setTab(b.dataset.c);if(b!==$("#cats button"))$("#clubs").scrollIntoView({behavior:"smooth"})}});
 drawClubs("night");
 /* services + places */
-$("#svc").innerHTML=SVC.map(function(s){return '<a href="https://namastepattaya.com/index.html#services">'+(s[2]?'<svg class="ic"><use href="#i-'+s[2]+'"/></svg>':'')+'<img src="'+P+s[1]+'" alt="" loading="lazy"'+(s[2]?' onerror="this.parentNode.classList.add(\'noimg\');this.remove()"':'')+'><span>'+s[0]+'</span></a>'}).join("");
+$("#svc").innerHTML=SVC.map(function(s){return '<a href="https://namastepattaya.com/index.html#services">'+(s[2]?'<svg class="ic"><use href="#i-'+s[2]+'"/></svg>':'')+'<i class="off">Up to 30% off</i><img src="'+P+s[1]+'" alt="" loading="lazy"'+(s[2]?' onerror="this.parentNode.classList.add(\'noimg\');this.remove()"':'')+'><span>'+s[0]+'</span></a>'}).join("");
 function placeHTML(list){return list.map(function(p){return '<a href="https://namastepattaya.com/index.html#places"><img src="'+P+p[1]+'" alt="" loading="lazy"><span>'+p[0]+'</span></a>'}).join("")}
 $("#places").innerHTML=placeHTML(PLACES);
 $("#famList").innerHTML=placeHTML(PLACES.filter(function(p){return FAM.indexOf(p[0])>-1}));
@@ -652,17 +738,42 @@ function fx(){var v=parseFloat($("#fxIn").value)||0;$("#fxOut").textContent=fxRe
   $("#fxFromL").textContent=fxRev?"Indian Rupee (₹)":"Thai Baht (฿)";$("#fxToL").textContent=fxRev?"Thai Baht (฿)":"Indian Rupee (₹)";trip()}
 $("#fxIn").oninput=fx;$("#fxSwap").onclick=function(){fxRev=!fxRev;fx()};
 $("#fxRate").oninput=function(){var r=parseFloat(this.value);if(r>0){RATE=r;try{localStorage.setItem("np_fx_rate",r)}catch(e){}fx()}};
-/* customize my trip: [name, detail, price THB, type] type: p=per adult (child half), g=per group, n=per night, t=per trip; f=friends only */
-var TRIP=[["Hotel room","4-star, per night",2500,"n"],["Airport pickup & drop","Private car, both ways",1600,"t"],["Coral Island (Koh Larn) tour","Boat + lunch, per adult",1200,"p"],["Indian dinner","Veg or non-veg, per person per night",450,"pn"],["Nong Nooch Garden","Entry + show, per adult",1000,"p"],["Ramayana Water Park","Day pass, per adult",1300,"p"],["Spa & massage","1 hour, per adult",800,"p"],["Private yacht (half day)","Whole group",18000,"g"],["Club night – VIP table","20+ only, whole group",8000,"gf"]];
-var tv={n:3,a:2,c:0},sel={0:1,1:1,2:1};
-function drawTrip(){$("#tripItems").innerHTML=TRIP.map(function(t,i){if(t[3].indexOf("f")>-1&&mode==="family")return "";return '<label class="it"><input type="checkbox" data-i="'+i+'"'+(sel[i]?" checked":"")+'><span>'+t[0]+'<small>'+t[1]+'</small></span><em>'+fmtB(t[2])+'</em></label>'}).join("");
-  $$("#tripItems input").forEach(function(c){c.onchange=function(){sel[c.dataset.i]=c.checked?1:0;trip()}});trip()}
-function cost(t){var n=tv.n,ppl=tv.a+tv.c*0.5,k=t[3];if(k[0]==="n")return t[2]*n;if(k==="t")return t[2];if(k==="pn")return t[2]*(tv.a+tv.c)*n;if(k[0]==="g")return t[2];return t[2]*ppl}
-function trip(){var tot=0,lines=[];TRIP.forEach(function(t,i){if(!sel[i]||(t[3].indexOf("f")>-1&&mode==="family"))return;var c=cost(t);tot+=c;lines.push("- "+t[0]+": "+fmtB(c))});
-  $("#qTHB").textContent=fmtB(tot);$("#qINR").textContent="≈ "+fmtR(tot*RATE);
-  var msg="Namaste Pattaya – my trip quotation\n"+tv.n+" nights, "+tv.a+" adults, "+tv.c+" children\n"+lines.join("\n")+"\nEstimated total: "+fmtB(tot)+" (≈ "+fmtR(tot*RATE)+")\nPlease confirm final price.";
+/* customize my trip: category-wise services, 3 packages (sample prices THB: [budget, mid, luxury])
+   unit: n=per night, d=per day, t=per trip, p=per adult (child half), pn=per person per night, g=whole group; f=friends mode only */
+var TCATS=[
+ ["Hotels & Resorts",[["hotel","Hotel room","per night",[1200,2500,7000],"n"]]],
+ ["Airport Transfers",[["airport","Airport pickup & drop","private car, both ways",[1200,1600,3500],"t"]]],
+ ["Cars & Bikes Rental",[["car","Car with driver","per day",[1500,2200,4500],"d"],["bike","Motorbike rental","per day",[250,300,500],"d"]]],
+ ["Tours & Excursions",[["coral","Coral Island (Koh Larn) tour","per adult",[900,1200,2500],"p"],["nongnooch","Nong Nooch Garden","per adult",[800,1000,1600],"p"]]],
+ ["Water Sports",[["water","Parasailing & jet ski","per adult",[1000,1500,3000],"p"]]],
+ ["Indian Restaurants",[["dinner","Indian dinner (veg or non-veg)","per person, per night",[300,450,1200],"pn"]]],
+ ["Spa & Massage",[["spa","Thai massage or spa","per adult",[400,800,2000],"p"]]],
+ ["Yacht & Boat Charter",[["yacht","Private yacht, half day","whole group",[12000,18000,45000],"g"]]],
+ ["Golf & Shooting Range",[["golf","Golf round","per adult",[2500,3500,6000],"p"]]],
+ ["Night clubs & After party",[["club","VIP table at an Indian club","20+ only, whole group",[8000,10000,15000],"gf"]]],
+ ["VIP Beach Clubs",[["beachclub","Beach club day bed","20+ only, whole group",[3000,5000,10000],"gf"]]],
+ ["Concierge & VIP Services",[["concierge","Personal trip assistant","whole trip",[1500,3000,8000],"t"]]]];
+var PKGS=[["Budget traveller","Smart and simple",["hotel","airport","bike","coral","dinner"]],
+ ["Mid-range traveller","Comfort and fun",["hotel","airport","car","coral","nongnooch","dinner","spa","club"]],
+ ["Luxury traveller","The best of Pattaya",["hotel","airport","car","coral","water","dinner","spa","yacht","golf","club","beachclub","concierge"]]];
+var tier=1,tv={n:3,a:2,c:0},sel={};
+function allItems(){var a=[];TCATS.forEach(function(c){c[1].forEach(function(it){a.push(it)})});return a}
+function okMode(it){return !(it[4].indexOf("f")>-1&&mode==="family")}
+function cost(it,t){var p=it[3][t],u=it[4].replace("f","");if(u==="n"||u==="d")return p*tv.n;if(u==="t"||u==="g")return p;if(u==="pn")return p*(tv.a+tv.c)*tv.n;return p*(tv.a+tv.c*0.5)}
+function pickPkg(t){tier=t;sel={};PKGS[t][2].forEach(function(id){sel[id]=1});drawTrip()}
+function drawTrip(){
+  $("#pkgs").innerHTML=PKGS.map(function(pk,t){var tot=0;allItems().forEach(function(it){if(pk[2].indexOf(it[0])>-1&&okMode(it))tot+=cost(it,t)});
+    return '<button type="button" class="pkg'+(t===tier?" on":"")+'" data-t="'+t+'"><b>'+pk[0]+'</b><small>'+pk[1]+'</small><em>'+fmtB(tot)+'</em><span>for your group</span></button>'}).join("");
+  $$("#pkgs .pkg").forEach(function(b){b.onclick=function(){pickPkg(+b.dataset.t)}});
+  $("#tripCats").innerHTML=TCATS.map(function(c){var rows=c[1].filter(okMode).map(function(it){return '<label class="it"><input type="checkbox" data-id="'+it[0]+'"'+(sel[it[0]]?" checked":"")+'><span>'+it[1]+'<small>'+it[2]+'</small></span><em>'+fmtB(it[3][tier])+'</em></label>'}).join("");
+    return rows?'<div class="tcat"><h4>'+c[0]+'</h4>'+rows+'</div>':""}).join("");
+  $$("#tripCats input").forEach(function(x){x.onchange=function(){sel[x.dataset.id]=x.checked?1:0;trip()}});trip()}
+function trip(){if(!$("#qTHB"))return;var tot=0,lines=[];allItems().forEach(function(it){if(!sel[it[0]]||!okMode(it))return;var c=cost(it,tier);tot+=c;lines.push("- "+it[1]+": "+fmtB(c))});
+  $("#qPkg").textContent=PKGS[tier][0];$("#qTHB").textContent=fmtB(tot);$("#qINR").textContent="≈ "+fmtR(tot*RATE);
+  var msg="Namaste Pattaya – trip quotation ("+PKGS[tier][0]+")\n"+tv.n+" nights, "+tv.a+" adults, "+tv.c+" children\n"+lines.join("\n")+"\nEstimated total: "+fmtB(tot)+" (≈ "+fmtR(tot*RATE)+")\nPlease confirm final price and discount.";
   $("#qSend").href="https://wa.me/?text="+encodeURIComponent(msg)}
-$$(".st button").forEach(function(b){b.onclick=function(){var k=b.dataset.k,mn=k==="c"?0:1;tv[k]=Math.max(mn,Math.min(30,tv[k]+(+b.dataset.d)));$("#vN").textContent=tv.n;$("#vA").textContent=tv.a;$("#vC").textContent=tv.c;trip()}});
+$$(".st button").forEach(function(b){b.onclick=function(){var k=b.dataset.k,mn=k==="c"?0:1;tv[k]=Math.max(mn,Math.min(30,tv[k]+(+b.dataset.d)));$("#vN").textContent=tv.n;$("#vA").textContent=tv.a;$("#vC").textContent=tv.c;drawTrip()}});
+PKGS[1][2].forEach(function(id){sel[id]=1});
 /* live India + Thailand clocks */
 $$(".clock .ticks").forEach(function(g){var t="";for(var k=0;k<12;k++){var a=k*Math.PI/6,r1=k%3?40:37;t+='<line x1="'+(50+r1*Math.sin(a)).toFixed(1)+'" y1="'+(50-r1*Math.cos(a)).toFixed(1)+'" x2="'+(50+43*Math.sin(a)).toFixed(1)+'" y2="'+(50-43*Math.cos(a)).toFixed(1)+'"/>'}g.innerHTML=t});
 function tick(){[["IN",5.5],["TH",7]].forEach(function(z){var d=new Date(Date.now()+z[1]*3600000),H=d.getUTCHours(),M=d.getUTCMinutes(),S=d.getUTCSeconds();
@@ -697,11 +808,11 @@ setEvent(0);
   function finder(x,y){var p=[[0,0],[14,0],[0,14]];for(var k=0;k<3;k++){var dx=x-p[k][0],dy=y-p[k][1];if(dx>=0&&dx<7&&dy>=0&&dy<7){return (dx===0||dx===6||dy===0||dy===6||(dx>1&&dx<5&&dy>1&&dy<5))?1:0}}return -1}
   for(var y=0;y<21;y++)for(var x=0;x<21;x++){var f=finder(x,y),on=f===-1?(r()>.5):f;c+='<div style="background:'+(on?"#0B0910":"#fff")+'"></div>'}$("#qr").innerHTML=c})();
 /* screens via #event / #pass (phone back button works) */
-function route(){var hsh=location.hash;$("#scrEvent").classList.toggle("open",hsh==="#event");$("#scrPass").classList.toggle("open",hsh==="#pass");
-  document.body.style.overflow=(hsh==="#event"||hsh==="#pass")?"hidden":"";
+function route(){var hsh=location.hash;$("#scrTrip").classList.toggle("open",hsh==="#trip");if(hsh==="#trip")$("#scrTrip").scrollTop=0;$("#scrEvent").classList.toggle("open",hsh==="#event");$("#scrPass").classList.toggle("open",hsh==="#pass");
+  document.body.style.overflow=(hsh==="#event"||hsh==="#pass"||hsh==="#trip")?"hidden":"";
   if(hsh==="#event")$("#scrEvent").scrollTop=0;if(hsh==="#pass")$("#scrPass").scrollTop=0}
 window.addEventListener("hashchange",route);
-$$('.screen a[href="#"]').forEach(function(a){a.onclick=function(e){e.preventDefault();history.length>1?history.back():(location.hash="")}});
+$$('.screen a[href="#"],#scrTrip a[data-back]').forEach(function(a){a.onclick=function(e){e.preventDefault();history.length>1?history.back():(location.hash="")}});
 /* start */
 /* welcome: language + age (same 10 languages and np_lang key as the main app) */
 var LANGS=[["en","English","English"],["hi","हिंदी","Hindi"],["pa","ਪੰਜਾਬੀ","Punjabi"],["gu","ગુજરાતી","Gujarati"],["mr","मराठी","Marathi"],["ta","தமிழ்","Tamil"],["th","ไทย","Thai"],["bn","বাংলা","Bengali"],["te","తెలుగు","Telugu"],["bho","भोजपुरी","Bhojpuri"]];
