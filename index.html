@@ -204,6 +204,41 @@ body.family nav.bottom img{width:38px;height:38px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .two a,.two button{height:48px;border-radius:14px;border:1px solid #2B2438;background:#17131F;color:#fff;font:600 14px Inter,sans-serif;display:flex;align-items:center;justify-content:center}
 .demo{font-size:12px;color:#B9B0CC;text-align:center}
+/* photo tiles */
+.tile.photo{background:linear-gradient(180deg,rgba(10,6,20,.05) 20%,rgba(10,6,20,.88)),var(--img) center/cover;color:#fff}
+.tile.photo small{color:#EEE8F6}
+/* services: icon only when photo missing */
+.svc a .ic{display:none}
+.svc a.noimg{display:flex;align-items:center;justify-content:center;background:var(--surf);color:var(--accent)}
+.svc a.noimg .ic{display:block;width:34px;height:34px;margin-bottom:24px}
+.svc a.noimg span{background:none;color:var(--ink)}
+/* India + Thailand clocks */
+.clocks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.clock svg{width:100%;max-width:170px;display:block;margin:0 auto;border-radius:50%;border:4px solid var(--accent);box-shadow:var(--sh)}
+.clock .cf{fill:var(--bg)}
+.clock .ticks line{stroke:var(--muted);stroke-width:1.6;stroke-linecap:round}
+.clock .ct{fill:var(--ink);font:700 6.2px Inter,sans-serif;text-anchor:middle}
+.clock .cd{fill:var(--accent);font:700 8px Inter,sans-serif;text-anchor:middle}
+.clock .hh{stroke:var(--ink);stroke-width:3.4;stroke-linecap:round}
+.clock .mh{stroke:var(--ink);stroke-width:2.2;stroke-linecap:round}
+.clock .sh{stroke:var(--accent);stroke-width:1;stroke-linecap:round}
+.clock .cp{fill:var(--accent)}
+/* thick 3D frames: every box, square and circle pops out */
+body.night{--fr:#4A3E5C;--frp:rgba(255,255,255,.22);--sh:0 12px 26px rgba(0,0,0,.6),0 3px 6px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08)}
+body.family{--fr:#FFFFFF;--frp:#FFFFFF;--sh:0 12px 26px rgba(60,40,10,.20),0 3px 6px rgba(60,40,10,.12)}
+.screen{--fr:#4A3E5C;--frp:rgba(255,255,255,.22);--sh:0 12px 26px rgba(0,0,0,.6),0 3px 6px rgba(0,0,0,.4)}
+.ev,.hero,.list,.raju,.tile,.club,.watch,.svc a,.feat a,.places a,.act,.ticket,.perks,.tabs,.mode,.search,.ask,.roles a,.chips a,.qa i,.cats i,.tables button,.rbtn{border:3px solid var(--fr);box-shadow:var(--sh)}
+.ev img,.club img,.act img,.ticket>img{border:3px solid var(--frp);box-shadow:var(--sh)}
+.raju .face,nav.bottom img{border-width:3px;box-shadow:var(--sh)}
+.roles a.main,.cats button.on i,.qa a:first-child i{border-color:var(--accent)}
+.tables button.on{border:3px solid var(--accent);padding:10px}
+.dial{box-shadow:var(--sh)}
+.hero img{border-radius:21px}
+/* logo colours (orange > pink > purple) replace plain pink in Friends mode */
+body.night,.screen{--accent:#EE5A2B;--link:#FF8A4C;--g:linear-gradient(135deg,#E8541C 0%,#D42A6A 55%,#7A3FD1 100%)}
+body.night .cta,.screen .cta,body.night .btn:not(.ghost),body.night .mode button.on,body.night .cats button.on i,body.night .tabs button.on,body.night .ampm button.on,body.night .num.on,body.night .ask .send,body.night .tile i,body.night .roles a.main,body.night .dial,body.night .pin,body.night .li i.a{background:var(--g);color:#fff}
+body.night .cats button.on i,body.night .roles a.main{border-color:#D42A6A}
+.screen .tables button.on{border-color:#D42A6A}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
 </head>
@@ -299,7 +334,7 @@ body.family nav.bottom img{width:38px;height:38px}
             <div><b>Bollywood Night</b><small>[Club name] · Walking Street · Tonight 22:00</small></div>
             <button class="rbtn heart" aria-label="Save" aria-pressed="false" onclick="this.classList.toggle('on');this.setAttribute('aria-pressed',this.classList.contains('on'))" style="width:40px;height:40px;background:#17131F;border-color:#3A3048;color:#fff"><svg class="ic" style="width:18px;height:18px"><use href="#i-heart"/></svg></button>
           </div>
-          <img src="images/Photos/np-club-crowd.jpg" alt="Crowd dancing in a Pattaya nightclub">
+          <img src="images/Photos/np-club-crowd.jpg" onerror="this.onerror=null;this.src='images/Photos/xnashaaclub.jpg'" alt="Crowd dancing in a Pattaya nightclub">
           <a class="cta" href="#event">Book a table <svg class="ic" style="width:18px;height:18px"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
@@ -309,7 +344,7 @@ body.family nav.bottom img{width:38px;height:38px}
   <!-- ===== FAMILY home ===== -->
   <div class="fam-only">
     <div class="hero">
-      <img src="images/Photos/np-family-yacht.jpg" alt="Yacht on the sea near Pattaya">
+      <img src="images/Photos/np-family-yacht.jpg" onerror="this.onerror=null;this.src='images/Photos/yacht-sunset.jpg'" alt="Yacht on the sea near Pattaya">
       <div class="box"><div><small>FAMILY PICK OF THE DAY</small><b>Yacht day to Koh Larn</b></div><a class="pill" href="https://namastepattaya.com/index.html#services">Explore</a></div>
     </div>
     <section>
@@ -351,9 +386,9 @@ body.family nav.bottom img{width:38px;height:38px}
   </section>
 
   <section class="tiles">
-    <a class="tile" href="https://namastepattaya.com/index.html#boomer"><i><svg class="ic"><use href="#i-people"/></svg></i><span><b>Boomer</b><small>Social meetups, safely</small></span></a>
-    <a class="tile" href="https://namastepattaya.com/index.html#taxi"><i><svg class="ic"><use href="#i-taxi"/></svg></i><span><b>Namaste Taxi</b><small>Cars &amp; motorbike</small></span></a>
-    <a class="tile" href="https://namastepattaya.com/index.html#refer"><i><svg class="ic"><use href="#i-gift"/></svg></i><span><b>Refer &amp; earn</b><small>Credit on bookings</small></span></a>
+    <a class="tile photo" style="--img:url(images/Photos/boomer-friends.jpg)" href="https://namastepattaya.com/index.html#boomer"><i><svg class="ic"><use href="#i-people"/></svg></i><span><b>Boomer</b><small>Social meetups, safely</small></span></a>
+    <a class="tile photo" style="--img:url(images/Photos/taxi.jpg)" href="https://namastepattaya.com/index.html#taxi"><i><svg class="ic"><use href="#i-taxi"/></svg></i><span><b>Namaste Taxi</b><small>Cars &amp; motorbike</small></span></a>
+    <a class="tile photo" style="--img:url(friends-group.webp)" href="https://namastepattaya.com/index.html#refer"><i><svg class="ic"><use href="#i-gift"/></svg></i><span><b>Refer &amp; earn</b><small>Credit on bookings</small></span></a>
   </section>
 
   <section id="clubs" class="night-only">
@@ -369,7 +404,11 @@ body.family nav.bottom img{width:38px;height:38px}
 
   <section class="watch">
     <div class="head" style="margin-bottom:0"><h2>Namaste Watch of Adventure</h2><button id="nowBtn" class="btn ghost">Now</button></div>
-    <p class="sub" style="margin-top:4px;font-size:13px">Tap a time to see what to do in Pattaya</p>
+    <div class="clocks">
+      <div class="clock"><svg viewBox="0 0 100 100" role="img" aria-label="India time"><circle cx="50" cy="50" r="46" class="cf"/><g class="ticks"></g><text x="50" y="30" class="ct">Namaste</text><text x="50" y="38" class="ct">India time</text><text x="50" y="74" class="cd" id="dIN">--:--</text><line x1="50" y1="50" x2="50" y2="28" class="hh" id="hIN"/><line x1="50" y1="50" x2="50" y2="18" class="mh" id="mIN"/><line x1="50" y1="54" x2="50" y2="14" class="sh" id="sIN"/><circle cx="50" cy="50" r="3" class="cp"/></svg></div>
+      <div class="clock"><svg viewBox="0 0 100 100" role="img" aria-label="Thailand time"><circle cx="50" cy="50" r="46" class="cf"/><g class="ticks"></g><text x="50" y="30" class="ct">Namaste</text><text x="50" y="38" class="ct">Thailand time</text><text x="50" y="74" class="cd" id="dTH">--:--</text><line x1="50" y1="50" x2="50" y2="28" class="hh" id="hTH"/><line x1="50" y1="50" x2="50" y2="18" class="mh" id="mTH"/><line x1="50" y1="54" x2="50" y2="14" class="sh" id="sTH"/><circle cx="50" cy="50" r="3" class="cp"/></svg></div>
+    </div>
+    <p class="sub" style="margin-top:12px;font-size:13px">Tap a time to see what to do in Pattaya</p>
     <div class="dial"><div class="dface" id="face"><span class="facelabel" id="partLabel">EVENING</span><div class="hand" id="hand"></div><div class="pin"></div></div></div>
     <div class="ampm"><button id="am">AM</button><button id="pm" class="on">PM</button></div>
     <b id="atLabel" class="syne" style="display:block;font-size:17px;margin-top:8px">At 9:00 PM you can…</b>
@@ -408,7 +447,7 @@ body.family nav.bottom img{width:38px;height:38px}
 <div class="screen" id="scrEvent" role="dialog" aria-label="Bollywood Night">
   <div class="inner">
     <div class="evhero">
-      <img src="images/Photos/np-event-stage.jpg" alt="Party crowd under stage lights">
+      <img src="images/Photos/np-event-stage.jpg" onerror="this.onerror=null;this.src='images/Photos/nightclub.jpg'" alt="Party crowd under stage lights">
       <div class="ctr">
         <a class="rbtn" href="#" aria-label="Back"><svg class="ic"><use href="#i-back"/></svg></a>
         <button class="rbtn heart" aria-label="Save" aria-pressed="false" onclick="this.classList.toggle('on');this.setAttribute('aria-pressed',this.classList.contains('on'))" style="color:var(--accent)"><svg class="ic"><use href="#i-heart"/></svg></button>
@@ -445,7 +484,7 @@ body.family nav.bottom img{width:38px;height:38px}
       <a class="rbtn" href="https://namastepattaya.com/index.html#bookings" aria-label="All bookings"><svg class="ic"><use href="#i-dots"/></svg></a>
     </div>
     <div class="ticket">
-      <img src="images/Photos/np-club-crowd.jpg" alt="Nightclub dance floor">
+      <img src="images/Photos/np-club-crowd.jpg" onerror="this.onerror=null;this.src='images/Photos/xnashaaclub.jpg'" alt="Nightclub dance floor">
       <div class="tk">
         <div class="r"><b>Bollywood Night</b><span class="ok" style="background:#123D2E;color:#7BE3B6">Confirmed</span></div>
         <div class="grid2">
@@ -476,7 +515,7 @@ var P="images/Photos/";
 var CLUBS=[["night","The Nashaa Club","Indian superclub · lasers & guest DJs · Walking Street",15000,"xnashaaclub.jpg"],["night","Jalwa Club","Luxury, high-energy, celebrity DJs · Walking Street",12000,"xjalwa.jpg"],["night","Leela Club","Upscale club, executive crowd · Walking Street",12000,"xleela.jpg"],["night","Jannaat Club","Multi-level party, heavy bass · South Pattaya Road",10000,"xjannatclub.jpg"],["night","Kamaa Club","3D lasers & giant screens · Walking Street",10000,"xkamaa.jpg"],["night","Tonys Club","Legendary party venue · Walking Street",10000,"xtonysbynashaaclub.jpg"],["night","Boss Club","High-energy clubbing · City Center",10000,"xbossclub.jpg"],["night","Ikka Club","Bollywood, Punjabi & hip-hop · Walking Street",8000,"xikka.jpg"],["night","Myst Pattaya","International DJs · off Walking Street",10000,"xmyst.jpg"],
   ["after","Nashaa Space","After-party by Nashaa, till dawn",8000,"xnashaaspace.jpg"],["after","Barone by Nashaa","Bar & lounge after-party",8000,"xbaronebynashaa.jpg"],["after","Sutraa by Kamaa","Lounge-meets-party, late night",8000,"xkamaa.jpg"],["after","Mashaal","After-party with late beats · Central Pattaya",8000,"nightclub.jpg"],
   ["beach","Cave Beach Club","Day beds, pool & sunset DJ",0,"xcavebeachclub.jpg"],["beach","Byblos Beach Club","Pool, sea and music",0,"xbyblosbeachclub.jpg"],["beach","Sina Beach Club","Beach day with music",0,"xsinabeachclub.jpg"],["beach","Alexa Beach Club","Sun, sea & sunset parties",0,"xalexabeach.jpg"]];
-var SVC=[["Night clubs & After party","xnashaaclub.jpg"],["VIP Beach Clubs","xcavebeachclub.jpg"],["Indian Restaurants – Only Veg","pure-veg-thali.jpg"],["Indian Restaurants – Veg & Non-Veg","indian-food.jpg"],["Indian Groceries","","bag"],["Hotels & Resorts","hotels-resorts.jpg"],["Cars & Bikes Rental","car-rental-suv.jpg"],["Spa & Massage","spa.jpg"],["Tours & Excursions","speedboat-island.jpg"],["Water Sports","adventure-parasailing.jpg"],["Golf & Shooting Range","golf-sunset.jpg"],["Yacht & Boat Charter","yacht-sunset.jpg"],["Airport Transfers","taxi.jpg"],["Namaste Shopping Mall","shopping-mall.jpg"],["Events, Groups & Gala Parties","pink-cafe-lounge.jpg"],["Medical & Pharmacy","","med"],["Concierge & VIP Services","villa-infinity-pool.jpg"],["Visa & Legal Information","payments-money-passport.jpg"],["Flights & Tickets","","plane"],["Private Jet","private-jet.jpg"],["Buy, Sell & Rent Property","condos-property.jpg"],["Friends Location & Bill Splitter","boomer-friends.jpg"]];
+var SVC=[["Night clubs & After party","xnashaaclub.jpg"],["VIP Beach Clubs","xcavebeachclub.jpg"],["Indian Restaurants – Only Veg","pure-veg-thali.jpg"],["Indian Restaurants – Veg & Non-Veg","indian-food.jpg"],["Indian Groceries","indian-groceries.jpg","bag"],["Hotels & Resorts","hotels-resorts.jpg"],["Cars & Bikes Rental","car-rental-suv.jpg"],["Spa & Massage","spa.jpg"],["Tours & Excursions","speedboat-island.jpg"],["Water Sports","adventure-parasailing.jpg"],["Golf & Shooting Range","golf-sunset.jpg"],["Yacht & Boat Charter","yacht-sunset.jpg"],["Airport Transfers","taxi.jpg"],["Namaste Shopping Mall","shopping-mall.jpg"],["Events, Groups & Gala Parties","pink-cafe-lounge.jpg"],["Medical & Pharmacy","medical-pharmacy.jpg","med"],["Concierge & VIP Services","villa-infinity-pool.jpg"],["Visa & Legal Information","payments-money-passport.jpg"],["Flights & Tickets","flights-tickets.jpg","plane"],["Private Jet","private-jet.jpg"],["Buy, Sell & Rent Property","condos-property.jpg"],["Friends Location & Bill Splitter","boomer-friends.jpg"]];
 var PLACES=[["Koh Larn snorkelling","koh-larn-snorkeling.jpg"],["Flyboard & jet ski","water-sports-flyboard.jpg"],["Pattaya Viewpoint","pattaya-viewpoint-sunset.jpg"],["Buddha Mountain","buddha-mountain.jpg"],["Nong Nooch Garden","nong-nooch-garden.jpg"],["Khao Kheow Open Zoo","khao-kheow-zoo.jpg"],["Ramayana Water Park","ramayana-water-park.jpg"],["Underwater World","underwater-world.jpg"],["Teddy Island","teddy-island.jpg"],["Sheep Farm","sheep-farm.jpg"],["Frost Ice of Siam","frost-ice-of-siam.jpg"],["Mini Siam","mini-siam.jpg"],["Upside Down House","upside-down-house.jpg"],["Bottle Art Museum","bottle-art-museum.jpg"],["Elephant Village","elephant-village.jpg"],["Silverlake Vineyard","silverlake-vineyard.jpg"]];
 var FAM=["Ramayana Water Park","Khao Kheow Open Zoo","Nong Nooch Garden","Underwater World","Sheep Farm","Teddy Island"];
 var SLOTS=[[5,8,"EARLY MORNING",[["Buddha Mountain","Golden Buddha on the cliff","buddha-mountain.jpg"],["Beach walk","Quiet promenade before the heat","beach-walk.jpg"]]],
@@ -500,7 +539,7 @@ $$("#clubTabs button").forEach(function(b){b.onclick=function(){setTab(b.dataset
 $$("#cats button").forEach(function(b){b.onclick=function(){$$("#cats button").forEach(function(x){x.classList.toggle("on",x===b)});setTab(b.dataset.c);if(b!==$("#cats button"))$("#clubs").scrollIntoView({behavior:"smooth"})}});
 drawClubs("night");
 /* services + places */
-$("#svc").innerHTML=SVC.map(function(s){return s[1]?'<a href="https://namastepattaya.com/index.html#services"><img src="'+P+s[1]+'" alt="" loading="lazy"><span>'+s[0]+'</span></a>':'<a class="noimg" href="https://namastepattaya.com/index.html#services"><svg class="ic"><use href="#i-'+s[2]+'"/></svg><span>'+s[0]+'</span></a>'}).join("");
+$("#svc").innerHTML=SVC.map(function(s){return '<a href="https://namastepattaya.com/index.html#services">'+(s[2]?'<svg class="ic"><use href="#i-'+s[2]+'"/></svg>':'')+'<img src="'+P+s[1]+'" alt="" loading="lazy"'+(s[2]?' onerror="this.parentNode.classList.add(\'noimg\');this.remove()"':'')+'><span>'+s[0]+'</span></a>'}).join("");
 function placeHTML(list){return list.map(function(p){return '<a href="https://namastepattaya.com/index.html#places"><img src="'+P+p[1]+'" alt="" loading="lazy"><span>'+p[0]+'</span></a>'}).join("")}
 $("#places").innerHTML=placeHTML(PLACES);
 $("#famList").innerHTML=placeHTML(PLACES.filter(function(p){return FAM.indexOf(p[0])>-1}));
@@ -512,8 +551,14 @@ function drawWatch(){var h24=(h%12)+(pm?12:0),hh=h24<5?h24+24:h24,s=SLOTS.filter
   $("#am").classList.toggle("on",!pm);$("#pm").classList.toggle("on",pm);$("#partLabel").textContent=s[2];$("#atLabel").textContent="At "+h+":00 "+(pm?"PM":"AM")+" you can…";
   $("#acts").innerHTML=s[3].filter(function(a){return !(mode==="family"&&a[3])}).map(function(a){return '<a class="act" href="https://namastepattaya.com/index.html#services"><img src="'+P+a[2]+'" alt="" loading="lazy"><div><b>'+a[0]+'</b><small>'+a[1]+'</small></div><span class="btn">Book</span></a>'}).join("")}
 $("#am").onclick=function(){pm=false;drawWatch()};$("#pm").onclick=function(){pm=true;drawWatch()};
-function now(){var d=new Date(),x=d.getHours();h=(x%12)||12;pm=x>=12;drawWatch()}
+function now(){var x=new Date(Date.now()+7*3600000).getUTCHours();h=(x%12)||12;pm=x>=12;drawWatch()}
 $("#nowBtn").onclick=now;
+/* live India + Thailand clocks */
+$$(".clock .ticks").forEach(function(g){var t="";for(var k=0;k<12;k++){var a=k*Math.PI/6,r1=k%3?40:37;t+='<line x1="'+(50+r1*Math.sin(a)).toFixed(1)+'" y1="'+(50-r1*Math.cos(a)).toFixed(1)+'" x2="'+(50+43*Math.sin(a)).toFixed(1)+'" y2="'+(50-43*Math.cos(a)).toFixed(1)+'"/>'}g.innerHTML=t});
+function tick(){[["IN",5.5],["TH",7]].forEach(function(z){var d=new Date(Date.now()+z[1]*3600000),H=d.getUTCHours(),M=d.getUTCMinutes(),S=d.getUTCSeconds();
+  $("#h"+z[0]).setAttribute("transform","rotate("+((H%12)*30+M/2)+" 50 50)");$("#m"+z[0]).setAttribute("transform","rotate("+(M*6+S/10)+" 50 50)");$("#s"+z[0]).setAttribute("transform","rotate("+(S*6)+" 50 50)");
+  $("#d"+z[0]).textContent=((H%12)||12)+":"+(M<10?"0":"")+M+" "+(H<12?"AM":"PM")})}
+tick();setInterval(tick,1000);
 /* Raju + family search (both go to the live app) */
 window.askRaju=function(e){e.preventDefault();var q=$("#askIn").value.trim();location.href="https://namastepattaya.com/index.html#raju"+(q?"?q="+encodeURIComponent(q):"");return false};
 window.famSearch=function(e){e.preventDefault();var q=$("#famQ").value.trim();location.href="https://namastepattaya.com/index.html#raju"+(q?"?q="+encodeURIComponent(q):"");return false};
