@@ -4,152 +4,359 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Namaste Pattaya Reservations</title>
-<meta name="theme-color" content="#140B1C">
+<meta name="theme-color" content="#0B0910">
 <link rel="icon" href="logo-192.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--g:linear-gradient(135deg,#E8541C 0%,#D42A6A 55%,#7A3FD1 100%);--ink:#FFFFFF;--soft:#EADFF3;--card:rgba(20,12,32,.55);--edge:rgba(255,255,255,.18);--peach:#FFB48A;color-scheme:dark}
+/* ---------- Theme tokens (from design canvas, Option 1) ---------- */
+body.night{--bg:#0B0910;--surf:#17131F;--line:#2B2438;--card:#2A2236;--card2:#1E1828;--ink:#FFFFFF;--muted:#B9B0CC;--soft:#CFC6E0;--accent:#E8306F;--onacc:#FFFFFF;--link:#FF5C99;--nav:#120E19;--okbg:#123D2E;--okt:#7BE3B6;color-scheme:dark}
+body.family{--bg:#F7F3EC;--surf:#FFFFFF;--line:#E6DFD3;--card:#FFFFFF;--card2:#F1ECE3;--ink:#1D1630;--muted:#5E5670;--soft:#5E5670;--accent:#F2A01E;--onacc:#1D1630;--link:#7A4A00;--nav:#1D1630;--okbg:#E3F4EC;--okt:#1B6B4A;color-scheme:light}
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:#140B1C;color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-tap-highlight-color:transparent;transition:background .25s}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;cursor:pointer}
-/* full-screen moving photo background */
-#bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:#140B1C}
-#bg .s{position:absolute;inset:-5%;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease;animation:zoom 18s ease-in-out infinite alternate}
-#bg .s.on{opacity:1}
-@keyframes zoom{from{transform:scale(1.03) translateX(-1.5%)}to{transform:scale(1.14) translateX(1.5%)}}
-#bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,8,24,.55) 0%,rgba(14,8,24,.25) 30%,rgba(14,8,24,.55) 60%,rgba(14,8,24,.82) 100%)}
-.app{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:calc(8px + env(safe-area-inset-top,0px)) 14px calc(110px + env(safe-area-inset-bottom,0px))}
-/* fixed sign-in bar */
-.bar{position:sticky;top:calc(8px + env(safe-area-inset-top,0px));z-index:5;display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) 56px;gap:6px;padding:7px;border-radius:20px;background:rgba(20,12,32,.62);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--edge)}
-.bar a,.bar button{height:42px;border-radius:13px;border:1px solid var(--edge);background:rgba(255,255,255,.08);font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:5px;min-width:0}
-.bar .main{background:var(--g);border:0}
-.glass{background:var(--card);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--edge)}
-.hero{padding:26px 4px 14px}
-.brand{display:flex;align-items:center;gap:10px}
-.brand img{width:40px;height:40px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.35)}
-.brand b{font-size:12px;letter-spacing:2.6px}
-.live{margin-left:auto;display:flex;align-items:center;gap:6px;height:30px;padding:0 11px;border-radius:15px;background:rgba(0,0,0,.45);font-size:11px;font-weight:800;letter-spacing:1px}
-.dot{width:8px;height:8px;border-radius:4px;background:#FF3B5C;animation:pulse 1.4s infinite}
-@keyframes pulse{50%{opacity:.3;transform:scale(1.4)}}
-h1{font-family:"Playfair Display",Georgia,serif;font-size:38px;line-height:1.05;margin:150px 0 6px;text-shadow:0 4px 18px rgba(0,0,0,.55)}
-.sub{font-size:15px;color:var(--soft);text-shadow:0 2px 10px rgba(0,0,0,.6);margin:0 0 14px}
-.mode{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:rgba(0,0,0,.5);border:1px solid var(--edge)}
-.mode button{height:40px;padding:0 18px;border-radius:999px;border:0;background:transparent;font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:6px}
-.mode button.on{background:var(--g)}
-.mode button.on.fam{background:#16A34A}
-section{margin-top:16px}
-.raju{border-radius:26px;padding:14px;display:flex;gap:10px;align-items:flex-end;overflow:hidden}
-.raju img.r{width:110px;height:170px;object-fit:contain;object-position:bottom;flex:none;margin:-14px 0 -14px -6px;animation:float 3.4s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-5px)}}
-.bubble{background:#FFFFFF;color:#1F2A2A;border-radius:18px 18px 18px 6px;padding:11px 13px;font-size:14px;font-weight:700;line-height:1.4}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.chips a{padding:8px 11px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid var(--edge);font-size:12.5px;font-weight:700}
-.ask{display:flex;gap:8px;align-items:center;margin-top:10px;padding:6px 6px 6px 14px;border-radius:24px;background:rgba(255,255,255,.95)}
-.ask input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:15px Inter,sans-serif;color:#1F2A2A}
-.ask button{width:44px;height:44px;border-radius:22px;border:0;display:flex;align-items:center;justify-content:center;flex:none}
-.ask .mic{background:#FFEDE3;color:#C2410C}.ask .send{background:var(--g);color:#fff}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.syne{font-family:Syne,Inter,sans-serif}
+.app{max-width:480px;margin:0 auto;padding:calc(18px + env(safe-area-inset-top,0px)) 20px calc(110px + env(safe-area-inset-bottom,0px))}
+.night-only,.fam-only{display:none}
+body.night .night-only{display:block}body.family .fam-only{display:block}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.rbtn{width:44px;height:44px;border-radius:22px;border:1px solid var(--line);background:var(--surf);color:var(--ink);display:flex;align-items:center;justify-content:center;padding:0;flex:none}
+/* header */
+.top{display:flex;align-items:center;gap:10px}
+.top img.logo{width:38px;height:38px;border-radius:11px;flex:none}
+.top .name{flex:1;font-family:Syne,Inter,sans-serif;font-weight:700;font-size:17px}
+.search{flex:1;height:46px;border-radius:23px;background:var(--surf);border:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 14px;color:var(--muted)}
+.search input{border:0;outline:0;background:transparent;font:14px Inter,sans-serif;color:var(--ink);width:100%;min-width:0}
+.filt{background:#1D1630!important;color:#fff!important;border:0!important;width:46px;height:46px;border-radius:23px}
+/* sign-in roles */
+.roles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) 44px;gap:6px;margin-top:14px}
+.roles a{height:38px;border-radius:12px;border:1px solid var(--line);background:var(--surf);font-size:12.5px;font-weight:600;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.roles a.main{background:var(--accent);border-color:var(--accent);color:var(--onacc)}
+h1.big{margin:18px 0 6px;font-family:Syne,Inter,sans-serif;font-weight:800;font-size:30px;line-height:1.1}
+.sub{margin:0;font-size:14px;color:var(--muted)}
+/* mode toggle */
+.mode{display:inline-flex;padding:4px;gap:4px;border-radius:999px;background:var(--surf);border:1px solid var(--line);margin-top:14px}
+.mode button{height:36px;padding:0 16px;border-radius:999px;border:0;background:transparent;color:var(--muted);font:600 13px Inter,sans-serif}
+.mode button.on{background:var(--accent);color:#fff}
+body.family .mode button.on{background:#1D1630}
+/* categories */
+.cats{display:flex;justify-content:space-between;gap:6px;margin-top:18px}
+.cats button{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;font-size:12px;color:var(--muted);min-width:54px}
+.cats i{width:54px;height:54px;border-radius:27px;background:var(--surf);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#fff}
+.cats i .ic{width:24px;height:24px}
+.cats button.on{color:var(--ink);font-weight:600}.cats button.on i{background:var(--accent);border-color:var(--accent)}
+/* section heads */
+section{margin-top:22px}
+.head{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 10px;gap:10px}
+.head h2{margin:0;font-family:Syne,Inter,sans-serif;font-weight:700;font-size:18px}
+.head span{font-size:12.5px;color:var(--muted)}
+.head a,.head button.lnk{font-size:13px;font-weight:600;color:var(--link);background:none;border:0;padding:0}
+/* stacked event card */
+.stack .t1,.stack .t2{height:30px;border-radius:16px 16px 0 0;border:1px solid var(--line);border-bottom:0;display:flex;align-items:center;padding:0 14px;font-size:13px;font-weight:600}
+.stack .t1{margin:0 28px;background:#1E1828;color:#B9B0CC}.stack .t2{margin:0 14px;background:#241D30;color:#D9D2E8}
+.ev{border-radius:22px;background:#2A2236;border:1px solid #3A3048;padding:12px;display:flex;flex-direction:column;gap:10px}
+.ev .row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:2px 4px 0}
+.ev b{display:block;font-family:Syne,Inter,sans-serif;font-weight:700;font-size:20px}
+.ev small{font-size:13px;color:#CFC6E0}
+.ev img{width:100%;height:170px;object-fit:cover;border-radius:16px;display:block}
+.cta{height:50px;border-radius:14px;background:var(--accent);color:#fff;font:700 15px Inter,sans-serif;border:0;display:flex;align-items:center;justify-content:center;gap:8px;width:100%}
+.heart.on{color:var(--accent)}.heart.on path{fill:currentColor}
+/* family hero */
+.hero{position:relative;height:196px;border-radius:24px;overflow:hidden;margin-top:14px;background:#0F5560}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.hero .box{position:absolute;left:12px;right:12px;bottom:12px;padding:14px;border-radius:18px;background:#1D1630;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.hero small{display:block;font-size:11.5px;font-weight:600;color:var(--accent);letter-spacing:.4px}
+.hero b{font-family:Syne,Inter,sans-serif;font-weight:700;font-size:18px;color:#fff}
+.pill{height:40px;padding:0 14px;border-radius:20px;background:var(--accent);color:#1D1630;font:700 13px Inter,sans-serif;display:flex;align-items:center;flex:none}
+/* trip list */
+.list{border-radius:20px;background:var(--surf);border:1px solid var(--line);padding:6px 14px}
+.li{display:flex;align-items:center;gap:12px;padding:10px 0}
+.li+.li{border-top:1px solid #EFE9DE}
+.li i{width:36px;height:36px;border-radius:18px;background:var(--card2);display:flex;align-items:center;justify-content:center;flex:none;color:#1D1630}
+.li i.a{background:var(--accent)}
+.li div{flex:1;display:flex;flex-direction:column;gap:2px}.li b{font-size:14px;font-weight:600}.li span{font-size:12px;color:var(--muted)}
+.ok{padding:5px 10px;border-radius:999px;background:var(--okbg);color:var(--okt);font-size:12px;font-weight:700}
+/* quick access */
+.qa{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 8px}
+.qa a{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;font-weight:600;text-align:center}
+.qa i{width:56px;height:56px;border-radius:18px;background:var(--surf);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.qa a:first-child i{background:var(--accent);border-color:var(--accent)}
+/* Raju chat */
+.raju{border-radius:22px;background:var(--surf);border:1px solid var(--line);padding:14px}
+.raju .top2{display:flex;gap:10px;align-items:flex-start}
+.raju .face{width:46px;height:46px;border-radius:23px;border:2px solid var(--accent);object-fit:cover;flex:none}
+.bubble{background:var(--card2);border-radius:6px 18px 18px 18px;padding:11px 13px;font-size:14px;font-weight:600;line-height:1.4}
+body.night .bubble{background:#2A2236}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chips a{padding:8px 12px;border-radius:999px;background:var(--bg);border:1px solid var(--line);font-size:12.5px;font-weight:600}
+.ask{display:flex;gap:8px;align-items:center;margin-top:12px;padding:5px 5px 5px 14px;border-radius:24px;background:var(--bg);border:1px solid var(--line)}
+.ask input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:15px Inter,sans-serif;color:var(--ink)}
+.ask button{width:42px;height:42px;border-radius:21px;border:0;display:flex;align-items:center;justify-content:center;flex:none}
+.ask .mic{background:var(--surf);color:var(--ink);border:1px solid var(--line)}.ask .send{background:var(--accent);color:var(--onacc)}
+/* feature tiles */
 .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.tile{border-radius:20px;padding:12px;min-height:118px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 22px rgba(0,0,0,.25)}
-.tile i{width:40px;height:40px;border-radius:13px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:20px}
-.tile b{font-family:"Playfair Display",Georgia,serif;font-size:17px;line-height:1.1}
-.tile small{font-size:11.5px;opacity:.92;line-height:1.3}
-.head{display:flex;justify-content:space-between;align-items:baseline;margin:0 2px 10px}
-.head h2{margin:0;font-family:"Playfair Display",Georgia,serif;font-size:23px}
-.head span,.head a{font-size:12.5px;color:var(--soft)}
-.head a{color:var(--peach);font-weight:700}
-.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:4px;border-radius:16px;background:rgba(255,255,255,.08);margin-bottom:10px}
-.tabs button{height:40px;border-radius:12px;border:0;background:transparent;font-size:13px;font-weight:700;color:var(--soft)}
-.tabs button.on{background:var(--g);color:#fff}
-.club{display:flex;gap:12px;align-items:center;padding:8px;border-radius:18px;margin-bottom:10px}
-.club img{width:84px;height:84px;object-fit:cover;border-radius:14px;flex:none}
+.tile{border-radius:18px;padding:12px;min-height:112px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;background:var(--surf);border:1px solid var(--line)}
+.tile i{width:38px;height:38px;border-radius:12px;background:var(--accent);color:var(--onacc);display:flex;align-items:center;justify-content:center}
+.tile b{display:block;font-family:Syne,Inter,sans-serif;font-size:15px;line-height:1.15}
+.tile small{font-size:11.5px;color:var(--muted);line-height:1.3}
+/* clubs list */
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px;border-radius:16px;background:var(--surf);border:1px solid var(--line);margin-bottom:10px}
+.tabs button{height:38px;border-radius:12px;border:0;background:transparent;font-size:12.5px;font-weight:600;color:var(--muted)}
+.tabs button.on{background:var(--accent);color:#fff}
+.club{display:flex;gap:12px;align-items:center;padding:8px;border-radius:18px;margin-bottom:8px;background:var(--surf);border:1px solid var(--line)}
+.club img{width:80px;height:80px;object-fit:cover;border-radius:14px;flex:none;background:var(--card)}
 .club div{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
-.club b{font-size:15px}.club small{font-size:12px;color:var(--soft)}.club em{font-style:normal;font-size:12.5px;font-weight:800;color:var(--peach)}
-.btn{height:36px;padding:0 13px;border-radius:18px;background:var(--g);font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;flex:none;border:0}
-.age{font-size:11px;font-weight:800;padding:3px 8px;border-radius:999px;background:#000;align-self:flex-start}
+.club b{font-size:15px}.club small{font-size:12px;color:var(--muted)}.club em{font-style:normal;font-size:12.5px;font-weight:700;color:var(--link)}
+.btn{height:36px;padding:0 13px;border-radius:18px;background:var(--accent);color:var(--onacc);font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;flex:none;border:0}
+.age{font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--bg);border:1px solid var(--line);align-self:flex-start}
 /* watch */
-.watch{border-radius:26px;padding:16px}
-.dial{position:relative;width:260px;height:260px;margin:12px auto;border-radius:50%;padding:6px;background:var(--g);box-shadow:0 18px 36px rgba(212,42,106,.35)}
-.face{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;background:#2A1A30 url(photos/pattaya-viewpoint-sunset.jpg) center/cover}
-.face::before{content:"";position:absolute;inset:0;background:rgba(20,10,30,.3)}
-.num{position:absolute;width:40px;height:40px;border-radius:20px;border:0;background:rgba(255,255,255,.9);color:#1F2A2A;font-weight:800;font-size:15px;z-index:2}
-.num.on{background:var(--g);color:#fff}
+.watch{border-radius:22px;padding:16px;background:var(--surf);border:1px solid var(--line)}
+.btn.ghost{background:transparent;border:1.5px solid var(--accent);color:var(--link)}
+.dial{position:relative;width:260px;height:260px;margin:14px auto;border-radius:50%;padding:6px;background:var(--accent)}
+.dface{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;background:#2A1A30 url(photos/pattaya-viewpoint-sunset.jpg) center/cover}
+.dface::before{content:"";position:absolute;inset:0;background:rgba(20,10,30,.3)}
+.num{position:absolute;width:40px;height:40px;border-radius:20px;border:0;background:rgba(255,255,255,.92);color:#1D1630;font-weight:700;font-size:15px;z-index:2}
+.num.on{background:var(--accent);color:var(--onacc)}
 .hand{position:absolute;left:calc(50% - 2px);top:44px;width:4px;height:80px;border-radius:2px;background:#fff;transform-origin:2px 80px;transition:transform .5s cubic-bezier(.3,1.4,.5,1);box-shadow:0 0 6px rgba(0,0,0,.5)}
-.pin{position:absolute;left:calc(50% - 8px);top:calc(50% - 8px);width:16px;height:16px;border-radius:8px;background:var(--g);border:3px solid #fff}
-.facelabel{position:absolute;left:50%;top:62%;transform:translateX(-50%);padding:4px 10px;border-radius:999px;background:rgba(20,10,30,.7);font-size:11px;font-weight:800;letter-spacing:1.3px;white-space:nowrap}
-.ampm{display:flex;gap:4px;width:180px;margin:0 auto 6px;padding:4px;border-radius:999px;background:rgba(255,255,255,.1)}
-.ampm button{flex:1;height:34px;border:0;border-radius:999px;background:transparent;font-weight:700;color:var(--soft)}
-.ampm button.on{background:#fff;color:#D42A6A}
-.act{display:flex;gap:12px;align-items:center;padding:8px;border-radius:16px;background:rgba(255,255,255,.07);margin-top:8px}
-.act img{width:62px;height:62px;border-radius:13px;object-fit:cover;flex:none}
-.act div{flex:1;min-width:0}.act b{display:block;font-size:14.5px}.act small{font-size:12px;color:var(--soft)}
-/* services */
+.pin{position:absolute;left:calc(50% - 8px);top:calc(50% - 8px);width:16px;height:16px;border-radius:8px;background:var(--accent);border:3px solid #fff}
+.facelabel{position:absolute;left:50%;top:62%;transform:translateX(-50%);padding:4px 10px;border-radius:999px;background:rgba(20,10,30,.75);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.2px;white-space:nowrap}
+.ampm{display:flex;gap:4px;width:180px;margin:0 auto 6px;padding:4px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.ampm button{flex:1;height:34px;border:0;border-radius:999px;background:transparent;font-weight:600;color:var(--muted)}
+.ampm button.on{background:var(--accent);color:var(--onacc)}
+.act{display:flex;gap:12px;align-items:center;padding:8px;border-radius:16px;background:var(--bg);border:1px solid var(--line);margin-top:8px}
+.act img{width:60px;height:60px;border-radius:13px;object-fit:cover;flex:none}
+.act div{flex:1;min-width:0}.act b{display:block;font-size:14.5px}.act small{font-size:12px;color:var(--muted)}
+/* services / places */
 .svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.svc a{position:relative;height:132px;border-radius:18px;overflow:hidden;box-shadow:0 8px 18px rgba(0,0,0,.3);background:var(--g)}
+.svc a{position:relative;height:128px;border-radius:16px;overflow:hidden;background:var(--card)}
 .svc img{width:100%;height:100%;object-fit:cover;display:block}
-.svc span{position:absolute;inset:auto 0 0 0;padding:22px 8px 8px;background:linear-gradient(180deg,rgba(10,6,20,0),rgba(10,6,20,.85));font-size:12px;font-weight:700;line-height:1.2}
-.svc a.icon{display:flex;align-items:center;justify-content:center;font-size:34px}
+.svc span{position:absolute;inset:auto 0 0 0;padding:22px 8px 8px;background:linear-gradient(180deg,rgba(10,6,20,0),rgba(10,6,20,.85));color:#fff;font-size:12px;font-weight:600;line-height:1.2}
+.svc a.noimg{display:flex;align-items:center;justify-content:center;background:var(--surf);border:1px solid var(--line);color:var(--accent)}
+.svc a.noimg .ic{width:34px;height:34px;margin-bottom:24px}
+.svc a.noimg span{background:none;color:var(--ink)}
 .feat{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.feat a{border-radius:20px;padding:14px;min-height:108px;display:flex;flex-direction:column;justify-content:flex-end;gap:3px}
-.feat b{font-size:17px}.feat small{font-size:12.5px;color:var(--soft)}
+.feat a{border-radius:18px;padding:14px;min-height:96px;display:flex;flex-direction:column;justify-content:flex-end;gap:3px;background:var(--surf);border:1px solid var(--line)}
+.feat b{font-size:15.5px}.feat small{font-size:12.5px;color:var(--muted)}
 .places{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.places a{position:relative;height:120px;border-radius:16px;overflow:hidden}
+.places a{position:relative;height:120px;border-radius:16px;overflow:hidden;background:var(--card)}
 .places img{width:100%;height:100%;object-fit:cover}
-.places span{position:absolute;left:6px;right:6px;bottom:6px;padding:5px 8px;border-radius:10px;background:rgba(255,255,255,.94);color:#1F2A2A;font-size:11.5px;font-weight:700}
-.fam-only{display:none}body.family .fam-only{display:block}body.family .single-only{display:none}
-footer{margin-top:22px;text-align:center;font-size:11.5px;color:var(--soft);line-height:1.6}
-nav.bottom{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:6;width:min(452px,calc(100% - 24px));height:68px;border-radius:24px;display:flex;justify-content:space-around;align-items:center;background:rgba(20,12,32,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--edge)}
-nav.bottom a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--soft);min-width:52px}
-nav.bottom a.on{color:var(--peach);font-weight:700}
-nav.bottom .rj{width:60px;height:60px;margin-top:-30px;border-radius:30px;background:var(--g);border:3px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center}
-nav.bottom .rj img{width:46px;height:46px;border-radius:23px;object-fit:cover}
-@media (prefers-reduced-motion: reduce){#bg .s,.raju img.r,.dot{animation:none}}
+.places span{position:absolute;left:6px;right:6px;bottom:6px;padding:5px 8px;border-radius:10px;background:rgba(255,255,255,.94);color:#1D1630;font-size:11.5px;font-weight:600}
+footer{margin-top:24px;text-align:center;font-size:11.5px;color:var(--muted);line-height:1.6}
+footer a{text-decoration:underline}
+/* bottom nav */
+nav.bottom{position:fixed;left:50%;transform:translateX(-50%);z-index:6;display:flex;justify-content:space-around;align-items:center}
+body.night nav.bottom{bottom:0;width:100%;max-width:480px;height:calc(78px + env(safe-area-inset-bottom,0px));padding-bottom:calc(6px + env(safe-area-inset-bottom,0px));background:var(--nav);border-top:1px solid var(--line)}
+body.family nav.bottom{bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(448px,calc(100% - 32px));height:64px;border-radius:32px;background:#1D1630}
+nav.bottom a{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;color:#B9B0CC;min-width:52px}
+nav.bottom a.on{color:var(--accent);font-weight:600}
+nav.bottom img{width:40px;height:40px;border-radius:20px;border:2px solid var(--accent);object-fit:cover}
+nav.bottom a.rj{color:#fff;font-weight:600;gap:2px}
+body.family nav.bottom a{color:#fff;min-width:44px}
+body.family nav.bottom a .lbl{display:none}
+body.family nav.bottom a.on{flex-direction:row;gap:6px;height:44px;padding:0 16px;border-radius:22px;background:var(--accent);color:#1D1630;font:700 13px Inter,sans-serif}
+body.family nav.bottom a.on .lbl{display:inline}
+body.family nav.bottom img{width:38px;height:38px}
+/* sub-screens: event & pass */
+.screen{position:fixed;inset:0;z-index:20;background:#0B0910;color:#fff;overflow-y:auto;display:none;--accent:#E8306F;--line:#2B2438;color-scheme:dark}
+.screen.open{display:block}
+.screen .inner{max-width:480px;margin:0 auto;min-height:100%;position:relative}
+.evhero{position:relative;height:300px}
+.evhero img{width:100%;height:300px;object-fit:cover;display:block}
+.evhero .ctr{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));left:16px;right:16px;display:flex;justify-content:space-between}
+.evhero .rbtn{background:#0B0910;border:0;color:#fff}
+.evbody{margin-top:-28px;border-radius:26px 26px 0 0;background:#0B0910;padding:22px 20px 130px;display:flex;flex-direction:column;gap:14px;position:relative}
+.evbody h1{margin:0;font-family:Syne,Inter,sans-serif;font-weight:800;font-size:28px;line-height:1.1}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{padding:7px 12px;border-radius:999px;background:#17131F;border:1px solid #2B2438;font-size:12.5px;font-weight:600}
+.tables{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tables button{text-align:left;padding:12px;border-radius:16px;border:1px solid #2B2438;background:#17131F;color:#fff;display:flex;flex-direction:column;gap:4px}
+.tables button.on{border:2px solid var(--accent);background:#1E1828;padding:11px}
+.tables b{font-size:14px}.tables small{font-size:12px;color:#CFC6E0}.tables em{font-style:normal;font-size:13px;font-weight:700}
+.perks{display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:16px;background:#17131F;border:1px solid #2B2438;font-size:13.5px}
+.perks div{display:flex;gap:10px;align-items:center}
+.perks .ic{color:var(--accent);width:18px;height:18px}
+.perks img{width:22px;height:22px;border-radius:11px;object-fit:cover}
+.paybar{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:480px;padding:14px 20px calc(22px + env(safe-area-inset-bottom,0px));background:#120E19;border-top:1px solid #2B2438;display:flex;align-items:center;gap:14px}
+.paybar small{display:block;font-size:12px;color:#CFC6E0}.paybar b{font-family:Syne,Inter,sans-serif;font-weight:800;font-size:20px}
+.paybar .cta{flex:1;height:52px}
+.pass{padding:calc(18px + env(safe-area-inset-top,0px)) 20px calc(22px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:14px}
+.pass .hdr{display:flex;align-items:center;justify-content:space-between}
+.pass .hdr span{font-family:Syne,Inter,sans-serif;font-weight:700;font-size:17px}
+.ticket{border-radius:22px;background:#1E1828;border:1px solid #2B2438;overflow:hidden}
+.ticket>img{width:100%;height:120px;object-fit:cover;display:block}
+.tk{padding:14px 16px 12px;display:flex;flex-direction:column;gap:10px}
+.tk .r{display:flex;justify-content:space-between;align-items:center}
+.tk .r b{font-family:Syne,Inter,sans-serif;font-weight:800;font-size:20px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px}
+.grid2 div{display:flex;flex-direction:column;gap:2px}.grid2 small{font-size:11.5px;color:#B9B0CC}.grid2 span{font-size:14px;font-weight:600}
+.tear{position:relative;height:22px;display:flex;align-items:center}
+.tear::before,.tear::after{content:"";position:absolute;width:24px;height:24px;border-radius:12px;background:#0B0910}
+.tear::before{left:-12px}.tear::after{right:-12px}
+.tear i{flex:1;margin:0 18px;border-top:2px dashed #3A3048}
+.qr{padding:10px 16px 18px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.qr .box{padding:12px;border-radius:14px;background:#fff}
+.qr .cells{display:grid;grid-template-columns:repeat(21,1fr);width:168px;height:168px}
+.qr small{font-size:13px;color:#CFC6E0;text-align:center}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.two a,.two button{height:48px;border-radius:14px;border:1px solid #2B2438;background:#17131F;color:#fff;font:600 14px Inter,sans-serif;display:flex;align-items:center;justify-content:center}
+.demo{font-size:12px;color:#B9B0CC;text-align:center}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
 </head>
-<body>
-<div id="bg" aria-hidden="true"></div>
+<body class="night">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c2.5 2.4 3.5 5.1 3.5 8s-1 5.6-3.5 8M12 4c-2.5 2.4-3.5 5.1-3.5 8s1 5.6 3.5 8"/></symbol>
+  <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></symbol>
+  <symbol id="i-palm" viewBox="0 0 24 24"><path d="M12 21V9"/><path d="M12 9c-3-4-7-4-9-2 3 0 6 1 9 2zM12 9c3-4 7-4 9-2-3 0-6 1-9 2z"/><path d="M4 21h16"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></symbol>
+  <symbol id="i-roof" viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11z"/><circle cx="12" cy="10" r="2"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M4 7h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 18V8M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="1.6"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 16v-5l2-5h10l2 5v5z"/><path d="M5 11h14"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14zM5 19l7-7"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 18c2 0 2-1.5 4.5-1.5S10 18 12 18s2-1.5 4.5-1.5S19 18 21 18"/><path d="M8 15V6a2 2 0 0 1 4 0"/><path d="M8 10h4"/></symbol>
+  <symbol id="i-temple" viewBox="0 0 24 24"><path d="M12 3l3 4H9z"/><path d="M6 10h12v10H6z"/><path d="M10 20v-4h4v4"/></symbol>
+  <symbol id="i-boat" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M12 4l5 9h-5"/><path d="M3 17h18l-2 3H5z"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M15 15c3 0 6 1.6 6 5"/></symbol>
+  <symbol id="i-taxi" viewBox="0 0 24 24"><path d="M5 17v-5l2-5h10l2 5v5z"/><path d="M5 12h14M10 7V5h4v2"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><path d="M4 11h16v9H4zM3 7h18v4H3zM12 7v13"/><path d="M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></symbol>
+  <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></symbol>
+  <symbol id="i-med" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></symbol>
+</svg>
+
 <div class="app">
-  <div class="bar" role="toolbar" aria-label="Sign in">
+  <!-- ===== NIGHT header ===== -->
+  <div class="night-only">
+    <div class="top">
+      <img class="logo" src="icon-512.png" alt="Namaste Pattaya logo">
+      <span class="name">Namaste Pattaya</span>
+      <a class="rbtn" href="https://namastepattaya.com/index.html#search" aria-label="Search"><svg class="ic"><use href="#i-search"/></svg></a>
+      <a class="rbtn" href="https://namastepattaya.com/index.html#notifications" aria-label="Notifications"><svg class="ic"><use href="#i-bell"/></svg></a>
+    </div>
+  </div>
+  <!-- ===== FAMILY header ===== -->
+  <div class="fam-only">
+    <form class="top" action="https://namastepattaya.com/index.html" method="get" onsubmit="return famSearch(event)">
+      <img class="logo" src="icon-512.png" alt="Namaste Pattaya logo">
+      <label class="search"><svg class="ic" style="width:18px;height:18px"><use href="#i-search"/></svg><input id="famQ" type="search" placeholder="Hotels, tours, pure veg…" aria-label="Search"></label>
+      <a class="rbtn filt" href="https://namastepattaya.com/index.html#services" aria-label="Filters"><svg class="ic"><use href="#i-filter"/></svg></a>
+    </form>
+  </div>
+
+  <!-- sign-in (kept from old page) -->
+  <div class="roles" role="toolbar" aria-label="Sign in">
     <a href="https://namastepattaya.com/index.html#partner">Partner</a>
     <a href="https://namastepattaya.com/index.html#agent">Agent</a>
     <a class="main" href="https://namastepattaya.com/index.html#login">Traveller</a>
-    <a href="https://namastepattaya.com/index.html#language" aria-label="Language">🌐</a>
+    <a href="https://namastepattaya.com/index.html#language" aria-label="Language"><svg class="ic" style="width:18px;height:18px"><use href="#i-globe"/></svg></a>
   </div>
 
-  <div class="hero">
-    <div class="brand"><img src="icon-512.png" alt="Namaste Pattaya logo"><b>NAMASTE PATTAYA</b><span class="live"><span class="dot"></span>LIVE</span></div>
-    <h1>Namaste, Traveller</h1>
-    <p class="sub" id="heroSub">Clubs, beaches and nights to remember</p>
-    <div class="mode" role="group" aria-label="Choose your mode">
-      <button class="on" data-mode="single">🎶 Single</button>
-      <button data-mode="family" class="fam">👨‍👩‍👧 Family</button>
+  <div class="night-only">
+    <h1 class="big">Tonight in Pattaya</h1>
+    <p class="sub">Clubs, beach clubs and parties, booked in your language</p>
+  </div>
+
+  <div class="mode" role="group" aria-label="Choose your mode">
+    <button data-mode="night" class="on">With friends</button>
+    <button data-mode="family">With family</button>
+  </div>
+
+  <!-- ===== NIGHT home ===== -->
+  <div class="night-only">
+    <div class="cats" id="cats">
+      <button class="on" data-c="night"><i><svg class="ic"><use href="#i-globe"/></svg></i>All</button>
+      <button data-c="night"><i><svg class="ic"><use href="#i-music"/></svg></i>Clubs</button>
+      <button data-c="beach"><i><svg class="ic"><use href="#i-palm"/></svg></i>Beach</button>
+      <button data-c="after"><i><svg class="ic"><use href="#i-star"/></svg></i>Ladies night</button>
+      <button data-c="after"><i><svg class="ic"><use href="#i-roof"/></svg></i>Rooftop</button>
     </div>
+    <section>
+      <div class="head"><h2>Tonight near you</h2><a href="#clubs">View all</a></div>
+      <div class="stack">
+        <div class="t1">Sunset Beach Party</div>
+        <div class="t2">Ladies Night</div>
+        <div class="ev">
+          <div class="row">
+            <div><b>Bollywood Night</b><small>[Club name] · Walking Street · Tonight 22:00</small></div>
+            <button class="rbtn heart" aria-label="Save" aria-pressed="false" onclick="this.classList.toggle('on');this.setAttribute('aria-pressed',this.classList.contains('on'))" style="width:40px;height:40px;background:#17131F;border-color:#3A3048;color:#fff"><svg class="ic" style="width:18px;height:18px"><use href="#i-heart"/></svg></button>
+          </div>
+          <img src="photos/np-club-crowd.jpg" alt="Crowd dancing in a Pattaya nightclub">
+          <a class="cta" href="#event">Book a table <svg class="ic" style="width:18px;height:18px"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <section class="raju glass" aria-label="Raju, your Pattaya guide" style="flex-direction:column;align-items:stretch">
-    <div style="display:flex;gap:6px;align-items:flex-end">
-      <img class="r" src="photos/raju-waving.webp" alt="Raju waving">
-      <div style="flex:1;min-width:0;padding-bottom:4px">
+  <!-- ===== FAMILY home ===== -->
+  <div class="fam-only">
+    <div class="hero">
+      <img src="photos/np-family-yacht.jpg" alt="Yacht on the sea near Pattaya">
+      <div class="box"><div><small>FAMILY PICK OF THE DAY</small><b>Yacht day to Koh Larn</b></div><a class="pill" href="https://namastepattaya.com/index.html#services">Explore</a></div>
+    </div>
+    <section>
+      <div class="head"><h2>Your trip with Raju</h2><a href="https://namastepattaya.com/index.html#bookings">View all</a></div>
+      <div class="list">
+        <div class="li"><i class="a"><svg class="ic" style="width:18px;height:18px"><use href="#i-plane"/></svg></i><div><b>Airport pickup</b><span>[DATE] · [TIME]</span></div><span class="ok">Confirmed</span></div>
+        <div class="li"><i><svg class="ic" style="width:18px;height:18px"><use href="#i-roof"/></svg></i><div><b>Hotel check-in</b><span>[Hotel name]</span></div><span style="font-size:12px;font-weight:600;color:var(--muted)">Next</span></div>
+      </div>
+    </section>
+    <section>
+      <div class="head"><h2>Quick access</h2></div>
+      <div class="qa">
+        <a href="https://namastepattaya.com/index.html#services"><i><svg class="ic"><use href="#i-bed"/></svg></i>Hotels</a>
+        <a href="https://namastepattaya.com/index.html#taxi"><i><svg class="ic"><use href="#i-car"/></svg></i>Transfers</a>
+        <a href="https://namastepattaya.com/index.html#services"><i><svg class="ic"><use href="#i-pin"/></svg></i>Tours</a>
+        <a href="https://namastepattaya.com/index.html#services"><i style="color:#2E8B57"><svg class="ic"><use href="#i-leaf"/></svg></i>Pure veg</a>
+        <a href="https://namastepattaya.com/index.html#places"><i><svg class="ic"><use href="#i-wave"/></svg></i>Water parks</a>
+        <a href="https://namastepattaya.com/index.html#places"><i><svg class="ic"><use href="#i-temple"/></svg></i>Temples</a>
+        <a href="https://namastepattaya.com/index.html#services"><i><svg class="ic"><use href="#i-boat"/></svg></i>Yacht</a>
+        <a href="https://namastepattaya.com/index.html#services"><i><svg class="ic"><use href="#i-plane"/></svg></i>Private jet</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== Kept features, new style ===== -->
+  <section class="raju" aria-label="Raju, your Pattaya guide">
+    <div class="top2">
+      <img class="face" src="raju/raju-guide-face.webp" alt="Raju">
+      <div style="flex:1;min-width:0">
         <div class="bubble">Namaste! I’m Raju, your Pattaya guide. What shall we plan today?</div>
-        <div class="chips"><a href="https://namastepattaya.com/index.html#raju">Plan my trip</a><a href="https://namastepattaya.com/index.html#raju">Airport taxi</a><a href="https://namastepattaya.com/index.html#raju">Pure veg food</a><a href="#clubs" class="single-only">Tonight’s party</a></div>
       </div>
     </div>
+    <div class="chips"><a href="https://namastepattaya.com/index.html#raju">Plan my trip</a><a href="https://namastepattaya.com/index.html#raju">Airport taxi</a><a href="https://namastepattaya.com/index.html#raju">Pure veg food</a><a href="#clubs" class="night-only" style="display:none">Tonight’s party</a></div>
     <form class="ask" action="https://namastepattaya.com/index.html" method="get" onsubmit="return askRaju(event)">
-      <input id="askIn" type="text" placeholder="Type to Raju… club, hotel, taxi, anything" aria-label="Message Raju">
-      <button type="button" class="mic" aria-label="Speak to Raju" onclick="location.href='https://namastepattaya.com/index.html#raju'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
-      <button type="submit" class="send" aria-label="Send to Raju"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8z"/></svg></button>
+      <input id="askIn" type="text" placeholder="Type to Raju… club, hotel, taxi" aria-label="Message Raju">
+      <button type="button" class="mic" aria-label="Speak to Raju" onclick="location.href='https://namastepattaya.com/index.html#raju'"><svg class="ic"><use href="#i-mic"/></svg></button>
+      <button type="submit" class="send" aria-label="Send to Raju"><svg class="ic" style="width:18px;height:18px"><use href="#i-plane"/></svg></button>
     </form>
   </section>
 
   <section class="tiles">
-    <a class="tile" href="https://namastepattaya.com/index.html#boomer" style="background:linear-gradient(135deg,#D42A6A,#7A3FD1)"><i>💞</i><span><b>Boomer</b><br><small>Social meetups, safely</small></span></a>
-    <a class="tile" href="https://namastepattaya.com/index.html#taxi" style="background:#FFD60A;color:#3B2F00"><i>🚕</i><span><b>Namaste Taxi</b><br><small>Cars &amp; motorbike</small></span></a>
-    <a class="tile" href="https://namastepattaya.com/index.html#refer" style="background:#16A34A"><i>🎁</i><span><b>Refer &amp; earn</b><br><small>Credit on bookings</small></span></a>
+    <a class="tile" href="https://namastepattaya.com/index.html#boomer"><i><svg class="ic"><use href="#i-people"/></svg></i><span><b>Boomer</b><small>Social meetups, safely</small></span></a>
+    <a class="tile" href="https://namastepattaya.com/index.html#taxi"><i><svg class="ic"><use href="#i-taxi"/></svg></i><span><b>Namaste Taxi</b><small>Cars &amp; motorbike</small></span></a>
+    <a class="tile" href="https://namastepattaya.com/index.html#refer"><i><svg class="ic"><use href="#i-gift"/></svg></i><span><b>Refer &amp; earn</b><small>Credit on bookings</small></span></a>
   </section>
 
-  <section id="clubs" class="single-only">
+  <section id="clubs" class="night-only">
     <div class="head"><h2>Clubs tonight</h2><span>20+ only · ID at the door</span></div>
     <div class="tabs" id="clubTabs"><button class="on" data-t="night">Night clubs</button><button data-t="after">After-party</button><button data-t="beach">VIP Beach Clubs</button></div>
     <div id="clubList"></div>
@@ -160,12 +367,12 @@ nav.bottom .rj img{width:46px;height:46px;border-radius:23px;object-fit:cover}
     <div class="places" id="famList"></div>
   </section>
 
-  <section class="watch glass">
-    <div class="head" style="margin-bottom:0"><h2>Namaste Watch of Adventure</h2><button id="nowBtn" class="btn" style="background:transparent;border:1.5px solid #FFB48A;color:#FFB48A">Now</button></div>
-    <p class="sub" style="margin:4px 2px 0;font-size:13px">Tap a time to see what to do in Pattaya</p>
-    <div class="dial"><div class="face" id="face"><span class="facelabel" id="partLabel">EVENING</span><div class="hand" id="hand"></div><div class="pin"></div></div></div>
+  <section class="watch">
+    <div class="head" style="margin-bottom:0"><h2>Namaste Watch of Adventure</h2><button id="nowBtn" class="btn ghost">Now</button></div>
+    <p class="sub" style="margin-top:4px;font-size:13px">Tap a time to see what to do in Pattaya</p>
+    <div class="dial"><div class="dface" id="face"><span class="facelabel" id="partLabel">EVENING</span><div class="hand" id="hand"></div><div class="pin"></div></div></div>
     <div class="ampm"><button id="am">AM</button><button id="pm" class="on">PM</button></div>
-    <b id="atLabel" style="display:block;font-family:'Playfair Display',Georgia,serif;font-size:19px;margin-top:8px">At 9:00 PM you can…</b>
+    <b id="atLabel" class="syne" style="display:block;font-size:17px;margin-top:8px">At 9:00 PM you can…</b>
     <div id="acts"></div>
   </section>
 
@@ -175,10 +382,10 @@ nav.bottom .rj img{width:46px;height:46px;border-radius:23px;object-fit:cover}
   </section>
 
   <section class="feat">
-    <a class="glass" href="https://namastepattaya.com/index.html#packages"><span style="font-size:24px">🎁</span><b>Packages</b><small>Standard to Elite</small></a>
-    <a class="glass" href="https://namastepattaya.com/index.html#boomer"><span style="font-size:24px">💞</span><b>Boomer</b><small>Social meetups, safely</small></a>
-    <a class="glass" href="https://namastepattaya.com/index.html#paybill"><span style="font-size:24px">🧾</span><b>Pay my bill</b><small>Pay a friend’s bill</small></a>
-    <a class="glass" href="https://namastepattaya.com/index.html#partner"><span style="font-size:24px">📈</span><b>Partner dashboard</b><small>Clubs &amp; restaurants</small></a>
+    <a href="https://namastepattaya.com/index.html#packages"><b>Packages</b><small>Standard to Elite</small></a>
+    <a href="https://namastepattaya.com/index.html#boomer"><b>Boomer</b><small>Social meetups, safely</small></a>
+    <a href="https://namastepattaya.com/index.html#paybill"><b>Pay my bill</b><small>Pay a friend’s bill</small></a>
+    <a href="https://namastepattaya.com/index.html#partner"><b>Partner dashboard</b><small>Clubs &amp; restaurants</small></a>
   </section>
 
   <section>
@@ -186,26 +393,90 @@ nav.bottom .rj img{width:46px;height:46px;border-radius:23px;object-fit:cover}
     <div class="places" id="places"></div>
   </section>
 
-  <footer>Namaste Pattaya Reservations · Bharat ke liye ek Bhartiye ka tohfa<br>Nightlife and alcohol venues are 20+ only. <a href="https://namastepattaya.com/index.html#privacy" style="text-decoration:underline">Privacy</a> · <a href="https://namastepattaya.com/index.html#terms" style="text-decoration:underline">Terms</a></footer>
+  <footer>Namaste Pattaya Reservations · Bharat ke liye ek Bhartiye ka tohfa<br>Nightlife and alcohol venues are 20+ only. <a href="https://namastepattaya.com/index.html#privacy">Privacy</a> · <a href="https://namastepattaya.com/index.html#terms">Terms</a></footer>
 </div>
 
 <nav class="bottom" aria-label="Main">
-  <a class="on" href="index.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>Explore</a>
-  <a href="https://namastepattaya.com/index.html#map"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11z"/><circle cx="12" cy="10" r="2"/></svg>Map</a>
-  <a class="rj" href="https://namastepattaya.com/index.html#raju" aria-label="Ask Raju"><img src="raju/raju-guide-face.webp" alt=""></a>
-  <a href="https://namastepattaya.com/index.html#bookings"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4z"/></svg>Bookings</a>
-  <a href="https://namastepattaya.com/index.html#more"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>More</a>
+  <a class="on" href="index.html"><svg class="ic" style="width:22px;height:22px"><use href="#i-home"/></svg><span class="lbl">Home</span></a>
+  <a href="https://namastepattaya.com/index.html#map" aria-label="Map"><svg class="ic" style="width:22px;height:22px"><use href="#i-pin"/></svg><span class="lbl">Map</span></a>
+  <a class="rj" href="https://namastepattaya.com/index.html#raju" aria-label="Ask Raju"><img src="raju/raju-guide-face.webp" alt=""><span class="lbl">Raju</span></a>
+  <a href="https://namastepattaya.com/index.html#bookings" aria-label="Bookings"><svg class="ic" style="width:22px;height:22px"><use href="#i-ticket"/></svg><span class="lbl">Bookings</span></a>
+  <a href="https://namastepattaya.com/index.html#login" aria-label="Profile"><svg class="ic" style="width:22px;height:22px"><use href="#i-user"/></svg><span class="lbl">Profile</span></a>
 </nav>
+
+<!-- ===== Screen 2: Event & table ===== -->
+<div class="screen" id="scrEvent" role="dialog" aria-label="Bollywood Night">
+  <div class="inner">
+    <div class="evhero">
+      <img src="photos/np-event-stage.jpg" alt="Party crowd under stage lights">
+      <div class="ctr">
+        <a class="rbtn" href="#" aria-label="Back"><svg class="ic"><use href="#i-back"/></svg></a>
+        <button class="rbtn heart" aria-label="Save" aria-pressed="false" onclick="this.classList.toggle('on');this.setAttribute('aria-pressed',this.classList.contains('on'))" style="color:var(--accent)"><svg class="ic"><use href="#i-heart"/></svg></button>
+      </div>
+    </div>
+    <div class="evbody">
+      <div><h1>Bollywood Night</h1><span style="font-size:14px;color:#CFC6E0">[Club name] · Walking Street, Pattaya</span></div>
+      <div class="tags"><span>Tonight · 22:00</span><span>Hindi-speaking host</span><span>20+ · ID at the door</span></div>
+      <h2 class="syne" style="margin:6px 0 0;font-size:17px">Choose your table</h2>
+      <div class="tables" id="tables">
+        <button class="on" data-t="Standard" data-g="4"><b>Standard</b><small>Up to 4</small><em>[PRICE]</em></button>
+        <button data-t="VIP" data-g="6"><b>VIP</b><small>Up to 6</small><em>[PRICE]</em></button>
+        <button data-t="Sofa" data-g="8"><b>Sofa</b><small>Up to 8</small><em>[PRICE]</em></button>
+      </div>
+      <div class="perks">
+        <div><svg class="ic"><use href="#i-check"/></svg>Entry for your whole group</div>
+        <div><svg class="ic"><use href="#i-clock"/></svg>Table held until [TIME]</div>
+        <div><img src="raju/raju-guide-face.webp" alt="">Raju helps you in Hindi all night</div>
+      </div>
+    </div>
+    <div class="paybar">
+      <div><small>From</small><b>[PRICE]</b></div>
+      <a class="cta" href="#pass">Book table <svg class="ic" style="width:18px;height:18px"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Screen 3: Booking pass ===== -->
+<div class="screen" id="scrPass" role="dialog" aria-label="Your booking">
+  <div class="inner pass">
+    <div class="hdr">
+      <a class="rbtn" href="#event" aria-label="Back"><svg class="ic"><use href="#i-back"/></svg></a>
+      <span>Your booking</span>
+      <a class="rbtn" href="https://namastepattaya.com/index.html#bookings" aria-label="All bookings"><svg class="ic"><use href="#i-dots"/></svg></a>
+    </div>
+    <div class="ticket">
+      <img src="photos/np-club-crowd.jpg" alt="Nightclub dance floor">
+      <div class="tk">
+        <div class="r"><b>Bollywood Night</b><span class="ok" style="background:#123D2E;color:#7BE3B6">Confirmed</span></div>
+        <div class="grid2">
+          <div><small>Venue</small><span>[Club name]</span></div>
+          <div><small>Date</small><span>[DATE] · 22:00</span></div>
+          <div><small>Table</small><span id="pTable">Standard</span></div>
+          <div><small>Guests</small><span id="pGuests">4</span></div>
+        </div>
+      </div>
+      <div class="tear"><i></i></div>
+      <div class="qr">
+        <div class="box" role="img" aria-label="Booking QR code (sample)"><div class="cells" id="qr"></div></div>
+        <small>Show this at the door · Code NP-[CODE]</small>
+      </div>
+    </div>
+    <div class="two">
+      <a href="https://namastepattaya.com/index.html#bookings">Add to calendar</a>
+      <a id="waShare" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
+    </div>
+    <a class="cta" style="height:52px" href="https://namastepattaya.com/index.html#bookings"><svg class="ic" style="width:18px;height:18px"><use href="#i-down"/></svg>Download pass</a>
+    <p class="demo">Sample pass for design testing. Real passes come from your booking.</p>
+  </div>
+</div>
 
 <script>
 (function(){
 var P="photos/";
-var BG={single:["water-sports-flyboard.jpg","xnashaaclub.jpg","yacht-sunset.jpg","adventure-parasailing.jpg","xcavebeachclub.jpg","pattaya-viewpoint-sunset.jpg","speedboat-island.jpg"],
-        family:["beach-walk.jpg","nong-nooch-garden.jpg","villa-infinity-pool.jpg","sheep-farm.jpg","watercolor-pattaya-map.jpg","silverlake-vineyard.jpg","couple-beach-sunset.jpg"]};
 var CLUBS=[["night","The Nashaa Club","Indian superclub · lasers & guest DJs · Walking Street",15000,"xnashaaclub.jpg"],["night","Jalwa Club","Luxury, high-energy, celebrity DJs · Walking Street",12000,"xjalwa.jpg"],["night","Leela Club","Upscale club, executive crowd · Walking Street",12000,"xleela.jpg"],["night","Jannaat Club","Multi-level party, heavy bass · South Pattaya Road",10000,"xjannatclub.jpg"],["night","Kamaa Club","3D lasers & giant screens · Walking Street",10000,"xkamaa.jpg"],["night","Tonys Club","Legendary party venue · Walking Street",10000,"xtonysbynashaaclub.jpg"],["night","Boss Club","High-energy clubbing · City Center",10000,"xbossclub.jpg"],["night","Ikka Club","Bollywood, Punjabi & hip-hop · Walking Street",8000,"xikka.jpg"],["night","Myst Pattaya","International DJs · off Walking Street",10000,"xmyst.jpg"],
   ["after","Nashaa Space","After-party by Nashaa, till dawn",8000,"xnashaaspace.jpg"],["after","Barone by Nashaa","Bar & lounge after-party",8000,"xbaronebynashaa.jpg"],["after","Sutraa by Kamaa","Lounge-meets-party, late night",8000,"xkamaa.jpg"],["after","Mashaal","After-party with late beats · Central Pattaya",8000,"nightclub.jpg"],
   ["beach","Cave Beach Club","Day beds, pool & sunset DJ",0,"xcavebeachclub.jpg"],["beach","Byblos Beach Club","Pool, sea and music",0,"xbyblosbeachclub.jpg"],["beach","Sina Beach Club","Beach day with music",0,"xsinabeachclub.jpg"],["beach","Alexa Beach Club","Sun, sea & sunset parties",0,"xalexabeach.jpg"]];
-var SVC=[["Night clubs & After party","xnashaaclub.jpg"],["VIP Beach Clubs","xcavebeachclub.jpg"],["Indian Restaurants – Only Veg","pure-veg-thali.jpg"],["Indian Restaurants – Veg & Non-Veg","indian-food.jpg"],["Indian Groceries","","🛒"],["Hotels & Resorts","hotels-resorts.jpg"],["Cars & Bikes Rental","car-rental-suv.jpg"],["Spa & Massage","spa.jpg"],["Tours & Excursions","speedboat-island.jpg"],["Water Sports","adventure-parasailing.jpg"],["Golf & Shooting Range","golf-sunset.jpg"],["Yacht & Boat Charter","yacht-sunset.jpg"],["Airport Transfers","taxi.jpg"],["Namaste Shopping Mall","shopping-mall.jpg"],["Events, Groups & Gala Parties","pink-cafe-lounge.jpg"],["Medical & Pharmacy","","⚕️"],["Concierge & VIP Services","villa-infinity-pool.jpg"],["Visa & Legal Information","payments-money-passport.jpg"],["Flights & Tickets","","✈️"],["Private Jet","private-jet.jpg"],["Buy, Sell & Rent Property","condos-property.jpg"],["Friends Location & Bill Splitter","boomer-friends.jpg"]];
+var SVC=[["Night clubs & After party","xnashaaclub.jpg"],["VIP Beach Clubs","xcavebeachclub.jpg"],["Indian Restaurants – Only Veg","pure-veg-thali.jpg"],["Indian Restaurants – Veg & Non-Veg","indian-food.jpg"],["Indian Groceries","","bag"],["Hotels & Resorts","hotels-resorts.jpg"],["Cars & Bikes Rental","car-rental-suv.jpg"],["Spa & Massage","spa.jpg"],["Tours & Excursions","speedboat-island.jpg"],["Water Sports","adventure-parasailing.jpg"],["Golf & Shooting Range","golf-sunset.jpg"],["Yacht & Boat Charter","yacht-sunset.jpg"],["Airport Transfers","taxi.jpg"],["Namaste Shopping Mall","shopping-mall.jpg"],["Events, Groups & Gala Parties","pink-cafe-lounge.jpg"],["Medical & Pharmacy","","med"],["Concierge & VIP Services","villa-infinity-pool.jpg"],["Visa & Legal Information","payments-money-passport.jpg"],["Flights & Tickets","","plane"],["Private Jet","private-jet.jpg"],["Buy, Sell & Rent Property","condos-property.jpg"],["Friends Location & Bill Splitter","boomer-friends.jpg"]];
 var PLACES=[["Koh Larn snorkelling","koh-larn-snorkeling.jpg"],["Flyboard & jet ski","water-sports-flyboard.jpg"],["Pattaya Viewpoint","pattaya-viewpoint-sunset.jpg"],["Buddha Mountain","buddha-mountain.jpg"],["Nong Nooch Garden","nong-nooch-garden.jpg"],["Khao Kheow Open Zoo","khao-kheow-zoo.jpg"],["Ramayana Water Park","ramayana-water-park.jpg"],["Underwater World","underwater-world.jpg"],["Teddy Island","teddy-island.jpg"],["Sheep Farm","sheep-farm.jpg"],["Frost Ice of Siam","frost-ice-of-siam.jpg"],["Mini Siam","mini-siam.jpg"],["Upside Down House","upside-down-house.jpg"],["Bottle Art Museum","bottle-art-museum.jpg"],["Elephant Village","elephant-village.jpg"],["Silverlake Vineyard","silverlake-vineyard.jpg"]];
 var FAM=["Ramayana Water Park","Khao Kheow Open Zoo","Nong Nooch Garden","Underwater World","Sheep Farm","Teddy Island"];
 var SLOTS=[[5,8,"EARLY MORNING",[["Buddha Mountain","Golden Buddha on the cliff","buddha-mountain.jpg"],["Beach walk","Quiet promenade before the heat","beach-walk.jpg"]]],
@@ -214,37 +485,54 @@ var SLOTS=[[5,8,"EARLY MORNING",[["Buddha Mountain","Golden Buddha on the cliff"
  [16,19,"SUNSET",[["Pattaya Viewpoint","The bay at sunset","pattaya-viewpoint-sunset.jpg"],["Sunset yacht","Private boat for your group","yacht-sunset.jpg"],["Golf at sunset","Palm-lined fairways","golf-sunset.jpg"]]],
  [19,23,"EVENING",[["Indian dinner","Veg & non-veg, Hindi menu","indian-food.jpg"],["Beach club sunset party","VIP Beach Clubs · 20+","xcavebeachclub.jpg",1],["Shopping mall","Open late","shopping-mall.jpg"]]],
  [23,29,"LATE NIGHT",[["The Nashaa Club","Indian superclub · 20+","xnashaaclub.jpg",1],["After-party: Nashaa Space","Till dawn · 20+","xnashaaspace.jpg",1],["Taxi back to hotel","Safe ride, any time","taxi.jpg"]]]];
-var $=function(s){return document.querySelector(s)};
-var mode="single";
-/* background */
-var bg=$("#bg"),slides=[],idx=0,timer;
-function setBg(){bg.innerHTML="";slides=BG[mode].map(function(f,i){var d=document.createElement("div");d.className="s"+(i===0?" on":"");d.style.backgroundImage="url("+P+f+")";bg.appendChild(d);return d});idx=0;clearInterval(timer);timer=setInterval(function(){slides[idx].classList.remove("on");idx=(idx+1)%slides.length;slides[idx].classList.add("on")},7000)}
-/* mode */
-document.querySelectorAll(".mode button").forEach(function(b){b.onclick=function(){mode=b.dataset.mode;document.body.classList.toggle("family",mode==="family");document.querySelectorAll(".mode button").forEach(function(x){x.classList.toggle("on",x===b)});$("#heroSub").textContent=mode==="family"?"Fun days out for the whole family":"Clubs, beaches and nights to remember";try{localStorage.setItem("np_mode",mode)}catch(e){}setBg();drawWatch()}});
+var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
+var mode="night";
+/* mode switch (remembers choice on the phone, same key as before) */
+function setMode(m){mode=m;document.body.className=m;$$(".mode button").forEach(function(x){x.classList.toggle("on",x.dataset.mode===m)});
+  $('meta[name="theme-color"]').setAttribute("content",m==="family"?"#F7F3EC":"#0B0910");
+  $$(".chips .night-only").forEach(function(c){c.style.display=m==="night"?"":"none"});
+  try{localStorage.setItem("np_mode",m==="family"?"family":"single")}catch(e){}drawWatch()}
+$$(".mode button").forEach(function(b){b.onclick=function(){setMode(b.dataset.mode);window.scrollTo(0,0)}});
 /* clubs */
-function drawClubs(t){$("#clubList").innerHTML=CLUBS.filter(function(c){return c[0]===t}).map(function(c){return '<a class="club glass" href="https://namastepattaya.com/index.html#clubs"><img src="'+P+c[4]+'" alt="" loading="lazy"><div><b>'+c[1]+'</b><small>'+c[2]+'</small><em>'+(c[3]?"VIP table from ฿"+c[3].toLocaleString("en-US"):"Day bed – ask for price")+'</em><span class="age">20+</span></div><span class="btn">Book</span></a>'}).join("")}
-document.querySelectorAll("#clubTabs button").forEach(function(b){b.onclick=function(){document.querySelectorAll("#clubTabs button").forEach(function(x){x.classList.toggle("on",x===b)});drawClubs(b.dataset.t)}});
+function drawClubs(t){$("#clubList").innerHTML=CLUBS.filter(function(c){return c[0]===t}).map(function(c){return '<a class="club" href="https://namastepattaya.com/index.html#clubs"><img src="'+P+c[4]+'" alt="" loading="lazy"><div><b>'+c[1]+'</b><small>'+c[2]+'</small><em>'+(c[3]?"VIP table from ฿"+c[3].toLocaleString("en-US"):"Day bed – ask for price")+'</em><span class="age">20+</span></div><span class="btn">Book</span></a>'}).join("")}
+function setTab(t){$$("#clubTabs button").forEach(function(x){x.classList.toggle("on",x.dataset.t===t)});drawClubs(t)}
+$$("#clubTabs button").forEach(function(b){b.onclick=function(){setTab(b.dataset.t)}});
+$$("#cats button").forEach(function(b){b.onclick=function(){$$("#cats button").forEach(function(x){x.classList.toggle("on",x===b)});setTab(b.dataset.c);if(b!==$("#cats button"))$("#clubs").scrollIntoView({behavior:"smooth"})}});
 drawClubs("night");
 /* services + places */
-$("#svc").innerHTML=SVC.map(function(s){return s[1]?'<a href="https://namastepattaya.com/index.html#services"><img src="'+P+s[1]+'" alt="" loading="lazy"><span>'+s[0]+'</span></a>':'<a class="icon" href="https://namastepattaya.com/index.html#services">'+s[2]+'<span>'+s[0]+'</span></a>'}).join("");
+$("#svc").innerHTML=SVC.map(function(s){return s[1]?'<a href="https://namastepattaya.com/index.html#services"><img src="'+P+s[1]+'" alt="" loading="lazy"><span>'+s[0]+'</span></a>':'<a class="noimg" href="https://namastepattaya.com/index.html#services"><svg class="ic"><use href="#i-'+s[2]+'"/></svg><span>'+s[0]+'</span></a>'}).join("");
 function placeHTML(list){return list.map(function(p){return '<a href="https://namastepattaya.com/index.html#places"><img src="'+P+p[1]+'" alt="" loading="lazy"><span>'+p[0]+'</span></a>'}).join("")}
 $("#places").innerHTML=placeHTML(PLACES);
 $("#famList").innerHTML=placeHTML(PLACES.filter(function(p){return FAM.indexOf(p[0])>-1}));
 /* watch */
 var h=9,pm=true,face=$("#face");
-for(var i=1;i<=12;i++){(function(n){var b=document.createElement("button");b.className="num";b.textContent=n;var a=n*Math.PI/6;b.style.left="calc(50% + "+(98*Math.sin(a)-20)+"px)";b.style.top="calc(50% - "+(98*Math.cos(a)+20)+"px)";b.onclick=function(){h=n;drawWatch()};face.appendChild(b)})(i)}
+for(var i=1;i<=12;i++){(function(n){var b=document.createElement("button");b.className="num";b.textContent=n;b.setAttribute("aria-label",n+" o’clock");var a=n*Math.PI/6;b.style.left="calc(50% + "+(98*Math.sin(a)-20)+"px)";b.style.top="calc(50% - "+(98*Math.cos(a)+20)+"px)";b.onclick=function(){h=n;drawWatch()};face.appendChild(b)})(i)}
 function drawWatch(){var h24=(h%12)+(pm?12:0),hh=h24<5?h24+24:h24,s=SLOTS.filter(function(x){return hh>=x[0]&&hh<x[1]})[0]||SLOTS[0];
-  document.querySelectorAll(".num").forEach(function(b){b.classList.toggle("on",+b.textContent===h)});$("#hand").style.transform="rotate("+((h%12)*30)+"deg)";
+  $$(".num").forEach(function(b){b.classList.toggle("on",+b.textContent===h)});$("#hand").style.transform="rotate("+((h%12)*30)+"deg)";
   $("#am").classList.toggle("on",!pm);$("#pm").classList.toggle("on",pm);$("#partLabel").textContent=s[2];$("#atLabel").textContent="At "+h+":00 "+(pm?"PM":"AM")+" you can…";
   $("#acts").innerHTML=s[3].filter(function(a){return !(mode==="family"&&a[3])}).map(function(a){return '<a class="act" href="https://namastepattaya.com/index.html#services"><img src="'+P+a[2]+'" alt="" loading="lazy"><div><b>'+a[0]+'</b><small>'+a[1]+'</small></div><span class="btn">Book</span></a>'}).join("")}
 $("#am").onclick=function(){pm=false;drawWatch()};$("#pm").onclick=function(){pm=true;drawWatch()};
 function now(){var d=new Date(),x=d.getHours();h=(x%12)||12;pm=x>=12;drawWatch()}
 $("#nowBtn").onclick=now;
-/* Raju */
+/* Raju + family search (both go to the live app) */
 window.askRaju=function(e){e.preventDefault();var q=$("#askIn").value.trim();location.href="https://namastepattaya.com/index.html#raju"+(q?"?q="+encodeURIComponent(q):"");return false};
+window.famSearch=function(e){e.preventDefault();var q=$("#famQ").value.trim();location.href="https://namastepattaya.com/index.html#raju"+(q?"?q="+encodeURIComponent(q):"");return false};
+/* table choice -> pass */
+$$("#tables button").forEach(function(b){b.onclick=function(){$$("#tables button").forEach(function(x){x.classList.toggle("on",x===b)});$("#pTable").textContent=b.dataset.t;$("#pGuests").textContent=b.dataset.g}});
+$("#waShare").href="https://wa.me/?text="+encodeURIComponent("Bollywood Night in Pattaya, booked with Namaste Pattaya: https://namastepattaya.com");
+/* sample QR pattern (not a real code) */
+(function(){var c="",seed=7;function r(){seed=(seed*9301+49297)%233280;return seed/233280}
+  function finder(x,y){var p=[[0,0],[14,0],[0,14]];for(var k=0;k<3;k++){var dx=x-p[k][0],dy=y-p[k][1];if(dx>=0&&dx<7&&dy>=0&&dy<7){return (dx===0||dx===6||dy===0||dy===6||(dx>1&&dx<5&&dy>1&&dy<5))?1:0}}return -1}
+  for(var y=0;y<21;y++)for(var x=0;x<21;x++){var f=finder(x,y),on=f===-1?(r()>.5):f;c+='<div style="background:'+(on?"#0B0910":"#fff")+'"></div>'}$("#qr").innerHTML=c})();
+/* screens via #event / #pass (phone back button works) */
+function route(){var hsh=location.hash;$("#scrEvent").classList.toggle("open",hsh==="#event");$("#scrPass").classList.toggle("open",hsh==="#pass");
+  document.body.style.overflow=(hsh==="#event"||hsh==="#pass")?"hidden":"";
+  if(hsh==="#event")$("#scrEvent").scrollTop=0;if(hsh==="#pass")$("#scrPass").scrollTop=0}
+window.addEventListener("hashchange",route);
+$$('.screen a[href="#"]').forEach(function(a){a.onclick=function(e){e.preventDefault();history.length>1?history.back():(location.hash="")}});
 /* start */
-try{var m=localStorage.getItem("np_mode");if(m==="family"){document.querySelector('.mode button[data-mode="family"]').click()}}catch(e){}
-setBg();now();
+var start="night";try{if(localStorage.getItem("np_mode")==="family")start="family"}catch(e){}
+setMode(start);now();route();
 })();
 </script>
 </body>
