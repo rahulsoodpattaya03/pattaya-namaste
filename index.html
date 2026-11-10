@@ -116,12 +116,12 @@ body.night .bubble{background:#2A2236}
 /* watch */
 .watch{border-radius:22px;padding:16px;background:var(--surf);border:1px solid var(--line)}
 .btn.ghost{background:transparent;border:1.5px solid var(--accent);color:var(--link)}
-.dial{position:relative;width:260px;height:260px;margin:14px auto;border-radius:50%;padding:6px;background:var(--accent)}
+ .dial{position:relative;width:100%;max-width:420px;aspect-ratio:1/1;height:auto;margin:14px auto;border-radius:50%;padding:6px;background:var(--accent)}
 .dface{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;background:#2A1A30 url(images/Photos/pattaya-viewpoint-sunset.jpg) center/cover}
 .dface::before{content:"";position:absolute;inset:0;background:rgba(20,10,30,.3)}
-.num{position:absolute;width:40px;height:40px;border-radius:20px;border:0;background:rgba(255,255,255,.92);color:#1D1630;font-weight:700;font-size:15px;z-index:2}
+.num{position:absolute;width:44px;height:44px;border-radius:22px;border:0;background:rgba(255,255,255,.92);color:#1D1630;font-weight:700;font-size:15px;z-index:2}
 .num.on{background:var(--accent);color:var(--onacc)}
-.hand{position:absolute;left:calc(50% - 2px);top:44px;width:4px;height:80px;border-radius:2px;background:#fff;transform-origin:2px 80px;transition:transform .5s cubic-bezier(.3,1.4,.5,1);box-shadow:0 0 6px rgba(0,0,0,.5)}
+.hand{position:absolute;left:calc(50% - 2.5px);top:16%;width:5px;height:34%;border-radius:3px;background:#fff;transform-origin:50% 100%;transition:transform .5s cubic-bezier(.3,1.4,.5,1);box-shadow:0 0 6px rgba(0,0,0,.5)}
 .pin{position:absolute;left:calc(50% - 8px);top:calc(50% - 8px);width:16px;height:16px;border-radius:8px;background:var(--accent);border:3px solid #fff}
 .facelabel{position:absolute;left:50%;top:62%;transform:translateX(-50%);padding:4px 10px;border-radius:999px;background:rgba(20,10,30,.75);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.2px;white-space:nowrap}
 .ampm{display:flex;gap:4px;width:180px;margin:0 auto 6px;padding:4px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
@@ -239,6 +239,62 @@ body.night,.screen{--accent:#EE5A2B;--link:#FF8A4C;--g:linear-gradient(135deg,#E
 body.night .cta,.screen .cta,body.night .btn:not(.ghost),body.night .mode button.on,body.night .cats button.on i,body.night .tabs button.on,body.night .ampm button.on,body.night .num.on,body.night .ask .send,body.night .tile i,body.night .roles a.main,body.night .dial,body.night .pin,body.night .li i.a{background:var(--g);color:#fff}
 body.night .cats button.on i,body.night .roles a.main{border-color:#D42A6A}
 .screen .tables button.on{border-color:#D42A6A}
+/* photo feature cards */
+.feat a.photo{background:linear-gradient(180deg,rgba(10,6,20,.05) 25%,rgba(10,6,20,.88)),var(--img) center/cover;color:#fff;min-height:130px}
+.feat a.photo small{color:#EEE8F6}
+/* clock labels readable over hands */
+.clock .ct,.clock .cd{paint-order:stroke;stroke:var(--bg);stroke-width:2.4px;stroke-linejoin:round}
+/* customize trip + currency */
+.trip,.fx{border-radius:22px;padding:16px;background:var(--surf);border:3px solid var(--fr);box-shadow:var(--sh);margin-top:18px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.st{background:var(--bg);border:2px solid var(--line);border-radius:16px;padding:8px;text-align:center}
+.st small{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+.st div{display:flex;align-items:center;justify-content:space-between;gap:4px}
+.st button{width:34px;height:34px;border-radius:17px;border:0;background:var(--accent);color:var(--onacc);font-size:20px;line-height:1}
+body.night .st button{background:var(--g)}
+.st b{font-size:18px}
+.items{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.it{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;background:var(--bg);border:2px solid var(--line);cursor:pointer}
+.it input{width:20px;height:20px;accent-color:var(--accent);flex:none}
+.it span{flex:1;min-width:0;font-size:14px;font-weight:600}
+.it small{display:block;font-size:12px;color:var(--muted);font-weight:400}
+.it em{font-style:normal;font-weight:700;font-size:13px;color:var(--link);white-space:nowrap}
+.quote{display:flex;align-items:center;gap:12px;margin-top:12px}
+.quote small{display:block;font-size:12px;color:var(--muted)}
+.quote b{display:block;font-family:Syne,Inter,sans-serif;font-size:22px}
+.quote span{font-size:13px;color:var(--muted)}
+.quote .wa{flex:1;height:50px;font-size:14px;text-align:center;padding:0 10px}
+.note{margin:10px 0 0;font-size:11.5px;color:var(--muted)}
+.fxrow{display:flex;align-items:flex-end;gap:10px}
+.fxrow label,.fxrow .out{flex:1;min-width:0;background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:8px 12px}
+.fxrow small{display:block;font-size:12px;color:var(--muted)}
+.fxrow input{width:100%;border:0;outline:0;background:transparent;font:700 20px Inter,sans-serif;color:var(--ink)}
+.fxrow .out b{display:block;font-size:20px;line-height:1.4;overflow:hidden;text-overflow:ellipsis}
+.rate{display:block;margin-top:10px;font-size:13px;color:var(--muted)}
+.rate input{width:70px;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:600 13px Inter,sans-serif}
+/* welcome */
+.welcome{position:fixed;inset:0;z-index:50;background:rgba(11,9,16,.92);display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.welcome[hidden]{display:none}
+.wbox{width:100%;max-width:420px;background:#17131F;color:#fff;border:3px solid #4A3E5C;border-radius:26px;padding:22px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.wlogo{width:64px;height:64px;border-radius:18px;margin-bottom:8px}
+.wbox h2{font-family:Syne,Inter,sans-serif;font-size:21px;margin:4px 0 14px}
+.wbox p{color:#B9B0CC;font-size:14px;margin:-6px 0 16px}
+.langs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.langs button{height:56px;border-radius:14px;border:2px solid #2B2438;background:#0B0910;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
+.langs button b{font-size:16px}.langs button small{font-size:11.5px;color:#B9B0CC}
+.langs button.on{border-color:#D42A6A;background:#1E1828}
+.welcome .cta{background:linear-gradient(135deg,#E8541C 0%,#D42A6A 55%,#7A3FD1 100%);margin-bottom:10px}
+.wbtn2{width:100%;height:50px;border-radius:14px;border:2px solid #2B2438;background:#0B0910;color:#fff;font:600 15px Inter,sans-serif}
+.mode button[disabled]{opacity:.45;cursor:not-allowed}
+/* Google Translate bar hidden */
+.goog-te-banner-frame,.skiptranslate>iframe{display:none!important}body{top:0!important}
+/* 3D slider */
+.slider{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 14% 18px;margin:0 -20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.slider::-webkit-scrollbar{display:none}
+.slide{flex:0 0 72%;scroll-snap-align:center;transition:transform .12s linear,opacity .12s linear;transform-origin:center;will-change:transform}
+.sdots{display:flex;justify-content:center;gap:8px;margin-top:2px}
+.sdots button{width:9px;height:9px;border-radius:5px;border:0;padding:0;background:var(--line)}
+.sdots button.on{width:26px;background:var(--g,var(--accent))}
 @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
 </head>
@@ -275,6 +331,7 @@ body.night .cats button.on i,body.night .roles a.main{border-color:#D42A6A}
   <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
   <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M7 4L3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/></symbol>
   <symbol id="i-med" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></symbol>
 </svg>
 
@@ -302,7 +359,7 @@ body.night .cats button.on i,body.night .roles a.main{border-color:#D42A6A}
     <a href="https://namastepattaya.com/index.html#partner">Partner</a>
     <a href="https://namastepattaya.com/index.html#agent">Agent</a>
     <a class="main" href="https://namastepattaya.com/index.html#login">Traveller</a>
-    <a href="https://namastepattaya.com/index.html#language" aria-label="Language"><svg class="ic" style="width:18px;height:18px"><use href="#i-globe"/></svg></a>
+    <a href="#" onclick="openWelcome(1);return false" aria-label="Language"><svg class="ic" style="width:18px;height:18px"><use href="#i-globe"/></svg></a>
   </div>
 
   <div class="night-only">
@@ -315,6 +372,33 @@ body.night .cats button.on i,body.night .roles a.main{border-color:#D42A6A}
     <button data-mode="family">With family</button>
   </div>
 
+  <!-- ===== Customize my trip (top) ===== -->
+  <section class="trip" id="trip" aria-label="Customize my trip">
+    <div class="head"><h2>Customize my trip</h2><span>Sample prices</span></div>
+    <div class="steps">
+      <div class="st"><small>Nights</small><div><button type="button" data-k="n" data-d="-1" aria-label="Fewer nights">−</button><b id="vN">3</b><button type="button" data-k="n" data-d="1" aria-label="More nights">+</button></div></div>
+      <div class="st"><small>Adults</small><div><button type="button" data-k="a" data-d="-1" aria-label="Fewer adults">−</button><b id="vA">2</b><button type="button" data-k="a" data-d="1" aria-label="More adults">+</button></div></div>
+      <div class="st"><small>Children</small><div><button type="button" data-k="c" data-d="-1" aria-label="Fewer children">−</button><b id="vC">0</b><button type="button" data-k="c" data-d="1" aria-label="More children">+</button></div></div>
+    </div>
+    <div class="items" id="tripItems"></div>
+    <div class="quote">
+      <div><small>Estimated total</small><b id="qTHB">฿0</b><span id="qINR">₹0</span></div>
+      <a class="cta wa" id="qSend" href="#" target="_blank" rel="noopener">Send quotation on WhatsApp</a>
+    </div>
+    <p class="note">Sample prices for planning. Final price confirmed by Namaste Pattaya.</p>
+  </section>
+
+  <!-- ===== Currency converter ===== -->
+  <section class="fx" aria-label="Currency converter">
+    <div class="head"><h2>Currency converter</h2><span>THB ⇄ INR</span></div>
+    <div class="fxrow">
+      <label><small id="fxFromL">Thai Baht (฿)</small><input id="fxIn" type="number" inputmode="decimal" value="1000" min="0"></label>
+      <button type="button" class="rbtn" id="fxSwap" aria-label="Swap currencies"><svg class="ic"><use href="#i-swap"/></svg></button>
+      <div class="out"><small id="fxToL">Indian Rupee (₹)</small><b id="fxOut">₹0</b></div>
+    </div>
+    <label class="rate">1 THB = <input id="fxRate" type="number" inputmode="decimal" step="0.01" min="0"> INR <small>(edit to today’s rate)</small></label>
+  </section>
+
   <!-- ===== NIGHT home ===== -->
   <div class="night-only">
     <div class="cats" id="cats">
@@ -326,18 +410,8 @@ body.night .cats button.on i,body.night .roles a.main{border-color:#D42A6A}
     </div>
     <section>
       <div class="head"><h2>Tonight near you</h2><a href="#clubs">View all</a></div>
-      <div class="stack">
-        <div class="t1">Sunset Beach Party</div>
-        <div class="t2">Ladies Night</div>
-        <div class="ev">
-          <div class="row">
-            <div><b>Bollywood Night</b><small>[Club name] · Walking Street · Tonight 22:00</small></div>
-            <button class="rbtn heart" aria-label="Save" aria-pressed="false" onclick="this.classList.toggle('on');this.setAttribute('aria-pressed',this.classList.contains('on'))" style="width:40px;height:40px;background:#17131F;border-color:#3A3048;color:#fff"><svg class="ic" style="width:18px;height:18px"><use href="#i-heart"/></svg></button>
-          </div>
-          <img src="images/Photos/np-club-crowd.jpg" onerror="this.onerror=null;this.src='images/Photos/xnashaaclub.jpg'" alt="Crowd dancing in a Pattaya nightclub">
-          <a class="cta" href="#event">Book a table <svg class="ic" style="width:18px;height:18px"><use href="#i-arrow"/></svg></a>
-        </div>
-      </div>
+      <div class="slider" id="evSlider" aria-roledescription="carousel" aria-label="Tonight near you"></div>
+      <div class="sdots" id="evDots"></div>
     </section>
   </div>
 
@@ -405,8 +479,8 @@ body.night .cats button.on i,body.night .roles a.main{border-color:#D42A6A}
   <section class="watch">
     <div class="head" style="margin-bottom:0"><h2>Namaste Watch of Adventure</h2><button id="nowBtn" class="btn ghost">Now</button></div>
     <div class="clocks">
-      <div class="clock"><svg viewBox="0 0 100 100" role="img" aria-label="India time"><circle cx="50" cy="50" r="46" class="cf"/><g class="ticks"></g><text x="50" y="30" class="ct">Namaste</text><text x="50" y="38" class="ct">India time</text><text x="50" y="74" class="cd" id="dIN">--:--</text><line x1="50" y1="50" x2="50" y2="28" class="hh" id="hIN"/><line x1="50" y1="50" x2="50" y2="18" class="mh" id="mIN"/><line x1="50" y1="54" x2="50" y2="14" class="sh" id="sIN"/><circle cx="50" cy="50" r="3" class="cp"/></svg></div>
-      <div class="clock"><svg viewBox="0 0 100 100" role="img" aria-label="Thailand time"><circle cx="50" cy="50" r="46" class="cf"/><g class="ticks"></g><text x="50" y="30" class="ct">Namaste</text><text x="50" y="38" class="ct">Thailand time</text><text x="50" y="74" class="cd" id="dTH">--:--</text><line x1="50" y1="50" x2="50" y2="28" class="hh" id="hTH"/><line x1="50" y1="50" x2="50" y2="18" class="mh" id="mTH"/><line x1="50" y1="54" x2="50" y2="14" class="sh" id="sTH"/><circle cx="50" cy="50" r="3" class="cp"/></svg></div>
+      <div class="clock"><svg viewBox="0 0 100 100" role="img" aria-label="India time"><circle cx="50" cy="50" r="46" class="cf"/><g class="ticks"></g><line x1="50" y1="50" x2="50" y2="28" class="hh" id="hIN"/><line x1="50" y1="50" x2="50" y2="18" class="mh" id="mIN"/><line x1="50" y1="54" x2="50" y2="14" class="sh" id="sIN"/><circle cx="50" cy="50" r="3" class="cp"/><text x="50" y="30" class="ct">Namaste</text><text x="50" y="38" class="ct">India time</text><text x="50" y="74" class="cd" id="dIN">--:--</text></svg></div>
+      <div class="clock"><svg viewBox="0 0 100 100" role="img" aria-label="Thailand time"><circle cx="50" cy="50" r="46" class="cf"/><g class="ticks"></g><line x1="50" y1="50" x2="50" y2="28" class="hh" id="hTH"/><line x1="50" y1="50" x2="50" y2="18" class="mh" id="mTH"/><line x1="50" y1="54" x2="50" y2="14" class="sh" id="sTH"/><circle cx="50" cy="50" r="3" class="cp"/><text x="50" y="30" class="ct">Namaste</text><text x="50" y="38" class="ct">Thailand time</text><text x="50" y="74" class="cd" id="dTH">--:--</text></svg></div>
     </div>
     <p class="sub" style="margin-top:12px;font-size:13px">Tap a time to see what to do in Pattaya</p>
     <div class="dial"><div class="dface" id="face"><span class="facelabel" id="partLabel">EVENING</span><div class="hand" id="hand"></div><div class="pin"></div></div></div>
@@ -421,10 +495,10 @@ body.night .cats button.on i,body.night .roles a.main{border-color:#D42A6A}
   </section>
 
   <section class="feat">
-    <a href="https://namastepattaya.com/index.html#packages"><b>Packages</b><small>Standard to Elite</small></a>
-    <a href="https://namastepattaya.com/index.html#boomer"><b>Boomer</b><small>Social meetups, safely</small></a>
-    <a href="https://namastepattaya.com/index.html#paybill"><b>Pay my bill</b><small>Pay a friend’s bill</small></a>
-    <a href="https://namastepattaya.com/index.html#partner"><b>Partner dashboard</b><small>Clubs &amp; restaurants</small></a>
+    <a class="photo" style="--img:url(images/Photos/villa-infinity-pool.jpg)" href="https://namastepattaya.com/index.html#packages"><b>Packages</b><small>Standard to Elite</small></a>
+    <a class="photo" style="--img:url(images/Photos/boomer-friends.jpg)" href="https://namastepattaya.com/index.html#boomer"><b>Boomer</b><small>Social meetups, safely</small></a>
+    <a class="photo" style="--img:url(images/Photos/payments-money-passport.jpg)" href="https://namastepattaya.com/index.html#paybill"><b>Pay my bill</b><small>Pay a friend’s bill</small></a>
+    <a class="photo" style="--img:url(images/Photos/pink-cafe-lounge.jpg)" href="https://namastepattaya.com/index.html#partner"><b>Partner dashboard</b><small>Clubs &amp; restaurants</small></a>
   </section>
 
   <section>
@@ -432,7 +506,7 @@ body.night .cats button.on i,body.night .roles a.main{border-color:#D42A6A}
     <div class="places" id="places"></div>
   </section>
 
-  <footer>Namaste Pattaya Reservations · Bharat ke liye ek Bhartiye ka tohfa<br>Nightlife and alcohol venues are 20+ only. <a href="https://namastepattaya.com/index.html#privacy">Privacy</a> · <a href="https://namastepattaya.com/index.html#terms">Terms</a></footer>
+  <footer>Namaste Pattaya Reservations · Bharat ke liye ek Bhartiye ka tohfa<br>Nightlife and alcohol venues are 20+ only.<br><a href="legal.html#terms">Terms</a> · <a href="legal.html#privacy">Privacy (PDPA)</a> · <a href="legal.html#community">Community rules</a> · <a href="legal.html#refunds">Booking &amp; refunds</a> · <a href="legal.html#alcohol">Alcohol &amp; nightlife</a> · <a href="legal.html#partner">Partner terms</a> · <a href="legal.html#agent">Agent terms</a> · <a href="legal.html#cookies">Cookies</a></footer>
 </div>
 
 <nav class="bottom" aria-label="Main">
@@ -443,18 +517,35 @@ body.night .cats button.on i,body.night .roles a.main{border-color:#D42A6A}
   <a href="https://namastepattaya.com/index.html#login" aria-label="Profile"><svg class="ic" style="width:22px;height:22px"><use href="#i-user"/></svg><span class="lbl">Profile</span></a>
 </nav>
 
+<!-- ===== Welcome: language + age ===== -->
+<div class="welcome notranslate" id="welcome" translate="no" role="dialog" aria-label="Welcome" hidden>
+  <div class="wbox">
+    <img src="icon-512.png" alt="Namaste Pattaya logo" class="wlogo">
+    <div id="wStep1">
+      <h2>Namaste! Choose your language</h2>
+      <div class="langs" id="langs"></div>
+    </div>
+    <div id="wStep2" hidden>
+      <h2>How old are you?</h2>
+      <p>Clubs and nightlife in Thailand are 20+ only. By continuing you agree to our <a href="legal.html#terms" style="color:#FF8A4C">Terms</a> and <a href="legal.html#privacy" style="color:#FF8A4C">Privacy Policy</a>.</p>
+      <button type="button" class="cta" id="age20">I am 20 or older</button>
+      <button type="button" class="wbtn2" id="ageU20">I am under 20</button>
+    </div>
+  </div>
+</div>
+
 <!-- ===== Screen 2: Event & table ===== -->
 <div class="screen" id="scrEvent" role="dialog" aria-label="Bollywood Night">
   <div class="inner">
     <div class="evhero">
-      <img src="images/Photos/np-event-stage.jpg" onerror="this.onerror=null;this.src='images/Photos/nightclub.jpg'" alt="Party crowd under stage lights">
+      <img id="eImg" src="images/Photos/np-event-stage.jpg" onerror="this.onerror=null;this.src='images/Photos/nightclub.jpg'" alt="Party crowd under stage lights">
       <div class="ctr">
         <a class="rbtn" href="#" aria-label="Back"><svg class="ic"><use href="#i-back"/></svg></a>
         <button class="rbtn heart" aria-label="Save" aria-pressed="false" onclick="this.classList.toggle('on');this.setAttribute('aria-pressed',this.classList.contains('on'))" style="color:var(--accent)"><svg class="ic"><use href="#i-heart"/></svg></button>
       </div>
     </div>
     <div class="evbody">
-      <div><h1>Bollywood Night</h1><span style="font-size:14px;color:#CFC6E0">[Club name] · Walking Street, Pattaya</span></div>
+      <div><h1 id="eTitle">Bollywood Night</h1><span id="eVenue" style="font-size:14px;color:#CFC6E0">[Club name] · Walking Street, Pattaya</span></div>
       <div class="tags"><span>Tonight · 22:00</span><span>Hindi-speaking host</span><span>20+ · ID at the door</span></div>
       <h2 class="syne" style="margin:6px 0 0;font-size:17px">Choose your table</h2>
       <div class="tables" id="tables">
@@ -486,7 +577,7 @@ body.night .cats button.on i,body.night .roles a.main{border-color:#D42A6A}
     <div class="ticket">
       <img src="images/Photos/np-club-crowd.jpg" onerror="this.onerror=null;this.src='images/Photos/xnashaaclub.jpg'" alt="Nightclub dance floor">
       <div class="tk">
-        <div class="r"><b>Bollywood Night</b><span class="ok" style="background:#123D2E;color:#7BE3B6">Confirmed</span></div>
+        <div class="r"><b id="pTitle">Bollywood Night</b><span class="ok" style="background:#123D2E;color:#7BE3B6">Confirmed</span></div>
         <div class="grid2">
           <div><small>Venue</small><span>[Club name]</span></div>
           <div><small>Date</small><span>[DATE] · 22:00</span></div>
@@ -527,10 +618,10 @@ var SLOTS=[[5,8,"EARLY MORNING",[["Buddha Mountain","Golden Buddha on the cliff"
 var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
 var mode="night";
 /* mode switch (remembers choice on the phone, same key as before) */
-function setMode(m){mode=m;document.body.className=m;$$(".mode button").forEach(function(x){x.classList.toggle("on",x.dataset.mode===m)});
+function setMode(m){if(m==="night"&&under20()){m="family"}mode=m;document.body.className=m;$$(".mode button").forEach(function(x){x.classList.toggle("on",x.dataset.mode===m)});
   $('meta[name="theme-color"]').setAttribute("content",m==="family"?"#F7F3EC":"#0B0910");
   $$(".chips .night-only").forEach(function(c){c.style.display=m==="night"?"":"none"});
-  try{localStorage.setItem("np_mode",m==="family"?"family":"single")}catch(e){}drawWatch()}
+  try{localStorage.setItem("np_mode",m==="family"?"family":"single")}catch(e){}drawWatch();drawTrip()}
 $$(".mode button").forEach(function(b){b.onclick=function(){setMode(b.dataset.mode);window.scrollTo(0,0)}});
 /* clubs */
 function drawClubs(t){$("#clubList").innerHTML=CLUBS.filter(function(c){return c[0]===t}).map(function(c){return '<a class="club" href="https://namastepattaya.com/index.html#clubs"><img src="'+P+c[4]+'" alt="" loading="lazy"><div><b>'+c[1]+'</b><small>'+c[2]+'</small><em>'+(c[3]?"VIP table from ฿"+c[3].toLocaleString("en-US"):"Day bed – ask for price")+'</em><span class="age">20+</span></div><span class="btn">Book</span></a>'}).join("")}
@@ -545,7 +636,7 @@ $("#places").innerHTML=placeHTML(PLACES);
 $("#famList").innerHTML=placeHTML(PLACES.filter(function(p){return FAM.indexOf(p[0])>-1}));
 /* watch */
 var h=9,pm=true,face=$("#face");
-for(var i=1;i<=12;i++){(function(n){var b=document.createElement("button");b.className="num";b.textContent=n;b.setAttribute("aria-label",n+" o’clock");var a=n*Math.PI/6;b.style.left="calc(50% + "+(98*Math.sin(a)-20)+"px)";b.style.top="calc(50% - "+(98*Math.cos(a)+20)+"px)";b.onclick=function(){h=n;drawWatch()};face.appendChild(b)})(i)}
+for(var i=1;i<=12;i++){(function(n){var b=document.createElement("button");b.className="num";b.textContent=n;b.setAttribute("aria-label",n+" o’clock");var a=n*Math.PI/6;b.style.left="calc(50% + "+(40*Math.sin(a)).toFixed(2)+"% - 22px)";b.style.top="calc(50% - "+(40*Math.cos(a)).toFixed(2)+"% - 22px)";b.onclick=function(){h=n;drawWatch()};face.appendChild(b)})(i)}
 function drawWatch(){var h24=(h%12)+(pm?12:0),hh=h24<5?h24+24:h24,s=SLOTS.filter(function(x){return hh>=x[0]&&hh<x[1]})[0]||SLOTS[0];
   $$(".num").forEach(function(b){b.classList.toggle("on",+b.textContent===h)});$("#hand").style.transform="rotate("+((h%12)*30)+"deg)";
   $("#am").classList.toggle("on",!pm);$("#pm").classList.toggle("on",pm);$("#partLabel").textContent=s[2];$("#atLabel").textContent="At "+h+":00 "+(pm?"PM":"AM")+" you can…";
@@ -553,6 +644,25 @@ function drawWatch(){var h24=(h%12)+(pm?12:0),hh=h24<5?h24+24:h24,s=SLOTS.filter
 $("#am").onclick=function(){pm=false;drawWatch()};$("#pm").onclick=function(){pm=true;drawWatch()};
 function now(){var x=new Date(Date.now()+7*3600000).getUTCHours();h=(x%12)||12;pm=x>=12;drawWatch()}
 $("#nowBtn").onclick=now;
+/* currency converter (rate saved on the phone) */
+var RATE=2.60;try{var rr=parseFloat(localStorage.getItem("np_fx_rate"));if(rr>0)RATE=rr}catch(e){}
+var fxRev=false;$("#fxRate").value=RATE.toFixed(2);
+function fmtB(n){return "฿"+Math.round(n).toLocaleString("en-US")}function fmtR(n){return "₹"+Math.round(n).toLocaleString("en-IN")}
+function fx(){var v=parseFloat($("#fxIn").value)||0;$("#fxOut").textContent=fxRev?fmtB(v/RATE):fmtR(v*RATE);
+  $("#fxFromL").textContent=fxRev?"Indian Rupee (₹)":"Thai Baht (฿)";$("#fxToL").textContent=fxRev?"Thai Baht (฿)":"Indian Rupee (₹)";trip()}
+$("#fxIn").oninput=fx;$("#fxSwap").onclick=function(){fxRev=!fxRev;fx()};
+$("#fxRate").oninput=function(){var r=parseFloat(this.value);if(r>0){RATE=r;try{localStorage.setItem("np_fx_rate",r)}catch(e){}fx()}};
+/* customize my trip: [name, detail, price THB, type] type: p=per adult (child half), g=per group, n=per night, t=per trip; f=friends only */
+var TRIP=[["Hotel room","4-star, per night",2500,"n"],["Airport pickup & drop","Private car, both ways",1600,"t"],["Coral Island (Koh Larn) tour","Boat + lunch, per adult",1200,"p"],["Indian dinner","Veg or non-veg, per person per night",450,"pn"],["Nong Nooch Garden","Entry + show, per adult",1000,"p"],["Ramayana Water Park","Day pass, per adult",1300,"p"],["Spa & massage","1 hour, per adult",800,"p"],["Private yacht (half day)","Whole group",18000,"g"],["Club night – VIP table","20+ only, whole group",8000,"gf"]];
+var tv={n:3,a:2,c:0},sel={0:1,1:1,2:1};
+function drawTrip(){$("#tripItems").innerHTML=TRIP.map(function(t,i){if(t[3].indexOf("f")>-1&&mode==="family")return "";return '<label class="it"><input type="checkbox" data-i="'+i+'"'+(sel[i]?" checked":"")+'><span>'+t[0]+'<small>'+t[1]+'</small></span><em>'+fmtB(t[2])+'</em></label>'}).join("");
+  $$("#tripItems input").forEach(function(c){c.onchange=function(){sel[c.dataset.i]=c.checked?1:0;trip()}});trip()}
+function cost(t){var n=tv.n,ppl=tv.a+tv.c*0.5,k=t[3];if(k[0]==="n")return t[2]*n;if(k==="t")return t[2];if(k==="pn")return t[2]*(tv.a+tv.c)*n;if(k[0]==="g")return t[2];return t[2]*ppl}
+function trip(){var tot=0,lines=[];TRIP.forEach(function(t,i){if(!sel[i]||(t[3].indexOf("f")>-1&&mode==="family"))return;var c=cost(t);tot+=c;lines.push("- "+t[0]+": "+fmtB(c))});
+  $("#qTHB").textContent=fmtB(tot);$("#qINR").textContent="≈ "+fmtR(tot*RATE);
+  var msg="Namaste Pattaya – my trip quotation\n"+tv.n+" nights, "+tv.a+" adults, "+tv.c+" children\n"+lines.join("\n")+"\nEstimated total: "+fmtB(tot)+" (≈ "+fmtR(tot*RATE)+")\nPlease confirm final price.";
+  $("#qSend").href="https://wa.me/?text="+encodeURIComponent(msg)}
+$$(".st button").forEach(function(b){b.onclick=function(){var k=b.dataset.k,mn=k==="c"?0:1;tv[k]=Math.max(mn,Math.min(30,tv[k]+(+b.dataset.d)));$("#vN").textContent=tv.n;$("#vA").textContent=tv.a;$("#vC").textContent=tv.c;trip()}});
 /* live India + Thailand clocks */
 $$(".clock .ticks").forEach(function(g){var t="";for(var k=0;k<12;k++){var a=k*Math.PI/6,r1=k%3?40:37;t+='<line x1="'+(50+r1*Math.sin(a)).toFixed(1)+'" y1="'+(50-r1*Math.cos(a)).toFixed(1)+'" x2="'+(50+43*Math.sin(a)).toFixed(1)+'" y2="'+(50-43*Math.cos(a)).toFixed(1)+'"/>'}g.innerHTML=t});
 function tick(){[["IN",5.5],["TH",7]].forEach(function(z){var d=new Date(Date.now()+z[1]*3600000),H=d.getUTCHours(),M=d.getUTCMinutes(),S=d.getUTCSeconds();
@@ -564,7 +674,24 @@ window.askRaju=function(e){e.preventDefault();var q=$("#askIn").value.trim();loc
 window.famSearch=function(e){e.preventDefault();var q=$("#famQ").value.trim();location.href="https://namastepattaya.com/index.html#raju"+(q?"?q="+encodeURIComponent(q):"");return false};
 /* table choice -> pass */
 $$("#tables button").forEach(function(b){b.onclick=function(){$$("#tables button").forEach(function(x){x.classList.toggle("on",x===b)});$("#pTable").textContent=b.dataset.t;$("#pGuests").textContent=b.dataset.g}});
-$("#waShare").href="https://wa.me/?text="+encodeURIComponent("Bollywood Night in Pattaya, booked with Namaste Pattaya: https://namastepattaya.com");
+/* Tonight near you: 3D slider */
+var EVENTS=[["Bollywood Night","[Club name] · Walking Street · Tonight 22:00","np-club-crowd.jpg","xnashaaclub.jpg"],["Ladies Night","[Club name] · Walking Street · Tonight 21:00","xjalwa.jpg","nightclub.jpg"],["Sunset Beach Party","[Beach club name] · Tonight 17:00","xcavebeachclub.jpg","xbyblosbeachclub.jpg"]];
+var sl=$("#evSlider");
+sl.innerHTML=EVENTS.map(function(e,i){return '<div class="ev slide" role="group" aria-label="'+(i+1)+' of '+EVENTS.length+'"><div class="row"><div><b>'+e[0]+'</b><small>'+e[1]+'</small></div><button class="rbtn heart" aria-label="Save" aria-pressed="false"><svg class="ic" style="width:18px;height:18px"><use href="#i-heart"/></svg></button></div><img src="'+P+e[2]+'" onerror="this.onerror=null;this.src=\''+P+e[3]+'\'" alt=""><a class="cta" href="#event" data-i="'+i+'">Book a table <svg class="ic" style="width:18px;height:18px"><use href="#i-arrow"/></svg></a></div>'}).join("");
+$("#evDots").innerHTML=EVENTS.map(function(e,i){return '<button type="button" aria-label="Show '+e[0]+'" data-i="'+i+'"></button>'}).join("");
+var slides=sl.querySelectorAll(".slide"),dots=$$("#evDots button");
+function sl3d(){var c=sl.scrollLeft+sl.clientWidth/2,best=0,bd=1e9;slides.forEach(function(el,i){var m=el.offsetLeft+el.offsetWidth/2,d=(m-c)/el.offsetWidth,ad=Math.min(Math.abs(d),1.5);
+  el.style.transform="perspective(900px) rotateY("+(-d*35).toFixed(1)+"deg) scale("+(1-ad*0.12).toFixed(3)+")";el.style.opacity=(1-ad*0.35).toFixed(2);el.style.zIndex=10-Math.round(ad*5);if(Math.abs(d)<bd){bd=Math.abs(d);best=i}});
+  dots.forEach(function(d,i){d.classList.toggle("on",i===best)})}
+sl.addEventListener("scroll",function(){requestAnimationFrame(sl3d)},{passive:true});window.addEventListener("resize",sl3d);sl3d();
+dots.forEach(function(d){d.onclick=function(){var el=slides[+d.dataset.i];sl.scrollTo({left:el.offsetLeft-(sl.clientWidth-el.offsetWidth)/2,behavior:"smooth"})}});
+sl.querySelectorAll(".heart").forEach(function(h){h.onclick=function(){h.classList.toggle("on");h.setAttribute("aria-pressed",h.classList.contains("on"))}});
+var curEv=0;
+function setEvent(i){var e=EVENTS[i];curEv=i;$("#eTitle").textContent=e[0];$("#pTitle").textContent=e[0];$("#eVenue").textContent=e[1].split(" · Tonight")[0];
+  $("#eImg").onerror=function(){this.onerror=null;this.src=P+e[3]};$("#eImg").src=i===0?P+"np-event-stage.jpg":P+e[2];
+  $("#waShare").href="https://wa.me/?text="+encodeURIComponent(e[0]+" in Pattaya, booked with Namaste Pattaya: https://namastepattaya.com")}
+sl.querySelectorAll(".cta").forEach(function(a){a.onclick=function(){setEvent(+a.dataset.i)}});
+setEvent(0);
 /* sample QR pattern (not a real code) */
 (function(){var c="",seed=7;function r(){seed=(seed*9301+49297)%233280;return seed/233280}
   function finder(x,y){var p=[[0,0],[14,0],[0,14]];for(var k=0;k<3;k++){var dx=x-p[k][0],dy=y-p[k][1];if(dx>=0&&dx<7&&dy>=0&&dy<7){return (dx===0||dx===6||dy===0||dy===6||(dx>1&&dx<5&&dy>1&&dy<5))?1:0}}return -1}
@@ -576,8 +703,26 @@ function route(){var hsh=location.hash;$("#scrEvent").classList.toggle("open",hs
 window.addEventListener("hashchange",route);
 $$('.screen a[href="#"]').forEach(function(a){a.onclick=function(e){e.preventDefault();history.length>1?history.back():(location.hash="")}});
 /* start */
+/* welcome: language + age (same 10 languages and np_lang key as the main app) */
+var LANGS=[["en","English","English"],["hi","हिंदी","Hindi"],["pa","ਪੰਜਾਬੀ","Punjabi"],["gu","ગુજરાતી","Gujarati"],["mr","मराठी","Marathi"],["ta","தமிழ்","Tamil"],["th","ไทย","Thai"],["bn","বাংলা","Bengali"],["te","తెలుగు","Telugu"],["bho","भोजपुरी","Bhojpuri"]];
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+function under20(){return ls("np_age")==="u20"}
+function setGoogTrans(l){var exp=(l==="en")?"; expires=Thu, 01 Jan 1970 00:00:00 GMT":"",v=(l==="en")?"":"/en/"+l;document.cookie="googtrans="+v+"; path=/"+exp;document.cookie="googtrans="+v+"; path=/; domain="+location.hostname+exp}
+function loadTranslate(){if(document.getElementById("gtScript"))return;var d=document.createElement("div");d.id="google_translate_element";d.style.display="none";document.body.appendChild(d);
+  window.npGT=function(){try{new google.translate.TranslateElement({pageLanguage:"en",autoDisplay:false},"google_translate_element")}catch(e){}};
+  var sc=document.createElement("script");sc.id="gtScript";sc.src="https://translate.google.com/translate_a/element.js?cb=npGT";document.body.appendChild(sc)}
+var langChanged=false;
+$("#langs").innerHTML=LANGS.map(function(l){return '<button type="button" data-l="'+l[0]+'"><b>'+l[1]+'</b><small>'+l[2]+'</small></button>'}).join("");
+$$("#langs button").forEach(function(b){b.classList.toggle("on",b.dataset.l===(ls("np_lang")||"en"));b.onclick=function(){var old=ls("np_lang")||"en";ls("np_lang",b.dataset.l);setGoogTrans(b.dataset.l);langChanged=old!==b.dataset.l;
+  if(ls("np_welcome_done")){closeWelcome()}else{$("#wStep1").hidden=true;$("#wStep2").hidden=false}}});
+window.openWelcome=function(onlyLang){$("#welcome").hidden=false;$("#wStep1").hidden=false;$("#wStep2").hidden=true;document.body.style.overflow="hidden"};
+function closeWelcome(){$("#welcome").hidden=true;document.body.style.overflow="";if(langChanged){location.reload()}}
+$("#age20").onclick=function(){ls("np_age","20plus");ls("np_welcome_done","1");applyAge();closeWelcome()};
+$("#ageU20").onclick=function(){ls("np_age","u20");ls("np_welcome_done","1");applyAge();setMode("family");closeWelcome()};
+function applyAge(){var b=document.querySelector('.mode button[data-mode="night"]');if(under20()){b.disabled=true;b.title="Nightlife is 20+ only"}else{b.disabled=false;b.title=""}}
+applyAge();if((ls("np_lang")||"en")!=="en")loadTranslate();if(!ls("np_welcome_done"))openWelcome();
 var start="night";try{if(localStorage.getItem("np_mode")==="family")start="family"}catch(e){}
-setMode(start);now();route();
+setMode(start);now();route();drawTrip();fx();
 })();
 </script>
 </body>
