@@ -4001,7 +4001,9 @@
     if(/[\u0A80-\u0AFF]/.test(t))return "gu";
     if(/[\u0B80-\u0BFF]/.test(t))return "ta";
     if(/[\u0E00-\u0E7F]/.test(t))return "th";
-    if(/[\u0900-\u097F]/.test(t))return appLang()==="mr"?"mr":"hi";
+    if(/[\u0980-\u09FF]/.test(t))return "bn";
+    if(/[\u0C00-\u0C7F]/.test(t))return "te";
+    if(/[\u0900-\u097F]/.test(t)){var al=appLang();return al==="mr"?"mr":(al==="bho"?"bho":"hi")}
     return appLang()==="en"?"hi":"en";
   }
   function clean(t){
@@ -4022,7 +4024,7 @@
       '@keyframes npvb{to{height:12px}}.npvwrap{margin:-2px 0 6px}';
     document.head.appendChild(st);
   }
-  function stop(){try{if(player){player.pause();player=null}}catch(e){}if(playingBtn){playingBtn.classList.remove("on");setLabel(playingBtn);playingBtn=null}}
+  function stop(){try{if(player){player.pause();player=null}}catch(e){}try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}if(playingBtn){playingBtn.classList.remove("on");setLabel(playingBtn);playingBtn=null}}
   function setLabel(btn,txt){var s=btn.querySelector(".t");if(s)s.textContent=txt||LABEL[appLang()]||LABEL.en}
   async function getAudio(text,l){
     if(window.npMaskClubs)text=window.npMaskClubs(text);
@@ -4044,6 +4046,21 @@
     }
     cache[ck]=url;return url;
   }
+  /* 9 Nov 2026: backup voice. If the Raju voice server (ElevenLabs) fails, the phone's own free voice reads the answer instead of showing an error. */
+  var serverDown=0,PHONE={en:"en-IN",hi:"hi-IN",pa:"pa-IN",gu:"gu-IN",mr:"mr-IN",ta:"ta-IN",th:"th-TH",bn:"bn-IN",te:"te-IN",bho:"hi-IN"};
+  try{if(window.speechSynthesis)speechSynthesis.getVoices()}catch(e){}
+  function phoneVoice(text,l,btn){
+    try{
+      if(!window.speechSynthesis||!window.SpeechSynthesisUtterance)return false;
+      var tag=PHONE[l]||"en-IN",u=new SpeechSynthesisUtterance(text),vs=speechSynthesis.getVoices()||[],v=null,i;
+      for(i=0;i<vs.length;i++){var vl=String(vs[i].lang||"").replace("_","-").toLowerCase();if(vl===tag.toLowerCase()){v=vs[i];break}}
+      if(!v)for(i=0;i<vs.length;i++){if(String(vs[i].lang||"").toLowerCase().indexOf(tag.slice(0,2))===0){v=vs[i];break}}
+      u.lang=tag;if(v)u.voice=v;u.rate=.95;
+      speechSynthesis.cancel();playingBtn=btn;btn.classList.add("on");btn.disabled=false;setLabel(btn);
+      u.onend=u.onerror=function(){if(playingBtn===btn){btn.classList.remove("on");playingBtn=null;setLabel(btn)}};
+      speechSynthesis.speak(u);return true;
+    }catch(e){return false}
+  }
   var reqId=0;
   async function play(btn,msg){
     if(playingBtn===btn){stop();return}
@@ -4051,13 +4068,15 @@
     var text=clean(msg.textContent),l=btn.dataset.l;if(!text)return;
     var ck=l+"|"+text;
     if(!cache[ck]&&usedToday()>=DAILY){setLabel(btn,"🔇 Voice limit for today");return}
+    if(serverDown&&Date.now()-serverDown<5*60*1000&&!cache[ck]){if(phoneVoice(text,l,btn))return}
     btn.disabled=true;setLabel(btn,"⏳ …");
     try{
       var url=await getAudio(text,l);if(my!==reqId){btn.disabled=false;setLabel(btn);return}if(!cache.__counted||cache.__counted.indexOf(ck)<0){(cache.__counted=cache.__counted||[]).push(ck);usedToday(true)}
       player=new Audio(url);playingBtn=btn;btn.classList.add("on");setLabel(btn);
       player.onended=player.onerror=function(){stop()};
       await player.play();
-    }catch(e){if(my!==reqId){btn.disabled=false;setLabel(btn);return}stop();setLabel(btn,"🔇 Voice not available right now");setTimeout(function(){setLabel(btn)},4000)}
+    }catch(e){if(my!==reqId){btn.disabled=false;setLabel(btn);return}stop();serverDown=Date.now();
+      if(!phoneVoice(text,l,btn)){setLabel(btn,"🔇 Voice not available right now");setTimeout(function(){setLabel(btn)},4000)}}
     btn.disabled=false;
   }
   function isLastAnswer(el){var k=[].filter.call(chatEl.children,function(x){return x.classList&&x.classList.contains("bot")});return k[k.length-1]===el}
@@ -5836,34 +5855,52 @@
     '#npWel .tv img{width:64px;height:64px;object-fit:contain;flex-shrink:0}'+'#npWel .tv img.fam{width:72px;height:72px;object-fit:cover;object-position:62% 42%;border-radius:18px;box-shadow:inset 0 -4px 0 rgba(0,0,0,.08)}'+'#npWel .tv .ng{width:64px;height:64px;flex-shrink:0;border-radius:18px;display:flex;align-items:center;justify-content:center;background:rgba(20,11,38,.55);border:1px solid rgba(255,255,255,.35);box-shadow:0 0 14px rgba(255,255,255,.25) inset}'+
     '#npWel .tv b{display:block;font-size:19px}#npWel .tv span{font-size:13px;opacity:.85}'+
     '#npWel .nt{margin:14px 0 0;text-align:center;font-size:12.5px;color:#b9b0dc}'+
+    '#npWel .q{display:flex;align-items:center;gap:8px;margin:18px 0 10px;font-size:16px;font-weight:700}#npWel .q span{width:24px;height:24px;border-radius:50%;background:#ff7a3d;color:#fff;display:inline-grid;place-items:center;font-size:13px;flex:none}#npWel .q small{font-weight:400;color:#cfc8ea;font-size:12.5px;margin-left:auto;text-align:right}'+
+    '#npWel .tv button{min-height:76px}#npWel .tv button.on{outline:3px solid #ff7a3d;outline-offset:2px}'+
+    '#npWel .yn{display:grid;grid-template-columns:1fr 1fr;gap:10px}#npWel .yn button{min-height:52px;border-radius:16px;border:1px solid #3d3366;background:#241b48;color:#fff;font:inherit;font-size:17px;font-weight:700;cursor:pointer}#npWel .yn button.on[data-a=yes]{background:#1d6b4d;border-color:#5dcaa5}#npWel .yn button.on[data-a=no]{background:#5a1f2e;border-color:#ff6b8a}'+
+    '#npWel .nt2{margin:0 0 10px;font-size:13px;color:#cfc8ea;line-height:1.5}#npWel .er{margin:12px 0 0;color:#ffb4c2;font-size:13.5px;line-height:1.45}#npWel .er:empty{display:none}'+
+    '#npWel .go{display:block;width:100%;min-height:54px;margin-top:16px;border:0;border-radius:999px;background:linear-gradient(90deg,#ff8a3d,#ff3d7f);color:#fff;font:inherit;font-size:17px;font-weight:700;cursor:pointer}#npWel .nt a{color:#fff;text-decoration:underline}'+
     '@keyframes npWelUp{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}';
     document.head.appendChild(st)}
   function done(){try{return localStorage.getItem(DONE)==="1"}catch(e){return true}}
   function curLang(){try{return localStorage.getItem("np_lang")||"en"}catch(e){return "en"}}
-  function step2(o){
-    o.querySelector(".sh").innerHTML='<div class="dots"><i></i><i class="on"></i></div><h2>Who is travelling?</h2><p class="sub">We will show the right places for your trip</p>'+
-      '<div class="tv"><button class="s" data-m="singles"><span class="ng" aria-hidden="true"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.6.2 4.5 2 4.5 4.8"/><path d="M19 3.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z"/></svg></span><div><b>Alone or with friends</b><span>Clubs, beach clubs, nightlife, food, tours</span></div></button>'+
-      '<button class="f" data-m="family"><img class="fam" src="family-posters/poster-yacht-v2.webp" alt="" onerror="this.onerror=null;this.src=\'family-icons/icon-two-people.webp\';this.className=\'\'"><div><b>With family</b><span>Kids, elders, just married · water parks, temples, pure veg</span></div></button></div>'+
-      '<p class="nt">You can change this anytime with the small switch on the home page</p>';
-    o.querySelectorAll(".tv button").forEach(function(b){b.onclick=function(){
-      var m=b.dataset.m;try{localStorage.setItem("np_mode",m);localStorage.setItem(DONE,"1");sessionStorage.removeItem("np_wel_step")}catch(e){}
-      var sw=document.querySelector('#npModeSw button[data-m="'+m+'"]');if(sw)sw.click();
-      o.remove();document.documentElement.style.overflow="";window.scrollTo(0,0)}});
-  }
+  /* 9 Nov 2026: language, who is travelling and the 20+ check are now ONE page (was 2 steps + a separate age screen). */
+  function trip(){return '<button class="s" data-m="singles"><span class="ng" aria-hidden="true"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.6.2 4.5 2 4.5 4.8"/><path d="M19 3.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z"/></svg></span><div><b>Alone or with friends</b><span>Clubs, beach clubs, nightlife, food, tours</span></div></button>'+
+    '<button class="f" data-m="family"><img class="fam" src="family-posters/poster-yacht-v2.webp" alt="" onerror="this.onerror=null;this.src=\'family-icons/icon-two-people.webp\';this.className=\'\'"><div><b>With family</b><span>Kids, elders, just married · water parks, temples, pure veg</span></div></button>'}
   function show(){
     if(done()||document.getElementById("npWel"))return;
-    var o=document.createElement("div");o.id="npWel";o.className="notranslate";o.setAttribute("translate","no");o.setAttribute("role","dialog");o.setAttribute("aria-label","Welcome");
-    var stp=null;try{stp=sessionStorage.getItem("np_wel_step")}catch(e){}
-    if(stp==="2"){o.innerHTML='<div class="sh"></div>';document.body.appendChild(o);document.documentElement.style.overflow="hidden";step2(o);return}
-    var c=curLang();
-    o.innerHTML='<div class="sh"><div class="dots"><i class="on"></i><i></i></div><h2>Namaste! Choose your language</h2><p class="sub">भाषा चुनें · ภาษา</p><div class="lg">'+
-      LANGS.map(function(l){return '<button data-l="'+l[0]+'"'+(l[0]===c?' class="on"':'')+'>'+l[1]+'<small>'+l[2]+'</small></button>'}).join("")+'</div></div>';
+    var o=document.createElement("div");o.id="npWel";o.className="notranslate";o.setAttribute("translate","no");o.setAttribute("role","dialog");o.setAttribute("aria-modal","true");o.setAttribute("aria-label","Welcome");
+    var saved=null;try{saved=localStorage.getItem("np_lang")}catch(e){}
+    var st={l:saved||"",m:"",a:""};
+    o.innerHTML='<div class="sh"><h2>Namaste! 🙏</h2><p class="sub">3 quick questions · 3 छोटे सवाल</p>'+
+      '<h3 class="q"><span>1</span>Choose your language<small>भाषा चुनें</small></h3><div class="lg">'+
+      LANGS.map(function(l){return '<button data-l="'+l[0]+'"'+(l[0]===st.l?' class="on"':'')+'>'+l[1]+'<small>'+l[2]+'</small></button>'}).join("")+'</div>'+
+      '<h3 class="q"><span>2</span>Who is travelling?<small>कौन यात्रा कर रहा है?</small></h3><div class="tv">'+trip()+'</div>'+
+      '<h3 class="q"><span>3</span>Are you 20 or older?<small>क्या आपकी उम्र 20+ है?</small></h3>'+
+      '<p class="nt2">This app includes nightlife and alcohol. Under Thai law it is only for people aged 20 and over.<br>यह ऐप नाइटलाइफ़ और शराब से जुड़ा है। थाई कानून के अनुसार यह केवल 20 साल या उससे ज़्यादा उम्र के लोगों के लिए है।</p>'+
+      '<div class="yn"><button data-a="yes">Yes / हाँ</button><button data-a="no">No / नहीं</button></div>'+
+      '<p class="er" role="alert"></p>'+
+      '<button class="go">Continue / आगे बढ़ें</button>'+
+      '<p class="nt">By continuing you agree to our <a href="#terms" data-d="terms">Terms</a> and <a href="#privacy" data-d="privacy">Privacy Policy</a>.<br>आगे बढ़कर आप हमारी शर्तों और गोपनीयता नीति से सहमत होते हैं।<br>You can change language and trip type anytime on the home page.</p></div>';
     document.body.appendChild(o);document.documentElement.style.overflow="hidden";
-    o.querySelectorAll(".lg button").forEach(function(b){b.onclick=function(){
-      var l=b.dataset.l;try{sessionStorage.setItem("np_wel_step","2")}catch(e){}
-      step2(o);
-      if(l!==curLang()){if(typeof window.npFastLang==="function")window.npFastLang(l);else{try{localStorage.setItem("np_lang",l)}catch(e){}}}
-      }});
+    var er=o.querySelector(".er");
+    function pick(sel,btn){o.querySelectorAll(sel).forEach(function(x){x.classList.toggle("on",x===btn)})}
+    o.querySelectorAll(".lg button").forEach(function(b){b.onclick=function(){st.l=b.dataset.l;pick(".lg button",b);if(st.a!=="no")er.textContent=""}});
+    o.querySelectorAll(".tv button").forEach(function(b){b.onclick=function(){st.m=b.dataset.m;pick(".tv button",b);if(st.a!=="no")er.textContent=""}});
+    o.querySelectorAll(".yn button").forEach(function(b){b.onclick=function(){st.a=b.dataset.a;pick(".yn button",b);
+      if(st.a==="no"){try{localStorage.setItem("np_age_under",JSON.stringify(new Date().toISOString()))}catch(e){}
+        er.textContent="Sorry, Namaste Pattaya Reservations is only for people aged 20 and over. / माफ़ कीजिए, यह ऐप केवल 20 साल या उससे ज़्यादा उम्र के लोगों के लिए है।"}
+      else er.textContent=""}});
+    o.querySelectorAll("[data-d]").forEach(function(a){a.onclick=function(e){e.preventDefault();if(typeof window.npOpenDoc==="function")window.npOpenDoc(a.dataset.d)}});
+    o.querySelector(".go").onclick=function(){
+      if(st.a==="no"){er.textContent="Sorry, Namaste Pattaya Reservations is only for people aged 20 and over. / माफ़ कीजिए, यह ऐप केवल 20 साल या उससे ज़्यादा उम्र के लोगों के लिए है।";return}
+      if(!st.l||!st.m||st.a!=="yes"){er.textContent="Please answer all 3 questions. / कृपया तीनों सवालों के जवाब दें।";return}
+      try{localStorage.setItem("np_mode",st.m);localStorage.setItem("np_age_ok",JSON.stringify(new Date().toISOString()));localStorage.removeItem("np_age_under");localStorage.setItem(DONE,"1");sessionStorage.removeItem("np_wel_step")}catch(e){}
+      var sw=document.querySelector('#npModeSw button[data-m="'+st.m+'"]');if(sw)sw.click();
+      o.remove();document.documentElement.style.overflow="";window.scrollTo(0,0);
+      if(typeof window.npFastLang==="function")window.npFastLang(st.l);
+      else{var was=null;try{was=localStorage.getItem("np_lang");localStorage.setItem("np_lang",st.l)}catch(e){}if((was||"en")!==st.l)location.reload()}
+    };
   }
   function ready(){
     if(done())return;
@@ -5872,7 +5909,6 @@
     show();
   }
   if(document.readyState==="complete")setTimeout(ready,1800);else window.addEventListener("load",function(){setTimeout(ready,1800)});
-  setInterval(function(){if(!done()&&!document.getElementById("npWel")&&!document.documentElement.classList.contains("npLocked")){var s2=null;try{s2=sessionStorage.getItem("np_wel_step")}catch(e){}if(s2==="2")show()}},1200);
 })();
 
 
