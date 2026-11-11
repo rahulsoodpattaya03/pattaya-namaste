@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>/* 12 Nov 2026: this page is the Home inside app.html; opened directly it forwards there */if(window.self===window.top)location.replace("app.html"+location.search+location.hash);</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Namaste Pattaya Reservations</title>
@@ -364,6 +365,22 @@ body.night .pkg.on{border-color:#D42A6A;background:#1E1828}
 .wfull .dface{border-radius:24px}
 .ev{padding:0;overflow:hidden}.ev img{border-radius:0;border:0!important;box-shadow:none!important;border-bottom:3px solid var(--fr)!important}.ev .row{padding:0 10px}.ev .cta{width:auto;margin:0 10px 10px}
 #npPrevToast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:#1d1830;color:#fff;border:1px solid rgba(255,255,255,.15);padding:10px 16px;border-radius:999px;font:600 13.5px Inter,sans-serif;opacity:0;pointer-events:none;transition:.25s;z-index:9999;white-space:nowrap}#npPrevToast.on{opacity:1;transform:translate(-50%,0)}
+/* 12 Nov 2026: 3D photo sliders (cover-flow) – full-photo cards, side cards tilted behind, arrows */
+.s3wrap{position:relative}
+.slider{gap:0;padding:14px 20% 18px}
+.slide{flex:0 0 60%}
+.slider .rcard,.slider .ev{position:relative;height:300px;padding:0;overflow:hidden;border-radius:22px;border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 40px rgba(0,0,0,.5);background:#120d1c;display:flex;flex-direction:column;justify-content:flex-end}
+.slider .rcard img,.slider .ev img{position:absolute;inset:0;width:100%;height:100%!important;object-fit:cover;border:0!important;border-radius:0!important;z-index:0}
+.slider .rcard::before,.slider .ev::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,5,16,0) 35%,rgba(8,5,16,.93) 88%)}
+.slider .rbody{position:relative;z-index:2;padding:12px;background:none}
+.slider .rbody b{font-size:17px;color:#fff}.slider .rbody small{color:#E6DDF2}
+.slider .ev .row,.slider .ev .cta{position:relative;z-index:2}
+.slider .ev .row{padding:0 12px}.slider .ev b{font-size:17px;color:#fff}.slider .ev small{color:#E6DDF2}
+.slider .ev .cta{margin:8px 12px 12px}
+.slider .tile{height:300px;min-height:0;border-radius:22px;box-shadow:0 18px 40px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.14)}
+.slider .tile b{font-size:19px}
+.s3arrow{position:absolute;top:calc(50% - 30px);width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;z-index:20;cursor:pointer}
+.s3arrow.l{left:-8px}.s3arrow.r{right:-8px}
 </style>
 </head>
 <body class="night">
@@ -462,7 +479,7 @@ body.night .pkg.on{border-color:#D42A6A;background:#1E1828}
     <div class="chips"><a href="app.html#raju">Plan my trip</a><a href="app.html#raju">Airport taxi</a><a href="app.html#raju">Pure veg food</a><a href="#clubs" class="night-only" style="display:none">Tonight’s party</a></div>
     <form class="ask" action="#" method="get" onsubmit="return askRaju(event)">
       <input id="askIn" type="text" placeholder="Type to Raju… club, hotel, taxi" aria-label="Message Raju">
-      <button type="button" class="mic" aria-label="Speak to Raju" onclick="location.href='app.html#raju'"><svg class="ic"><use href="#i-mic"/></svg></button>
+      <button type="button" class="mic" aria-label="Speak to Raju" onclick="npOut('raju')"><svg class="ic"><use href="#i-mic"/></svg></button>
       <button type="submit" class="send" aria-label="Send to Raju"><svg class="ic" style="width:18px;height:18px"><use href="#i-plane"/></svg></button>
     </form>
   </section>
@@ -721,7 +738,7 @@ $$(".mode button").forEach(function(b){b.onclick=function(){setMode(b.dataset.mo
 /* clubs + main services: small 3D swipe sliders */
 function make3d(sl,dotsEl){var slides=sl.querySelectorAll(".slide");dotsEl.innerHTML=Array.prototype.map.call(slides,function(e,i){return '<button type="button" aria-label="Show '+(i+1)+'" data-i="'+i+'"></button>'}).join("");var dots=dotsEl.querySelectorAll("button");
   function f(){var c=sl.scrollLeft+sl.clientWidth/2,best=0,bd=1e9;slides.forEach(function(el,i){var m=el.offsetLeft+el.offsetWidth/2,d=(m-c)/el.offsetWidth,ad=Math.min(Math.abs(d),1.5);
-    el.style.transform="perspective(900px) rotateY("+(-d*35).toFixed(1)+"deg) scale("+(1-ad*0.12).toFixed(3)+")";el.style.opacity=(1-ad*0.35).toFixed(2);el.style.zIndex=10-Math.round(ad*5);if(Math.abs(d)<bd){bd=Math.abs(d);best=i}});
+    el.style.transform="perspective(1000px) translateX("+(-d*20).toFixed(1)+"%) rotateY("+(-d*32).toFixed(1)+"deg) scale("+(1-ad*0.16).toFixed(3)+")";el.style.opacity=(1-ad*0.18).toFixed(2);el.style.zIndex=10-Math.round(ad*5);if(Math.abs(d)<bd){bd=Math.abs(d);best=i}});
     dots.forEach(function(d,i){d.classList.toggle("on",i===best)})}
   sl.addEventListener("scroll",function(){requestAnimationFrame(f)},{passive:true});window.addEventListener("resize",f);f();
   dots.forEach(function(d){d.onclick=function(){var el=slides[+d.dataset.i];sl.scrollTo({left:el.offsetLeft-(sl.clientWidth-el.offsetWidth)/2,behavior:"smooth"})}});return f}
@@ -799,8 +816,8 @@ function tick(){[["IN",5.5],["TH",7]].forEach(function(z){var d=new Date(Date.no
   $("#d"+z[0]).textContent=((H%12)||12)+":"+(M<10?"0":"")+M+" "+(H<12?"AM":"PM")})}
 tick();setInterval(tick,1000);
 /* Raju + family search (both go to the live app) */
-window.askRaju=function(e){e.preventDefault();var q=$("#askIn").value.trim();location.href="app.html#raju"+(q?"?q="+encodeURIComponent(q):"");return false};
-window.famSearch=function(e){e.preventDefault();var q=$("#famQ").value.trim();location.href="app.html#raju"+(q?"?q="+encodeURIComponent(q):"");return false};
+window.askRaju=function(e){e.preventDefault();var q=$("#askIn").value.trim();npOut("raju",q);return false};
+window.famSearch=function(e){e.preventDefault();var q=$("#famQ").value.trim();npOut("raju",q);return false};
 /* table choice -> pass */
 $$("#tables button").forEach(function(b){b.onclick=function(){$$("#tables button").forEach(function(x){x.classList.toggle("on",x===b)});$("#pTable").textContent=b.dataset.t;$("#pGuests").textContent=b.dataset.g}});
 /* Tonight near you: 3D slider */
@@ -810,7 +827,7 @@ sl.innerHTML=EVENTS.map(function(e,i){return '<div class="ev slide" role="group"
 $("#evDots").innerHTML=EVENTS.map(function(e,i){return '<button type="button" aria-label="Show '+e[0]+'" data-i="'+i+'"></button>'}).join("");
 var slides=sl.querySelectorAll(".slide"),dots=$$("#evDots button");
 function sl3d(){var c=sl.scrollLeft+sl.clientWidth/2,best=0,bd=1e9;slides.forEach(function(el,i){var m=el.offsetLeft+el.offsetWidth/2,d=(m-c)/el.offsetWidth,ad=Math.min(Math.abs(d),1.5);
-  el.style.transform="perspective(900px) rotateY("+(-d*35).toFixed(1)+"deg) scale("+(1-ad*0.12).toFixed(3)+")";el.style.opacity=(1-ad*0.35).toFixed(2);el.style.zIndex=10-Math.round(ad*5);if(Math.abs(d)<bd){bd=Math.abs(d);best=i}});
+  el.style.transform="perspective(1000px) translateX("+(-d*20).toFixed(1)+"%) rotateY("+(-d*32).toFixed(1)+"deg) scale("+(1-ad*0.16).toFixed(3)+")";el.style.opacity=(1-ad*0.18).toFixed(2);el.style.zIndex=10-Math.round(ad*5);if(Math.abs(d)<bd){bd=Math.abs(d);best=i}});
   dots.forEach(function(d,i){d.classList.toggle("on",i===best)})}
 sl.addEventListener("scroll",function(){requestAnimationFrame(sl3d)},{passive:true});window.addEventListener("resize",sl3d);sl3d();
 dots.forEach(function(d){d.onclick=function(){var el=slides[+d.dataset.i];sl.scrollTo({left:el.offsetLeft-(sl.clientWidth-el.offsetWidth)/2,behavior:"smooth"})}});
@@ -855,7 +872,7 @@ function closeWelcome(){$("#welcome").hidden=true;document.body.style.overflow="
 $("#age20").onclick=function(){ls("np_age","20plus");ls("np_welcome_done","1");applyAge();closeWelcome()};
 $("#ageU20").onclick=function(){ls("np_age","u20");ls("np_welcome_done","1");applyAge();setMode("family");closeWelcome()};
 function applyAge(){var b=document.querySelector('.mode button[data-mode="night"]');if(under20()){b.disabled=true;b.title="Nightlife is 20+ only"}else{b.disabled=false;b.title=""}}
-applyAge();if((ls("np_lang")||"en")!=="en")loadTranslate();if(!ls("np_welcome_done"))openWelcome();
+applyAge();if((ls("np_lang")||"en")!=="en")loadTranslate();if(!ls("np_welcome_done")&&window.self===window.top)openWelcome();
 var start="night";try{if(localStorage.getItem("np_mode")==="family")start="family"}catch(e){}
 setMode(start);now();route();drawTrip();fx();
 })();
@@ -866,6 +883,21 @@ function npGo(k){var map={raju:".raju",services:"#svc",places:"#places",clubs:"#
   if(el&&el.offsetParent!==null){(el.closest("section")||el).scrollIntoView({behavior:"smooth",block:"start"});if(k==="raju"){var i=document.getElementById("askIn");if(i)setTimeout(function(){i.focus()},500)}}
   else npToast("Preview: this works in the live app")}
 document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="#go-"]');if(!a)return;e.preventDefault();npGo(a.getAttribute("href").slice(4).split("?")[0])},true);
+
+/* 12 Nov 2026: Home is shown inside app.html – every button opens the real feature in the app */
+function npOut(k,q){if(window.self!==window.top){try{parent.npRoute(k,q);return}catch(e){}}location.href="app.html#"+k+(q?"?q="+encodeURIComponent(q):"")}
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a)return;var h=a.getAttribute("href")||"";
+  if(h==="index.html"){e.preventDefault();window.scrollTo({top:0,behavior:"smooth"});return}
+  if(h.indexOf("app.html#")===0){e.preventDefault();npOut(h.slice(9).split("?")[0])}},true);
+
+/* 12 Nov 2026: left/right arrows on every 3D slider */
+(function(){document.querySelectorAll(".slider").forEach(function(sl){if(sl.dataset.arr)return;sl.dataset.arr=1;
+  var w=document.createElement("div");w.className="s3wrap";sl.parentNode.insertBefore(w,sl);w.appendChild(sl);
+  function step(n){var sls=sl.querySelectorAll(".slide");if(!sls.length)return;var c=sl.scrollLeft+sl.clientWidth/2,cur=0,bd=1e9;
+    sls.forEach(function(el,i){var d=Math.abs(el.offsetLeft+el.offsetWidth/2-c);if(d<bd){bd=d;cur=i}});
+    var t=sls[(cur+n+sls.length)%sls.length];try{sl.dispatchEvent(new Event("wheel"))}catch(e){}
+    sl.scrollTo({left:t.offsetLeft-(sl.clientWidth-t.offsetWidth)/2,behavior:"smooth"})}
+  [["l","\u2039",-1,"Previous"],["r","\u203A",1,"Next"]].forEach(function(a){var b=document.createElement("button");b.type="button";b.className="s3arrow "+a[0];b.textContent=a[1];b.setAttribute("aria-label",a[3]);b.onclick=function(){step(a[2])};w.appendChild(b)})})})();
 </script>
 </body>
 </html>
