@@ -362,6 +362,8 @@ body.night .pkg.on{border-color:#D42A6A;background:#1E1828}
 .watch.wfull{margin-left:-20px;margin-right:-20px;border-radius:0;border-left:0;border-right:0;padding:18px 16px}
 .wfull .dial{max-width:none;width:100%;border-radius:28px;padding:5px}
 .wfull .dface{border-radius:24px}
+.ev{padding:0;overflow:hidden}.ev img{border-radius:0;border:0!important;box-shadow:none!important;border-bottom:3px solid var(--fr)!important}.ev .row{padding:0 10px}.ev .cta{width:auto;margin:0 10px 10px}
+#npPrevToast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:#1d1830;color:#fff;border:1px solid rgba(255,255,255,.15);padding:10px 16px;border-radius:999px;font:600 13.5px Inter,sans-serif;opacity:0;pointer-events:none;transition:.25s;z-index:9999;white-space:nowrap}#npPrevToast.on{opacity:1;transform:translate(-50%,0)}
 </style>
 </head>
 <body class="night">
@@ -407,24 +409,24 @@ body.night .pkg.on{border-color:#D42A6A;background:#1E1828}
     <div class="top">
       <img class="logo" src="icon-512.png" alt="Namaste Pattaya logo">
       <span class="name">Namaste Pattaya</span>
-      <a class="rbtn" href="https://namastepattaya.com/index.html#search" aria-label="Search"><svg class="ic"><use href="#i-search"/></svg></a>
-      <a class="rbtn" href="https://namastepattaya.com/index.html#notifications" aria-label="Notifications"><svg class="ic"><use href="#i-bell"/></svg></a>
+      <a class="rbtn" href="#go-search" aria-label="Search"><svg class="ic"><use href="#i-search"/></svg></a>
+      <a class="rbtn" href="#go-notifications" aria-label="Notifications"><svg class="ic"><use href="#i-bell"/></svg></a>
     </div>
   </div>
   <!-- ===== FAMILY header ===== -->
   <div class="fam-only">
-    <form class="top" action="https://namastepattaya.com/index.html" method="get" onsubmit="return famSearch(event)">
+    <form class="top" action="#" method="get" onsubmit="return famSearch(event)">
       <img class="logo" src="icon-512.png" alt="Namaste Pattaya logo">
       <label class="search"><svg class="ic" style="width:18px;height:18px"><use href="#i-search"/></svg><input id="famQ" type="search" placeholder="Hotels, tours, pure veg…" aria-label="Search"></label>
-      <a class="rbtn filt" href="https://namastepattaya.com/index.html#services" aria-label="Filters"><svg class="ic"><use href="#i-filter"/></svg></a>
+      <a class="rbtn filt" href="#go-services" aria-label="Filters"><svg class="ic"><use href="#i-filter"/></svg></a>
     </form>
   </div>
 
   <!-- sign-in (kept from old page) -->
   <div class="roles" role="toolbar" aria-label="Sign in">
-    <a href="https://namastepattaya.com/index.html#partner">Partner</a>
-    <a href="https://namastepattaya.com/index.html#agent">Agent</a>
-    <a class="main" href="https://namastepattaya.com/index.html#login">Traveller</a>
+    <a href="#go-partner">Partner</a>
+    <a href="#go-agent">Agent</a>
+    <a class="main" href="#go-login">Traveller</a>
     <a href="#" onclick="openWelcome(1);return false" aria-label="Language"><svg class="ic" style="width:18px;height:18px"><use href="#i-globe"/></svg></a>
   </div>
 
@@ -457,10 +459,10 @@ body.night .pkg.on{border-color:#D42A6A;background:#1E1828}
         <div class="bubble">Namaste! I’m Raju, your Pattaya guide. What shall we plan today?</div>
       </div>
     </div>
-    <div class="chips"><a href="https://namastepattaya.com/index.html#raju">Plan my trip</a><a href="https://namastepattaya.com/index.html#raju">Airport taxi</a><a href="https://namastepattaya.com/index.html#raju">Pure veg food</a><a href="#clubs" class="night-only" style="display:none">Tonight’s party</a></div>
-    <form class="ask" action="https://namastepattaya.com/index.html" method="get" onsubmit="return askRaju(event)">
+    <div class="chips"><a href="#go-raju">Plan my trip</a><a href="#go-raju">Airport taxi</a><a href="#go-raju">Pure veg food</a><a href="#clubs" class="night-only" style="display:none">Tonight’s party</a></div>
+    <form class="ask" action="#" method="get" onsubmit="return askRaju(event)">
       <input id="askIn" type="text" placeholder="Type to Raju… club, hotel, taxi" aria-label="Message Raju">
-      <button type="button" class="mic" aria-label="Speak to Raju" onclick="location.href='https://namastepattaya.com/index.html#raju'"><svg class="ic"><use href="#i-mic"/></svg></button>
+      <button type="button" class="mic" aria-label="Speak to Raju" onclick="npGo('raju')"><svg class="ic"><use href="#i-mic"/></svg></button>
       <button type="submit" class="send" aria-label="Send to Raju"><svg class="ic" style="width:18px;height:18px"><use href="#i-plane"/></svg></button>
     </form>
   </section>
@@ -483,7 +485,7 @@ body.night .pkg.on{border-color:#D42A6A;background:#1E1828}
   </section>
   <section aria-label="Main services">
     <div class="head"><h2>Main services</h2></div>
-    <div class="slider sm" id="mainSl" aria-roledescription="carousel"><div class="slide"><a class="tile photo" style="--img:url(images/Photos/boomer-friends.jpg)" href="https://namastepattaya.com/index.html#boomer"><i><svg class="ic"><use href="#i-people"/></svg></i><span><b>Boomer</b><small>Social meetups, safely</small></span></a></div><div class="slide"><a class="tile photo" style="--img:url(images/Photos/taxi.jpg)" href="https://namastepattaya.com/index.html#taxi"><i><svg class="ic"><use href="#i-taxi"/></svg></i><span><b>Namaste Taxi</b><small>Cars &amp; motorbike</small></span></a></div><div class="slide"><a class="tile photo" style="--img:url(friends-group.webp)" href="https://namastepattaya.com/index.html#refer"><i><svg class="ic"><use href="#i-gift"/></svg></i><span><b>Refer &amp; earn</b><small>Credit on bookings</small></span></a></div><div class="slide"><a class="tile photo" style="--img:url(images/Photos/villa-infinity-pool.jpg)" href="https://namastepattaya.com/index.html#packages"><i><svg class="ic"><use href="#i-star"/></svg></i><span><b>Packages</b><small>Standard to Elite</small></span></a></div><div class="slide"><a class="tile photo" style="--img:url(images/Photos/payments-money-passport.jpg)" href="https://namastepattaya.com/index.html#paybill"><i><svg class="ic"><use href="#i-star"/></svg></i><span><b>Pay my bill</b><small>Pay a friend’s bill</small></span></a></div><div class="slide"><a class="tile photo" style="--img:url(images/Photos/pink-cafe-lounge.jpg)" href="https://namastepattaya.com/index.html#partner"><i><svg class="ic"><use href="#i-star"/></svg></i><span><b>Partner dashboard</b><small>Clubs &amp; restaurants</small></span></a></div></div>
+    <div class="slider sm" id="mainSl" aria-roledescription="carousel"><div class="slide"><a class="tile photo" style="--img:url(images/Photos/boomer-friends.jpg)" href="#go-boomer"><i><svg class="ic"><use href="#i-people"/></svg></i><span><b>Boomer</b><small>Social meetups, safely</small></span></a></div><div class="slide"><a class="tile photo" style="--img:url(images/Photos/taxi.jpg)" href="#go-taxi"><i><svg class="ic"><use href="#i-taxi"/></svg></i><span><b>Namaste Taxi</b><small>Cars &amp; motorbike</small></span></a></div><div class="slide"><a class="tile photo" style="--img:url(friends-group.webp)" href="#go-refer"><i><svg class="ic"><use href="#i-gift"/></svg></i><span><b>Refer &amp; earn</b><small>Credit on bookings</small></span></a></div><div class="slide"><a class="tile photo" style="--img:url(images/Photos/villa-infinity-pool.jpg)" href="#go-packages"><i><svg class="ic"><use href="#i-star"/></svg></i><span><b>Packages</b><small>Standard to Elite</small></span></a></div><div class="slide"><a class="tile photo" style="--img:url(images/Photos/payments-money-passport.jpg)" href="#go-paybill"><i><svg class="ic"><use href="#i-star"/></svg></i><span><b>Pay my bill</b><small>Pay a friend’s bill</small></span></a></div><div class="slide"><a class="tile photo" style="--img:url(images/Photos/pink-cafe-lounge.jpg)" href="#go-partner"><i><svg class="ic"><use href="#i-star"/></svg></i><span><b>Partner dashboard</b><small>Clubs &amp; restaurants</small></span></a></div></div>
     <div class="sdots" id="mainDots"></div>
   </section>
   <!-- ===== NIGHT home ===== -->
@@ -505,10 +507,10 @@ body.night .pkg.on{border-color:#D42A6A;background:#1E1828}
   <div class="fam-only">
     <div class="hero">
       <img src="images/Photos/np-family-yacht.jpg" onerror="this.onerror=null;this.src='images/Photos/yacht-sunset.jpg'" alt="Yacht on the sea near Pattaya">
-      <div class="box"><div><small>FAMILY PICK OF THE DAY</small><b>Yacht day to Koh Larn</b></div><a class="pill" href="https://namastepattaya.com/index.html#services">Explore</a></div>
+      <div class="box"><div><small>FAMILY PICK OF THE DAY</small><b>Yacht day to Koh Larn</b></div><a class="pill" href="#go-services">Explore</a></div>
     </div>
     <section>
-      <div class="head"><h2>Your trip with Raju</h2><a href="https://namastepattaya.com/index.html#bookings">View all</a></div>
+      <div class="head"><h2>Your trip with Raju</h2><a href="#go-bookings">View all</a></div>
       <div class="list">
         <div class="li"><i class="a"><svg class="ic" style="width:18px;height:18px"><use href="#i-plane"/></svg></i><div><b>Airport pickup</b><span>[DATE] · [TIME]</span></div><span class="ok">Confirmed</span></div>
         <div class="li"><i><svg class="ic" style="width:18px;height:18px"><use href="#i-roof"/></svg></i><div><b>Hotel check-in</b><span>[Hotel name]</span></div><span style="font-size:12px;font-weight:600;color:var(--muted)">Next</span></div>
@@ -517,14 +519,14 @@ body.night .pkg.on{border-color:#D42A6A;background:#1E1828}
     <section>
       <div class="head"><h2>Quick access</h2></div>
       <div class="qa">
-        <a href="https://namastepattaya.com/index.html#services"><i><svg class="ic"><use href="#i-bed"/></svg></i>Hotels</a>
-        <a href="https://namastepattaya.com/index.html#taxi"><i><svg class="ic"><use href="#i-car"/></svg></i>Transfers</a>
-        <a href="https://namastepattaya.com/index.html#services"><i><svg class="ic"><use href="#i-pin"/></svg></i>Tours</a>
-        <a href="https://namastepattaya.com/index.html#services"><i style="color:#2E8B57"><svg class="ic"><use href="#i-leaf"/></svg></i>Pure veg</a>
-        <a href="https://namastepattaya.com/index.html#places"><i><svg class="ic"><use href="#i-wave"/></svg></i>Water parks</a>
-        <a href="https://namastepattaya.com/index.html#places"><i><svg class="ic"><use href="#i-temple"/></svg></i>Temples</a>
-        <a href="https://namastepattaya.com/index.html#services"><i><svg class="ic"><use href="#i-boat"/></svg></i>Yacht</a>
-        <a href="https://namastepattaya.com/index.html#services"><i><svg class="ic"><use href="#i-plane"/></svg></i>Private jet</a>
+        <a href="#go-services"><i><svg class="ic"><use href="#i-bed"/></svg></i>Hotels</a>
+        <a href="#go-taxi"><i><svg class="ic"><use href="#i-car"/></svg></i>Transfers</a>
+        <a href="#go-services"><i><svg class="ic"><use href="#i-pin"/></svg></i>Tours</a>
+        <a href="#go-services"><i style="color:#2E8B57"><svg class="ic"><use href="#i-leaf"/></svg></i>Pure veg</a>
+        <a href="#go-places"><i><svg class="ic"><use href="#i-wave"/></svg></i>Water parks</a>
+        <a href="#go-places"><i><svg class="ic"><use href="#i-temple"/></svg></i>Temples</a>
+        <a href="#go-services"><i><svg class="ic"><use href="#i-boat"/></svg></i>Yacht</a>
+        <a href="#go-services"><i><svg class="ic"><use href="#i-plane"/></svg></i>Private jet</a>
       </div>
     </section>
   </div>
@@ -581,10 +583,10 @@ body.night .pkg.on{border-color:#D42A6A;background:#1E1828}
 
 <nav class="bottom" aria-label="Main">
   <a class="on" href="index.html"><svg class="ic" style="width:22px;height:22px"><use href="#i-home"/></svg><span class="lbl">Home</span></a>
-  <a href="https://namastepattaya.com/index.html#map" aria-label="Map"><svg class="ic" style="width:22px;height:22px"><use href="#i-pin"/></svg><span class="lbl">Map</span></a>
-  <a class="rj" href="https://namastepattaya.com/index.html#raju" aria-label="Ask Raju"><img src="images/Raju/raju-guide-face.webp" alt=""><span class="lbl">Raju</span></a>
-  <a href="https://namastepattaya.com/index.html#bookings" aria-label="Bookings"><svg class="ic" style="width:22px;height:22px"><use href="#i-ticket"/></svg><span class="lbl">Bookings</span></a>
-  <a href="https://namastepattaya.com/index.html#login" aria-label="Profile"><svg class="ic" style="width:22px;height:22px"><use href="#i-user"/></svg><span class="lbl">Profile</span></a>
+  <a href="#go-map" aria-label="Map"><svg class="ic" style="width:22px;height:22px"><use href="#i-pin"/></svg><span class="lbl">Map</span></a>
+  <a class="rj" href="#go-raju" aria-label="Ask Raju"><img src="images/Raju/raju-guide-face.webp" alt=""><span class="lbl">Raju</span></a>
+  <a href="#go-bookings" aria-label="Bookings"><svg class="ic" style="width:22px;height:22px"><use href="#i-ticket"/></svg><span class="lbl">Bookings</span></a>
+  <a href="#go-login" aria-label="Profile"><svg class="ic" style="width:22px;height:22px"><use href="#i-user"/></svg><span class="lbl">Profile</span></a>
 </nav>
 
 <!-- ===== Welcome: language + age ===== -->
@@ -664,7 +666,7 @@ body.night .pkg.on{border-color:#D42A6A;background:#1E1828}
     <div class="hdr">
       <a class="rbtn" href="#event" aria-label="Back"><svg class="ic"><use href="#i-back"/></svg></a>
       <span>Your booking</span>
-      <a class="rbtn" href="https://namastepattaya.com/index.html#bookings" aria-label="All bookings"><svg class="ic"><use href="#i-dots"/></svg></a>
+      <a class="rbtn" href="#go-bookings" aria-label="All bookings"><svg class="ic"><use href="#i-dots"/></svg></a>
     </div>
     <div class="ticket">
       <img src="images/Photos/np-club-crowd.jpg" onerror="this.onerror=null;this.src='images/Photos/xnashaaclub.jpg'" alt="Nightclub dance floor">
@@ -684,10 +686,10 @@ body.night .pkg.on{border-color:#D42A6A;background:#1E1828}
       </div>
     </div>
     <div class="two">
-      <a href="https://namastepattaya.com/index.html#bookings">Add to calendar</a>
+      <a href="#go-bookings">Add to calendar</a>
       <a id="waShare" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
     </div>
-    <a class="cta" style="height:52px" href="https://namastepattaya.com/index.html#bookings"><svg class="ic" style="width:18px;height:18px"><use href="#i-down"/></svg>Download pass</a>
+    <a class="cta" style="height:52px" href="#go-bookings"><svg class="ic" style="width:18px;height:18px"><use href="#i-down"/></svg>Download pass</a>
     <p class="demo">Sample pass for design testing. Real passes come from your booking.</p>
   </div>
 </div>
@@ -726,14 +728,14 @@ function make3d(sl,dotsEl){var slides=sl.querySelectorAll(".slide");dotsEl.inner
 var clubFx=[];
 ["night","after","beach","sky"].forEach(function(t){var list=CLUBS.filter(function(c){return c[0]===t});
   $("#sl-"+t).innerHTML=list.map(function(c){var price=c[5]||(c[3]?"VIP table from ฿"+c[3].toLocaleString("en-US"):"Day bed – ask for price");
-    return '<div class="rcard slide"><img src="'+P+c[4]+'" alt="" loading="lazy" onerror="this.onerror=null;this.src=\''+P+'nightclub.jpg\'"><div class="rbody"><b>'+c[1]+'</b><small>'+c[2]+'</small><em>'+price+'</em><div class="rrow"><span class="age">20+</span><a class="btn" href="https://namastepattaya.com/index.html#clubs">Book</a></div></div></div>'}).join("");
+    return '<div class="rcard slide"><img src="'+P+c[4]+'" alt="" loading="lazy" onerror="this.onerror=null;this.src=\''+P+'nightclub.jpg\'"><div class="rbody"><b>'+c[1]+'</b><small>'+c[2]+'</small><em>'+price+'</em><div class="rrow"><span class="age">20+</span><a class="btn" href="#go-clubs">Book</a></div></div></div>'}).join("");
   clubFx.push(make3d($("#sl-"+t),$("#dots-"+t)))});
 clubFx.push(make3d($("#mainSl"),$("#mainDots")));
 function setTab(t){var el=$("#club-"+t);if(el)el.scrollIntoView({behavior:"smooth"})}
 $$("#cats button").forEach(function(b){b.onclick=function(){$$("#cats button").forEach(function(x){x.classList.toggle("on",x===b)});if(b!==$("#cats button"))setTab(b.dataset.c)}});
 /* services + places */
-$("#svc").innerHTML=SVC.map(function(s){return '<a href="https://namastepattaya.com/index.html#services">'+(s[2]?'<svg class="ic"><use href="#i-'+s[2]+'"/></svg>':'')+'<i class="off">Up to 30% off</i><img src="'+P+s[1]+'" alt="" loading="lazy"'+(s[2]?' onerror="this.parentNode.classList.add(\'noimg\');this.remove()"':'')+'><span>'+s[0]+'</span></a>'}).join("");
-function placeHTML(list){return list.map(function(p){return '<a href="https://namastepattaya.com/index.html#places"><img src="'+P+p[1]+'" alt="" loading="lazy"><span>'+p[0]+'</span></a>'}).join("")}
+$("#svc").innerHTML=SVC.map(function(s){return '<a href="#go-services">'+(s[2]?'<svg class="ic"><use href="#i-'+s[2]+'"/></svg>':'')+'<i class="off">Up to 30% off</i><img src="'+P+s[1]+'" alt="" loading="lazy"'+(s[2]?' onerror="this.parentNode.classList.add(\'noimg\');this.remove()"':'')+'><span>'+s[0]+'</span></a>'}).join("");
+function placeHTML(list){return list.map(function(p){return '<a href="#go-places"><img src="'+P+p[1]+'" alt="" loading="lazy"><span>'+p[0]+'</span></a>'}).join("")}
 $("#places").innerHTML=placeHTML(PLACES);
 $("#famList").innerHTML=placeHTML(PLACES.filter(function(p){return FAM.indexOf(p[0])>-1}));
 /* watch */
@@ -742,7 +744,7 @@ for(var i=1;i<=12;i++){(function(n){var b=document.createElement("button");b.cla
 function drawWatch(){var h24=(h%12)+(pm?12:0),hh=h24<5?h24+24:h24,s=SLOTS.filter(function(x){return hh>=x[0]&&hh<x[1]})[0]||SLOTS[0];
   $$(".num").forEach(function(b){b.classList.toggle("on",+b.textContent===h)});$("#hand").style.transform="rotate("+((h%12)*30)+"deg)";
   $("#am").classList.toggle("on",!pm);$("#pm").classList.toggle("on",pm);$("#partLabel").textContent=s[2];$("#atLabel").textContent="At "+h+":00 "+(pm?"PM":"AM")+" you can…";
-  $("#acts").innerHTML=s[3].filter(function(a){return !(mode==="family"&&a[3])}).map(function(a){return '<a class="act" href="https://namastepattaya.com/index.html#services"><img src="'+P+a[2]+'" alt="" loading="lazy"><div><b>'+a[0]+'</b><small>'+a[1]+'</small></div><span class="btn">Book</span></a>'}).join("")}
+  $("#acts").innerHTML=s[3].filter(function(a){return !(mode==="family"&&a[3])}).map(function(a){return '<a class="act" href="#go-services"><img src="'+P+a[2]+'" alt="" loading="lazy"><div><b>'+a[0]+'</b><small>'+a[1]+'</small></div><span class="btn">Book</span></a>'}).join("")}
 $("#am").onclick=function(){pm=false;drawWatch()};$("#pm").onclick=function(){pm=true;drawWatch()};
 function now(){var x=new Date(Date.now()+7*3600000).getUTCHours();h=(x%12)||12;pm=x>=12;drawWatch()}
 $("#nowBtn").onclick=now;
@@ -797,14 +799,14 @@ function tick(){[["IN",5.5],["TH",7]].forEach(function(z){var d=new Date(Date.no
   $("#d"+z[0]).textContent=((H%12)||12)+":"+(M<10?"0":"")+M+" "+(H<12?"AM":"PM")})}
 tick();setInterval(tick,1000);
 /* Raju + family search (both go to the live app) */
-window.askRaju=function(e){e.preventDefault();var q=$("#askIn").value.trim();location.href="https://namastepattaya.com/index.html#raju"+(q?"?q="+encodeURIComponent(q):"");return false};
-window.famSearch=function(e){e.preventDefault();var q=$("#famQ").value.trim();location.href="https://namastepattaya.com/index.html#raju"+(q?"?q="+encodeURIComponent(q):"");return false};
+window.askRaju=function(e){e.preventDefault();npToast("Preview: Raju replies in the live app");return false};
+window.famSearch=function(e){e.preventDefault();npToast("Preview: search works in the live app");return false};
 /* table choice -> pass */
 $$("#tables button").forEach(function(b){b.onclick=function(){$$("#tables button").forEach(function(x){x.classList.toggle("on",x===b)});$("#pTable").textContent=b.dataset.t;$("#pGuests").textContent=b.dataset.g}});
 /* Tonight near you: 3D slider */
 var EVENTS=[["Bollywood Night","[Club name] · Walking Street · Tonight 22:00","np-club-crowd.jpg","xnashaaclub.jpg"],["Ladies Night","[Club name] · Walking Street · Tonight 21:00","xjalwa.jpg","nightclub.jpg"],["Sunset Beach Party","[Beach club name] · Tonight 17:00","xcavebeachclub.jpg","xbyblosbeachclub.jpg"],["Punjabi Bhangra Night","[Club name] · Walking Street · Tonight 22:00","xikka.jpg","nightclub.jpg"],["Celebrity DJ Night","[Club name] · Walking Street · Tonight 23:00","xkamaa.jpg","nightclub.jpg"],["After-party till Dawn","[Club name] · Tonight 02:00","xnashaaspace.jpg","nightclub.jpg"],["Rooftop Sunset Drinks","[Rooftop bar name] · Tonight 18:00","pattaya-viewpoint-sunset.jpg","nightclub.jpg"]];
 var sl=$("#evSlider");
-sl.innerHTML=EVENTS.map(function(e,i){return '<div class="ev slide" role="group" aria-label="'+(i+1)+' of '+EVENTS.length+'"><div class="row"><div><b>'+e[0]+'</b><small>'+e[1]+'</small></div><button class="rbtn heart" aria-label="Save" aria-pressed="false"><svg class="ic" style="width:18px;height:18px"><use href="#i-heart"/></svg></button></div><img src="'+P+e[2]+'" onerror="this.onerror=null;this.src=\''+P+e[3]+'\'" alt=""><a class="cta" href="#event" data-i="'+i+'">Book a table <svg class="ic" style="width:18px;height:18px"><use href="#i-arrow"/></svg></a></div>'}).join("");
+sl.innerHTML=EVENTS.map(function(e,i){return '<div class="ev slide" role="group" aria-label="'+(i+1)+' of '+EVENTS.length+'"><img src="'+P+e[2]+'" onerror="this.onerror=null;this.src=\''+P+e[3]+'\'" alt=""><div class="row"><div><b>'+e[0]+'</b><small>'+e[1]+'</small></div><button class="rbtn heart" aria-label="Save" aria-pressed="false"><svg class="ic" style="width:18px;height:18px"><use href="#i-heart"/></svg></button></div><a class="cta" href="#event" data-i="'+i+'">Book a table <svg class="ic" style="width:18px;height:18px"><use href="#i-arrow"/></svg></a></div>'}).join("");
 $("#evDots").innerHTML=EVENTS.map(function(e,i){return '<button type="button" aria-label="Show '+e[0]+'" data-i="'+i+'"></button>'}).join("");
 var slides=sl.querySelectorAll(".slide"),dots=$$("#evDots button");
 function sl3d(){var c=sl.scrollLeft+sl.clientWidth/2,best=0,bd=1e9;slides.forEach(function(el,i){var m=el.offsetLeft+el.offsetWidth/2,d=(m-c)/el.offsetWidth,ad=Math.min(Math.abs(d),1.5);
@@ -812,6 +814,12 @@ function sl3d(){var c=sl.scrollLeft+sl.clientWidth/2,best=0,bd=1e9;slides.forEac
   dots.forEach(function(d,i){d.classList.toggle("on",i===best)})}
 sl.addEventListener("scroll",function(){requestAnimationFrame(sl3d)},{passive:true});window.addEventListener("resize",sl3d);sl3d();
 dots.forEach(function(d){d.onclick=function(){var el=slides[+d.dataset.i];sl.scrollTo({left:el.offsetLeft-(sl.clientWidth-el.offsetWidth)/2,behavior:"smooth"})}});
+/* Tonight near you: auto-move every 3s, pauses while touched, loops */
+(function(){var i=0,stop=false,t;if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  function go(){if(stop||!sl.offsetWidth)return;i=(i+1)%slides.length;var el=slides[i];sl.scrollTo({left:el.offsetLeft-(sl.clientWidth-el.offsetWidth)/2,behavior:"smooth"})}
+  setInterval(go,3000);
+  function hold(){stop=true;clearTimeout(t);t=setTimeout(function(){stop=false;var c=sl.scrollLeft+sl.clientWidth/2;slides.forEach(function(el,k){if(Math.abs(el.offsetLeft+el.offsetWidth/2-c)<el.offsetWidth/2)i=k})},5000)}
+  ["pointerdown","touchstart","wheel"].forEach(function(ev){sl.addEventListener(ev,hold,{passive:true})})})();
 sl.querySelectorAll(".heart").forEach(function(h){h.onclick=function(){h.classList.toggle("on");h.setAttribute("aria-pressed",h.classList.contains("on"))}});
 var curEv=0;
 function setEvent(i){var e=EVENTS[i];curEv=i;$("#eTitle").textContent=e[0];$("#pTitle").textContent=e[0];$("#eVenue").textContent=e[1].split(" · Tonight")[0];
@@ -851,6 +859,13 @@ applyAge();if((ls("np_lang")||"en")!=="en")loadTranslate();if(!ls("np_welcome_do
 var start="night";try{if(localStorage.getItem("np_mode")==="family")start="family"}catch(e){}
 setMode(start);now();route();drawTrip();fx();
 })();
+
+/* 11 Nov 2026: test app only – keep every tap inside this preview; nothing opens the live app */
+function npToast(t){var d=document.getElementById("npPrevToast");if(!d){d=document.createElement("div");d.id="npPrevToast";d.setAttribute("role","status");document.body.appendChild(d)}d.textContent=t;d.className="on";clearTimeout(d._t);d._t=setTimeout(function(){d.className=""},2200)}
+function npGo(k){var map={raju:".raju",services:"#svc",places:"#places",clubs:"#clubs"},sel=map[k],el=sel&&document.querySelector(sel);
+  if(el&&el.offsetParent!==null){(el.closest("section")||el).scrollIntoView({behavior:"smooth",block:"start"});if(k==="raju"){var i=document.getElementById("askIn");if(i)setTimeout(function(){i.focus()},500)}}
+  else npToast("Preview: this works in the live app")}
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="#go-"]');if(!a)return;e.preventDefault();npGo(a.getAttribute("href").slice(4).split("?")[0])},true);
 </script>
 </body>
 </html>
