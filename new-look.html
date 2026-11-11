@@ -325,6 +325,199 @@ button{font-family:inherit;color:inherit}
 .sheet .acts button{flex:1;border:0;border-radius:14px;padding:12px 6px;font-weight:700;font-size:14px;cursor:pointer;background:var(--soft);display:inline-flex;gap:5px;justify-content:center;align-items:center}
 .sheet .acts .si{width:16px;height:16px}
 .sheet .acts button.pr{background:var(--acc);color:var(--onacc)}
+.tgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tcard{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;cursor:pointer;box-shadow:var(--sh);color:#fff}
+.tcard>.ph{position:absolute;inset:0}
+.tcard .tx{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:12px;background:linear-gradient(0deg,rgba(10,6,20,.9),rgba(10,6,20,0))}
+.tcard b{display:block;font-size:15px;line-height:1.2}.tcard small{display:block;font-size:12px;opacity:.9;margin-top:3px}
+.tcard .fam{position:absolute;top:10px;left:10px;z-index:3;background:rgba(255,255,255,.92);color:#1D1630;font-size:10.5px;font-weight:700;border-radius:999px;padding:3px 8px;display:inline-flex;gap:4px;align-items:center}
+.tcard .fam .si{width:12px;height:12px}
+.more{display:block;margin:14px auto 0;border:1px solid var(--line);background:var(--surf);border-radius:999px;padding:11px 22px;font-weight:700;font-size:14px;cursor:pointer}
+/* glossy 3D buttons */
+.g3d{--a:rgba(255,255,255,.42);--b:rgba(255,255,255,.1);background:linear-gradient(150deg,var(--a),var(--b))!important;color:#fff;border:0;box-shadow:inset 0 2px 1px rgba(255,255,255,.5),inset 0 -4px 8px rgba(0,0,0,.25),0 8px 14px -6px rgba(0,0,0,.55)!important}
+.arr{--a:#FF6FA8;--b:#E8306F;background:linear-gradient(150deg,var(--a),var(--b));color:#fff;box-shadow:inset 0 2px 1px rgba(255,255,255,.5),inset 0 -4px 8px rgba(0,0,0,.25),0 8px 14px -6px var(--b)}
+.cfnav button,.mctl button{background:linear-gradient(150deg,#9B7BFF,#5B3FD6)!important;color:#fff!important;border:0!important;box-shadow:inset 0 2px 1px rgba(255,255,255,.5),inset 0 -4px 8px rgba(0,0,0,.25),0 8px 14px -6px #5B3FD6!important}
+.mctl button.on{background:linear-gradient(150deg,#FF6FA8,#E8306F)!important}
+.mini .ibtn{--a:#FFC85A;--b:#F2780E}
+.back.g3d{width:42px;padding:0}
+.mtop .back{--a:#9B7BFF;--b:#5B3FD6}
+.flash>.si{width:28px;height:28px;padding:5px;border-radius:50%;background:linear-gradient(150deg,#FFE07A,#C99100);stroke:#3A2800;fill:#3A2800;box-shadow:inset 0 2px 1px rgba(255,255,255,.6),0 4px 8px rgba(0,0,0,.3)}
+.nav button span.nv{width:46px;height:32px;padding:0;border-radius:12px;background:linear-gradient(150deg,#BDB6CC,#6E6780);color:#fff;box-shadow:inset 0 2px 1px rgba(255,255,255,.45),inset 0 -3px 6px rgba(0,0,0,.25),0 6px 10px -6px rgba(0,0,0,.6);opacity:.75}
+.nav button.on span.nv{background:linear-gradient(150deg,var(--a),var(--b));opacity:1;box-shadow:inset 0 2px 1px rgba(255,255,255,.55),inset 0 -3px 6px rgba(0,0,0,.25),0 8px 14px -6px var(--b)}
+.nav .si{width:19px;height:19px;stroke-width:2.2}
+/* Raju chat in header */
+.lbtn{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:8px 12px;font:700 13px Inter,sans-serif;cursor:pointer}
+.lbtn .si{width:17px;height:17px}
+.rchat{margin-top:14px;border-radius:24px;padding:12px;background:rgba(18,10,34,.55);border:1px solid rgba(255,255,255,.18);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 18px 36px -14px rgba(0,0,0,.7)}
+:root[data-theme="light"] .rchat{background:rgba(255,255,255,.62);border-color:rgba(255,255,255,.8)}
+.rhead{display:flex;align-items:center;gap:10px}
+.rhead .face{width:46px;height:46px;border-radius:50%;border:2px solid #fff;box-shadow:0 6px 12px rgba(0,0,0,.35)}
+.rhead b{font-size:16px;display:block}.rhead small{font-size:12px;opacity:.85;display:flex;align-items:center;gap:5px}
+.dotg{width:8px;height:8px;border-radius:50%;background:#3DDC84;box-shadow:0 0 0 3px rgba(61,220,132,.25)}
+.rhead .ibtn{margin-left:auto}
+.cnt{position:absolute;top:-2px;right:-2px;background:#FF3B6B;color:#fff;font:700 10px Inter,sans-serif;border-radius:999px;padding:1px 5px;font-style:normal}
+.rmsgs{margin-top:10px;max-height:170px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;scrollbar-width:none}
+.rmsgs::-webkit-scrollbar{display:none}
+.m{max-width:88%;font-size:14px;line-height:1.45;padding:9px 12px;border-radius:4px 16px 16px 16px;background:rgba(255,255,255,.14)}
+:root[data-theme="light"] .m{background:rgba(255,255,255,.9);color:#1D1630}
+.m.mine{align-self:flex-end;border-radius:16px 4px 16px 16px;background:linear-gradient(135deg,#FF6FA8,#E8306F);color:#fff}
+.m .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.m .acts button{border:0;border-radius:999px;padding:6px 11px;font:700 12px Inter,sans-serif;cursor:pointer;background:#fff;color:#1D1630;box-shadow:0 3px 8px rgba(0,0,0,.2)}
+.m.wait{display:inline-flex;gap:4px;align-items:center}
+.m.wait i{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.5;animation:wd 1s infinite}
+.m.wait i:nth-child(2){animation-delay:.15s}.m.wait i:nth-child(3){animation-delay:.3s}
+@keyframes wd{50%{opacity:1;transform:translateY(-3px)}}
+.rchat .chips{margin-top:10px}
+.rchat .chips button{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.25);color:inherit}
+:root[data-theme="light"] .rchat .chips button{background:#fff;border-color:var(--line)}
+.rin{display:flex;gap:8px;margin-top:10px;align-items:center}
+.rin input{flex:1;min-width:0;border:0;border-radius:16px;padding:12px 14px;font:15px Inter,sans-serif;background:#fff;color:#1D1630;outline:none;box-shadow:inset 0 2px 4px rgba(0,0,0,.08)}
+.rb{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;cursor:pointer;flex:none;position:relative;overflow:hidden}
+.rb .si{width:20px;height:20px;stroke-width:2.2}
+.rb.rec{animation:rec 1s infinite}
+@keyframes rec{50%{box-shadow:0 0 0 8px rgba(155,123,255,.35)}}
+/* photo tiles */
+.tile.phot{color:#fff;min-height:120px;justify-content:flex-end;padding:12px 8px 10px;background:#222!important}
+.tile.phot>.ph{position:absolute;inset:0}
+.tile.phot .ov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,6,20,.85),rgba(10,6,20,.15) 60%);z-index:1}
+.tile.phot>.i3,.tile.phot>.tt,.tile.phot>.badge{position:relative;z-index:2}
+.tile.phot>.badge{position:absolute}
+.tile.phot .tt{text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.tiles .tile.phot{min-height:132px}
+.tiles2 .tile.phot{min-height:120px;justify-content:flex-start}
+.tiles2 .tile.phot>.i3{position:absolute;right:10px;bottom:10px}
+/* screens + sheets */
+.scr{position:fixed;inset:0;z-index:50;background:var(--bg);overflow-y:auto;animation:sin .35s cubic-bezier(.2,.8,.2,1);padding-bottom:calc(30px + env(safe-area-inset-bottom,0px))}
+@keyframes sin{from{transform:translateX(40%);opacity:0}}
+.scr .hero{position:relative;height:260px;color:#fff}
+.scr .hero>.ph{position:absolute;inset:0}
+.scr .hero .ov{position:absolute;inset:0;background:linear-gradient(0deg,var(--bg),rgba(10,6,20,.2) 55%,rgba(10,6,20,.45));z-index:1}
+.scr .hero .top{position:absolute;left:12px;right:12px;top:calc(12px + env(safe-area-inset-top,0px));display:flex;justify-content:space-between;z-index:2}
+.scr .hero h1{position:absolute;left:16px;right:16px;bottom:12px;z-index:2;font-size:28px;color:var(--ink)}
+.scr .body{padding:6px 16px 0;max-width:460px;margin:0 auto}
+.scr .body p{color:var(--muted);line-height:1.55;margin:6px 0 14px}
+.scr .plain{padding:calc(14px + env(safe-area-inset-top,0px)) 16px 0;max-width:460px;margin:0 auto}
+.scr .plain .row1 .ibtn{--a:#9B7BFF;--b:#5B3FD6}
+.scr .plain h1{font-size:26px;margin:14px 0 10px}
+.cta2{display:flex;justify-content:center;align-items:center;gap:8px;width:100%;border:0;border-radius:18px;padding:16px;font:700 16px Inter,sans-serif;cursor:pointer;color:#fff;background:linear-gradient(135deg,#FF6FA8,#E8306F);box-shadow:inset 0 2px 1px rgba(255,255,255,.45),0 12px 22px -10px #E8306F;margin-top:14px}
+.cta2.sec2{background:var(--soft);color:var(--ink);box-shadow:none}
+.bkrow{display:flex;gap:12px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:18px;background:var(--surf);margin-bottom:10px}
+.bkrow .ph{width:64px;height:64px;border-radius:14px;flex:none}
+.bkrow b{display:block}.bkrow small{color:var(--muted);font-size:13px}
+.bkrow .stt{margin-left:auto;font-size:11.5px;font-weight:700;color:#2FA89A;background:color-mix(in srgb,#2FA89A 16%,transparent);border-radius:8px;padding:4px 8px;white-space:nowrap}
+.empty{text-align:center;color:var(--muted);padding:40px 10px}
+.empty .i3{margin:0 auto 14px;--s:70px}
+.wcard{border-radius:24px;padding:20px;color:#fff;background:linear-gradient(135deg,#13827A,#1565C0);box-shadow:0 16px 28px -14px #1565C0;position:relative;overflow:hidden}
+.wcard small{opacity:.85}.wcard b{display:block;font:700 34px Syne,Inter,sans-serif;margin:6px 0}
+.bdrop{position:fixed;inset:0;z-index:54;background:rgba(0,0,0,.5);animation:fi .25s}
+@keyframes fi{from{opacity:0}}
+.bsheet{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:100%;max-width:460px;z-index:55;background:var(--surf);border-radius:26px 26px 0 0;padding:10px 16px calc(18px + env(safe-area-inset-bottom,0px));max-height:88vh;overflow-y:auto;animation:sup .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes sup{from{transform:translate(-50%,100%)}}
+.bsheet .sx{position:absolute;right:12px;top:12px;width:36px;height:36px;border-radius:50%;border:0;background:var(--soft);display:grid;place-items:center;cursor:pointer}
+.bsheet .sx .si{width:16px;height:16px}
+.bsheet .grab{width:42px;height:5px;border-radius:3px;background:var(--line);margin:0 auto 12px}
+.bsheet h2{font-size:21px;margin:0 0 4px}
+.bsheet .hd2{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.bsheet .hd2 .ph{width:56px;height:56px;border-radius:14px;flex:none}
+.fld{display:block;margin-top:12px;font-size:13px;color:var(--muted);font-weight:600}
+.fld input,.fld textarea{display:block;width:100%;margin-top:6px;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:14px;padding:12px;font:15px Inter,sans-serif}
+.err{color:#FF5C7A;font-size:13px;margin-top:8px;min-height:1em}
+.step{display:flex;align-items:center;gap:14px;margin-top:6px}
+.step button{width:42px;height:42px;border-radius:14px;cursor:pointer;display:grid;place-items:center}
+.step b{font-size:20px;min-width:30px;text-align:center}
+.seg3{display:flex;gap:8px;margin-top:6px}
+.seg3 button{flex:1;border:2px solid var(--line);background:var(--surf);border-radius:14px;padding:10px 4px;font-weight:700;font-size:13px;cursor:pointer}
+.seg3 button.on{border-color:var(--acc);color:var(--acc)}
+.langs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+.langs button{border:2px solid var(--line);background:var(--surf);border-radius:16px;padding:12px;text-align:left;cursor:pointer}
+.langs button b{display:block;font-size:17px}.langs button small{color:var(--muted)}
+.langs button.on{border-color:var(--acc)}
+.fxr{display:flex;gap:10px;align-items:flex-end}
+.fxr .fld{flex:1}
+.fxout{font:700 28px Syne,Inter,sans-serif;margin-top:14px}
+.goog-te-banner-frame,.skiptranslate>iframe{display:none!important}body{top:0!important}
+.rchat{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;margin-top:8px}
+.rscene{display:flex;align-items:flex-end;gap:6px;min-height:170px}
+.rstage{width:116px;height:122px;flex:none;position:relative;margin-left:-6px;filter:drop-shadow(0 14px 16px rgba(0,0,0,.55))}
+.rstage .raju{width:100%;height:100%;display:block;overflow:visible;transform:scale(1.25) translateY(4px)}
+.r-float{animation:rFloat 4s ease-in-out infinite}
+.r-eyes{transform-box:fill-box;transform-origin:center;animation:rBlink 4.5s infinite}
+.r-wave{transform-box:view-box;transform-origin:160px 165px;animation:rWave 2.4s ease-in-out infinite}
+.r-head{transform-box:view-box;transform-origin:100px 140px;transition:transform .25s ease-out}
+.r-pupils{transition:transform .2s ease-out}
+.r-mouth{transform-box:fill-box;transform-origin:center top}
+.raju-talk .r-mouth{animation:rTalk .28s ease-in-out infinite alternate}
+@keyframes rFloat{50%{transform:translateY(-4px)}}
+@keyframes rBlink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes rWave{0%,60%,100%{transform:rotate(0)}10%,30%{transform:rotate(-14deg)}20%,40%{transform:rotate(8deg)}}
+@keyframes rTalk{to{transform:scaleY(.45)}}
+.rname{position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:5px;font:700 11.5px Inter,sans-serif;background:rgba(0,0,0,.45);color:#fff;border-radius:999px;padding:3px 9px;white-space:nowrap;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.rcol{flex:1;min-width:0;padding-bottom:18px}
+.rcol .rmsgs{max-height:200px;margin-top:0}
+.rcol .m{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:18px 18px 18px 4px;box-shadow:0 8px 18px -10px rgba(0,0,0,.6);animation:bub .35s cubic-bezier(.3,1.5,.5,1)}
+.rcol .m.mine{border:0;border-radius:18px 18px 4px 18px}
+@keyframes bub{from{transform:scale(.85) translateY(8px);opacity:0}}
+:root[data-theme="light"] .rcol .m{background:rgba(255,255,255,.88);border-color:#fff}
+:root[data-theme="light"] .rcol .m.mine{background:linear-gradient(135deg,#FF6FA8,#E8306F)}
+.rchat .rin input{box-shadow:0 0 0 2px rgba(255,255,255,.35),0 10px 22px -10px rgba(0,0,0,.6)}
+.row1 #savedBtn{margin-right:2px}
+/* brand bar */
+.brand{display:flex;align-items:center;gap:10px}
+.blogo{width:46px;height:46px;border-radius:14px;flex:none;position:relative;overflow:hidden;display:grid;place-items:center;background:linear-gradient(150deg,#FF6FA8,#7B3FE4);box-shadow:inset 0 2px 1px rgba(255,255,255,.5),0 8px 14px -6px rgba(0,0,0,.6)}
+.blogo b{font:700 16px Syne,Inter,sans-serif;color:#fff}
+.blogo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.btxt{min-width:0;flex:1}
+.btxt b{display:block;font:700 18px Syne,Inter,sans-serif;line-height:1.1}
+.btxt small{display:block;font-size:9.5px;font-weight:700;letter-spacing:.06em;opacity:.85;margin-top:3px;line-height:1.3;color:#FFD24A}
+:root[data-theme="light"] .btxt small{color:#7A4A00}
+.tw{flex:none;text-align:right;line-height:1.15}
+.tw b{display:block;font:700 16px Inter,sans-serif;font-variant-numeric:tabular-nums}
+.tw span{display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:14px}
+.tw span .si{width:18px;height:18px;color:#FFD24A}
+.tw small{display:block;font-size:10.5px;opacity:.75}
+.accts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+.acc{border-radius:16px;padding:8px 6px 8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);text-align:center}
+:root[data-theme="light"] .acc{background:rgba(255,255,255,.6);border-color:#fff}
+.acc .ah{display:flex;align-items:center;justify-content:center;gap:5px;font-size:11.5px;font-weight:700;line-height:1.15;min-height:30px}
+.acc .ah .i3{--s:26px;border-radius:9px}
+.acc .ab{display:flex;gap:4px;margin-top:6px}
+.acc .ab a{flex:1;text-decoration:none;font-size:11px;font-weight:700;border-radius:999px;padding:6px 2px;color:#1D1630;background:#fff;box-shadow:0 3px 8px -4px rgba(0,0,0,.4)}
+.acc .ab a.up{color:#fff;background:linear-gradient(135deg,#FF6FA8,#E8306F)}
+/* podium 3D icons (your PNGs go in images/Icons/) */
+.pod{--s:64px;width:var(--s);height:calc(var(--s)*1.04);position:relative;flex:none}
+.pod::before{content:"";position:absolute;left:14%;right:14%;top:6%;height:66%;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--a) 70%,transparent) 0,transparent 70%);filter:blur(7px);opacity:.85}
+.pod::after{content:"";position:absolute;bottom:2px;left:9%;width:82%;height:15%;border-radius:50%;z-index:1;background:radial-gradient(ellipse at 50% 25%,color-mix(in srgb,var(--a) 55%,#fff) 0,var(--a) 45%,var(--b) 100%);box-shadow:0 4px 0 color-mix(in srgb,var(--b) 65%,#000),0 11px 12px rgba(0,0,0,.4),inset 0 2px 2px rgba(255,255,255,.6)}
+.pod .po{position:absolute;left:12%;right:12%;top:2%;bottom:15%;z-index:2;display:grid;place-items:center}
+.pod .po img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 6px rgba(0,0,0,.4))}
+.pod .po .i3{display:none;width:74%;height:auto;aspect-ratio:1/1;border-radius:50%}
+.pod .po.nof .i3{display:grid}
+.pod.gold::after{background:radial-gradient(ellipse at 50% 25%,#FFF6CC 0,#FFD24A 40%,#B8860B 100%);box-shadow:0 4px 0 #6E4E00,0 0 14px rgba(255,200,70,.6),0 11px 12px rgba(0,0,0,.4),inset 0 2px 2px rgba(255,255,255,.7)}
+.svc:active .pod .po{transform:scale(.9)}
+.tile .pod{--s:56px}.tiles2 .tile .pod{--s:52px;position:absolute;right:8px;bottom:6px;z-index:2}
+.tile.phot>.pod{position:relative;z-index:2}
+.tier .pod{--s:58px;margin:0 auto 6px}
+.nav span.nv img{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);object-fit:contain}
+.nav span.nv{position:relative}
+.nav span.nv.hasimg{background:none!important;box-shadow:none!important;opacity:1}
+.nav span.nv.hasimg .si{opacity:0}
+.nav button:not(.on) span.nv.hasimg img{filter:grayscale(.8);opacity:.7}
+.topbar{padding:12px 16px 12px;background:var(--surf);border-bottom:1px solid var(--line);color:var(--ink)}
+.topbar .acc{background:var(--soft);border-color:var(--line);-webkit-backdrop-filter:none;backdrop-filter:none}
+.topbar .acc .ab a{box-shadow:none;border:1px solid var(--line)}
+.topbar .acc .ab a.up{border:0}
+.topbar .tw span .si{color:#F2A01E}
+.pod .po .i3{border-radius:30%!important}
+.rc .o,.rc .o .ph{border-radius:22px!important}
+.logos .o .ph{border-radius:20px!important}
+.trow{display:flex;align-items:center;gap:8px;margin-top:12px}
+.seg.mode{background:var(--soft)}
+.seg.mode button{font-size:13px;padding:8px 14px}
+.topbar{padding-top:calc(12px + env(safe-area-inset-top,0px))}
+.brand{align-items:flex-start}
+.btxt small{white-space:normal;overflow:visible}
+#homeHd{padding-top:6px}
+.accb{display:flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:16px;padding:9px 6px;font:700 13.5px Inter,sans-serif;cursor:pointer}
+.accb .i3{--s:28px;border-radius:9px}
 [hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
@@ -365,6 +558,15 @@ button{font-family:inherit;color:inherit}
   <symbol id="i-swap" viewBox="0 0 24 24"><path d="M7 4L3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/></symbol>
   <symbol id="i-med" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></symbol>
 
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 11a3.5 3.5 0 0 0 1 7z"/></symbol>
+  <symbol id="i-cloudsun" viewBox="0 0 24 24"><path d="M8 4v1.5M3.5 8H5M4.8 4.8l1 1"/><path d="M11.5 7.5A4 4 0 0 0 5 10"/><path d="M8 19h9a3.5 3.5 0 0 0 .4-7A5 5 0 0 0 8 12.5a3.3 3.3 0 0 0 0 6.5z"/></symbol>
+  <symbol id="i-rain" viewBox="0 0 24 24"><path d="M7 15h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 8a3.5 3.5 0 0 0 1 7z"/><path d="M9 18l-1 3M13 18l-1 3M17 18l-1 3"/></symbol>
+  <symbol id="i-storm" viewBox="0 0 24 24"><path d="M7 14h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 7a3.5 3.5 0 0 0 1 7z"/><path d="M12 14l-2 4h3l-2 4"/></symbol>
+  <symbol id="i-fog" viewBox="0 0 24 24"><path d="M4 10h16M6 14h12M8 18h8"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9"/><path d="M4 9a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0A2.7 2.7 0 0 0 20 9"/><path d="M5 11v9h14v-9M10 20v-5h4v5"/></symbol>
+  <symbol id="i-badge" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="2.5"/><path d="M8.5 17a4 4 0 0 1 7 0"/></symbol>
   <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
   <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 14.5h2"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></symbol>
@@ -386,16 +588,25 @@ button{font-family:inherit;color:inherit}
   <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17l.6 1.4L21 19l-1.4.6L19 21l-.6-1.4L17 19l1.4-.6z"/></symbol>
 </svg>
 <div class="app">
-  <div class="ctl">
-    <span>Preview:</span>
-    <div class="seg"><button data-s="home" class="on">Home</button><button data-s="taxi">Taxi</button><button data-s="clubs">Clubs</button><button data-s="map">Map</button></div>
-    <div class="seg"><button id="mN" class="on">Friends</button><button id="mF">Family</button></div>
-  </div>
 
-  <div class="mini" id="mini"><div class="search"><svg class="si"><use href="#i-search"/></svg><span>Search clubs, hotels, taxi…</span></div><button class="ibtn rp" aria-label="My bookings"><svg class="si"><use href="#i-receipt"/></svg></button></div>
+  <div class="mini" id="mini"><div class="search"><svg class="si"><use href="#i-search"/></svg><span>Search clubs, hotels, taxi…</span></div><button class="ibtn g3d rp" data-nav="2" aria-label="My bookings"><svg class="si"><use href="#i-receipt"/></svg></button></div>
 
   <!-- HOME -->
   <section id="s-home">
+    <div class="topbar">
+        <div class="brand">
+          <div class="blogo"><b>NP</b><img src="icon-512.png" alt="Namaste Pattaya" onerror="this.remove()"></div>
+          <div class="btxt"><b>Namaste Pattaya</b><small>BHARAT KE LIYE EK BHARTIYE KA TOHFA · JAI HIND</small></div>
+          <div class="tw"><b id="ptTime">--:--</b><span id="ptWx"></span><small>Pattaya</small></div>
+        </div>
+        <div class="accts" id="accts"></div>
+        <div class="trow">
+          <div class="seg mode"><button id="mN" class="on">Friends</button><button id="mF">Family</button></div>
+          <div class="sp"></div>
+          <button class="ibtn g3d rp" id="savedBtn" aria-label="Saved" style="--a:#FF6FA8;--b:#E8306F"><svg class="si"><use href="#i-heart"/></svg><i class="cnt" id="savedCnt" hidden>0</i></button>
+          <button class="lbtn g3d rp" id="langBtn" aria-label="Change language" style="--a:#9B7BFF;--b:#5B3FD6"><svg class="si"><use href="#i-globe"/></svg><span id="langName">English</span><svg class="si" style="width:15px;height:15px"><use href="#i-chev"/></svg></button>
+        </div>
+    </div>
     <header class="hd" id="homeHd" style="--hd:#0B0910">
       <div class="fx night" id="nightFx">
         <div id="stars"></div>
@@ -404,20 +615,72 @@ button{font-family:inherit;color:inherit}
         <div id="fwBox"></div>
       </div>
       <div class="fx mesh" id="meshFx" hidden></div>
-      <div class="row1">
-        <div class="loc"><small>YOU’RE IN</small><b>Pattaya, Thailand <svg class="si" style="width:16px;height:16px"><use href="#i-chev"/></svg></b></div>
-        <div class="sp"></div>
-        <button class="ibtn rp" aria-label="Saved"><svg class="si"><use href="#i-heart"/></svg></button><button class="ibtn rp" aria-label="My bookings"><svg class="si"><use href="#i-receipt"/></svg></button>
-      </div>
-      <div class="search"><svg class="si"><use href="#i-search"/></svg><span id="ph">Search clubs, hotels, taxi…</span></div>
-      <div class="promo">
-        <div><h2 id="promoT">Tonight in Pattaya</h2><p><span id="promoS">Clubs and parties, booked in your language</span><span class="go"><svg class="si"><use href="#i-arrow"/></svg></span></p></div>
-        <div id="promoArt"></div>
+      <div class="rchat" id="rchat">
+        <div class="rscene">
+          <div class="rstage" id="rStage"><svg viewBox="0 0 200 210" class="raju" aria-hidden="true">
+<defs>
+ <radialGradient id="rSkin" cx=".38" cy=".32" r=".75"><stop offset="0" stop-color="#E9B48A"/><stop offset=".55" stop-color="#C98C60"/><stop offset="1" stop-color="#7E4A2B"/></radialGradient>
+ <radialGradient id="rHair" cx=".4" cy=".25" r=".8"><stop offset="0" stop-color="#4A3A36"/><stop offset=".6" stop-color="#1B1210"/><stop offset="1" stop-color="#0A0605"/></radialGradient>
+ <linearGradient id="rShirt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2FD1FF"/><stop offset=".5" stop-color="#6A4BFF"/><stop offset="1" stop-color="#2A1466"/></linearGradient>
+ <radialGradient id="rShirtL" cx=".3" cy=".2" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+ <linearGradient id="rLens" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9DF4FF"/><stop offset=".35" stop-color="#C8A2FF"/><stop offset=".7" stop-color="#FFB8E6"/><stop offset="1" stop-color="#FFF1B8"/></linearGradient>
+ <linearGradient id="rGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1C6"/><stop offset="1" stop-color="#B9904A"/></linearGradient>
+ <radialGradient id="rHalo" cx=".5" cy=".5" r=".5"><stop offset=".55" stop-color="#C8A2FF" stop-opacity=".0"/><stop offset=".8" stop-color="#C8A2FF" stop-opacity=".35"/><stop offset="1" stop-color="#9DF4FF" stop-opacity="0"/></radialGradient>
+ <filter id="rSoft" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity=".45"/></filter>
+</defs>
+<circle cx="100" cy="100" r="98" fill="url(#rHalo)"/>
+<g class="r-float">
+ <g filter="url(#rSoft)">
+  <!-- body -->
+  <path d="M34 210c0-40 28-62 66-62s66 22 66 62z" fill="url(#rShirt)"/>
+  <path d="M34 210c0-40 28-62 66-62s66 22 66 62z" fill="url(#rShirtL)"/>
+  <g opacity=".35" fill="#fff"><circle cx="62" cy="182" r="5"/><circle cx="138" cy="176" r="4"/><circle cx="120" cy="198" r="6"/><circle cx="76" cy="202" r="3"/><path d="M146 196c6-6 12-4 14 2-6 0-10 2-14-2z"/><path d="M52 164c5 2 7 8 3 12-2-5-4-8-3-12z"/></g>
+  <path d="M84 150l16 24 16-24" fill="#F6E7D8"/><path d="M84 150l16 24-10 6-14-22z M116 150l-16 24 10 6 14-22z" fill="#1B1036" opacity=".55"/>
+  <rect x="124" y="178" width="30" height="12" rx="3" fill="url(#rGold)"/><text x="139" y="187" text-anchor="middle" font-family="Syne,Geist,Arial,sans-serif" font-weight="800" font-size="7.5" fill="#1A1406" letter-spacing=".6">RAJU</text>
+  <!-- neck -->
+  <path d="M88 132h24v22c-7 5-17 5-24 0z" fill="#A86A42"/>
+  <!-- head -->
+  <g class="r-head">
+   <ellipse cx="57" cy="98" rx="8" ry="11" fill="#B77A50"/><ellipse cx="143" cy="98" rx="8" ry="11" fill="#B77A50"/>
+   <ellipse cx="100" cy="94" rx="42" ry="48" fill="url(#rSkin)"/>
+   <ellipse cx="86" cy="72" rx="16" ry="10" fill="#fff" opacity=".18"/>
+   <!-- hair -->
+   <path d="M58 88c-4-34 18-52 44-52 28 0 46 18 42 50-6-14-14-22-22-24-10 8-30 10-44 6-8 4-16 10-20 20z" fill="url(#rHair)"/>
+   <path d="M96 42c10-8 28-6 36 4-10-2-22 0-36-4z" fill="#5A4640" opacity=".6"/>
+   <!-- sunglasses on head -->
+   <g transform="translate(0 -2)"><rect x="70" y="52" width="24" height="12" rx="6" fill="url(#rLens)" stroke="#0A0605" stroke-width="2"/><rect x="106" y="52" width="24" height="12" rx="6" fill="url(#rLens)" stroke="#0A0605" stroke-width="2"/><path d="M94 57h12" stroke="#0A0605" stroke-width="2"/></g>
+   <!-- brows -->
+   <path class="r-brow" d="M72 80c6-5 14-5 20-1" stroke="#1B1210" stroke-width="4" fill="none" stroke-linecap="round"/>
+   <path class="r-brow" d="M108 79c6-4 14-4 20 1" stroke="#1B1210" stroke-width="4" fill="none" stroke-linecap="round"/>
+   <!-- eyes -->
+   <g class="r-eyes">
+    <ellipse cx="82" cy="94" rx="8" ry="9" fill="#fff"/><ellipse cx="118" cy="94" rx="8" ry="9" fill="#fff"/>
+    <g class="r-pupils"><circle cx="83" cy="95" r="5" fill="#2A1A12"/><circle cx="119" cy="95" r="5" fill="#2A1A12"/><circle cx="85" cy="93" r="1.8" fill="#fff"/><circle cx="121" cy="93" r="1.8" fill="#fff"/></g>
+   </g>
+   <!-- nose, cheeks -->
+   <path d="M100 98c-3 8-5 12-1 14 3 1 6 0 7-2" stroke="#8A5234" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+   <ellipse cx="72" cy="112" rx="7" ry="4" fill="#FF7A8A" opacity=".25"/><ellipse cx="128" cy="112" rx="7" ry="4" fill="#FF7A8A" opacity=".25"/>
+   <!-- mouth -->
+   <g class="r-mouth"><path d="M82 118c10 14 26 14 36 0z" fill="#5A1A1A"/><path d="M85 119c9 5 21 5 30 0v3c-9 4-21 4-30 0z" fill="#fff"/></g>
+   <!-- headset -->
+   <path d="M56 92c-2-34 20-58 44-58s46 24 44 58" stroke="#12121C" stroke-width="4" fill="none" opacity=".85"/>
+   <rect x="138" y="86" width="12" height="20" rx="5" fill="url(#rGold)"/>
+   <path d="M144 104c0 16-12 24-30 22" stroke="#12121C" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="113" cy="126" r="4" fill="url(#rGold)"/>
+  </g>
+ </g>
+ <!-- waving hand -->
+ <g class="r-wave"><path d="M160 160c8-14 12-30 10-44" stroke="#2A1466" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <g transform="translate(170 104)"><ellipse rx="11" ry="13" fill="url(#rSkin)"/><path d="M-8 -10v-10 M-2 -12v-13 M4 -12v-12 M9 -8v-8" stroke="#C98C60" stroke-width="5" stroke-linecap="round"/><path d="M-11 2c-6-2-9-6-8-10" stroke="#C98C60" stroke-width="5" stroke-linecap="round" fill="none"/></g></g>
+</g>
+</svg><span class="rname"><i class="dotg"></i>Raju</span></div>
+          <div class="rcol"><div class="rmsgs" id="rmsgs"></div></div>
+        </div>
+        <div class="chips" id="rchips"></div>
+        <form class="rin" id="rform" autocomplete="off"><input id="rq" placeholder="Ask Raju: club, hotel, taxi…" aria-label="Message Raju"><button type="button" class="rb g3d" id="rmic" style="--a:#9B7BFF;--b:#5B3FD6" aria-label="Speak to Raju"><svg class="si"><use href="#i-mic"/></svg></button><button type="submit" class="rb g3d" style="--a:#FF6FA8;--b:#E8306F" aria-label="Send"><svg class="si"><use href="#i-plane"/></svg></button></form>
       </div>
       <svg class="wave" viewBox="0 0 400 46" preserveAspectRatio="none"><path fill="currentColor" d="M0 30 C120 52 220 0 400 18 V46 H0Z"/></svg>
     </header>
 
-    <div class="stories" id="stories"></div>
     <div class="grid2" id="svcGrid"></div>
     <div class="dots" id="svcDots"></div>
 
@@ -427,12 +690,6 @@ button{font-family:inherit;color:inherit}
 
     <div class="bn shine" id="bn"><div class="track" id="bnTrack"></div><div class="bdots" id="bnDots"></div></div>
 
-    <div class="sec rv">
-      <div class="card tl"><div class="spot"></div>
-        <div class="raju"><div class="face ph" id="rajuFace"></div><div class="bubble typing" id="greet"></div></div>
-        <div class="chips"><button class="rp">Plan my trip</button><button class="rp">Airport taxi</button><button class="rp">Pure veg food</button></div>
-      </div>
-    </div>
 
     <div style="margin-top:22px" class="pills rv" id="pills"><button class="on rp">Tonight</button><button class="rp">Tomorrow</button><button class="rp">This weekend</button><button class="rp">Offers</button></div>
     <div class="sec rv" style="margin-top:18px"><div class="sh"><h2 id="evT">Tonight near you</h2><button class="arr rp" aria-label="View all"><svg class="si"><use href="#i-arrow"/></svg></button></div></div>
@@ -440,6 +697,10 @@ button{font-family:inherit;color:inherit}
     <div class="cfnav rv"><button class="rp" id="cfPrev" aria-label="Previous"><svg class="si"><use href="#i-back"/></svg></button><div class="dots" id="cfDots"></div><button class="rp" id="cfNext" aria-label="Next"><svg class="si"><use href="#i-arrow"/></svg></button></div>
 
     <div class="sec rv"><div class="sh"><h2>Featured for you</h2></div><div class="stkw"><div class="stk" id="stk"></div></div><div class="hint">Swipe the card left or right</div></div>
+
+    <div class="sec rv" id="toursSec"><div class="sh"><h2>Tours and attractions</h2><span style="color:var(--muted);font-size:13px" id="tCount"></span></div></div>
+    <div class="pills rv" id="tf"></div>
+    <div class="sec rv" style="margin-top:14px"><div class="tgrid" id="tgrid"></div><button class="more rp" id="tMore"></button></div>
 
     <div class="sec rv"><div class="sh"><h2><svg class="si"><use href="#i-fire"/></svg>Hot deals</h2><button class="arr rp"><svg class="si"><use href="#i-arrow"/></svg></button></div></div>
     <div class="hs rv" id="deals"></div>
@@ -452,8 +713,8 @@ button{font-family:inherit;color:inherit}
   <!-- TAXI -->
   <section id="s-taxi" hidden>
     <header class="hd" id="taxiHd">
-      <div class="row1"><button class="ibtn back" aria-label="Back"><svg class="si"><use href="#i-back"/></svg></button><div class="sp"></div><button class="ibtn rp" style="width:auto;padding:0 14px;border-radius:999px;font-weight:700;font-size:15px;display:flex;gap:6px" data-go="map"><svg class="si"><use href="#i-map"/></svg>Map</button></div>
-      <div class="search"><svg class="si" style="color:#E8306F"><use href="#i-pin"/></svg><span>Where to?</span><b class="later"><svg class="si"><use href="#i-calendar"/></svg>Later</b></div>
+      <div class="row1"><button class="ibtn back g3d" aria-label="Back"><svg class="si"><use href="#i-back"/></svg></button><div class="sp"></div><button class="ibtn g3d rp" style="width:auto;padding:0 14px;border-radius:999px;font-weight:700;font-size:15px;display:flex;gap:6px" data-go="map"><svg class="si"><use href="#i-map"/></svg>Map</button></div>
+      <div class="search" data-go="map" style="cursor:pointer"><svg class="si" style="color:#E8306F"><use href="#i-pin"/></svg><span>Where to?</span><b class="later"><svg class="si"><use href="#i-calendar"/></svg>Later</b></div>
       <div class="promo"><div><h2>PATTAYA</h2><p>Code NAMASTE: 20% off first ride <span class="go"><svg class="si"><use href="#i-arrow"/></svg></span></p></div><div class="pframe ph g2" data-img="taxi.jpg" data-ic="taxi"></div></div>
       <svg class="wave" viewBox="0 0 400 46" preserveAspectRatio="none"><path fill="currentColor" d="M0 30 C120 52 220 0 400 18 V46 H0Z"/></svg>
     </header>
@@ -465,7 +726,7 @@ button{font-family:inherit;color:inherit}
   <!-- CLUBS -->
   <section id="s-clubs" hidden>
     <header class="hd" style="--hd:linear-gradient(135deg,#7B1E4A,#E8306F)">
-      <div class="row1"><button class="ibtn back" aria-label="Back"><svg class="si"><use href="#i-back"/></svg></button><div class="loc"><small>BOOK FOR</small><b>Tonight, 4 guests <svg class="si" style="width:16px;height:16px"><use href="#i-chev"/></svg></b></div><div class="sp"></div><button class="ibtn rp"><svg class="si"><use href="#i-heart"/></svg></button></div>
+      <div class="row1"><button class="ibtn back g3d" aria-label="Back"><svg class="si"><use href="#i-back"/></svg></button><div class="loc"><small>BOOK FOR</small><b>Tonight, 4 guests <svg class="si" style="width:16px;height:16px"><use href="#i-chev"/></svg></b></div><div class="sp"></div><button class="ibtn g3d rp" data-saved="1"><svg class="si"><use href="#i-heart"/></svg></button></div>
       <div class="search"><svg class="si"><use href="#i-search"/></svg><span>Club, DJ, ladies night…</span></div>
       <div class="promo"><div><h2>VIP night out</h2><p>Free entry for ladies before 11 pm <span class="go"><svg class="si"><use href="#i-arrow"/></svg></span></p></div><div class="pframe ph g1" data-img="np-club-crowd.jpg" data-ic="music"></div></div>
       <svg class="wave" viewBox="0 0 400 46" preserveAspectRatio="none"><path fill="currentColor" d="M0 30 C120 52 220 0 400 18 V46 H0Z"/></svg>
@@ -478,7 +739,7 @@ button{font-family:inherit;color:inherit}
 
   <!-- MAP -->
   <section id="s-map" hidden>
-    <div class="mtop"><button class="ibtn back" style="background:none;color:var(--ink)" aria-label="Back"><svg class="si"><use href="#i-back"/></svg></button><div class="msearch"><svg class="si"><use href="#i-search"/></svg><input id="mq" type="search" placeholder="Search places in Pattaya" autocomplete="off"><div class="mres" id="mres" hidden></div></div></div>
+    <div class="mtop"><button class="ibtn back g3d" style="background:none;color:var(--ink)" aria-label="Back"><svg class="si"><use href="#i-back"/></svg></button><div class="msearch"><svg class="si"><use href="#i-search"/></svg><input id="mq" type="search" placeholder="Search places in Pattaya" autocomplete="off"><div class="mres" id="mres" hidden></div></div></div>
     <div class="pills mpills" id="mf"></div>
     <div class="mapv" id="mapv">
       <div class="plane" id="plane"></div>
@@ -492,12 +753,15 @@ button{font-family:inherit;color:inherit}
 <button class="btt" id="btt">Back to top <svg class="si"><use href="#i-arrow"/></svg></button>
 <div class="flash shine" id="flash"><svg class="si"><use href="#i-bolt"/></svg><span>Launch week deals</span><div class="cd"><b id="cdM">14</b>:<b id="cdS">50</b></div></div>
 <nav class="nav" id="nav">
-  <button class="on"><span><svg class="si"><use href="#i-home"/></svg></span>Home</button>
-  <button><span><svg class="si"><use href="#i-map"/></svg></span>Map</button>
-  <button><span><svg class="si"><use href="#i-receipt"/></svg></span>Bookings</button>
-  <button><span><svg class="si"><use href="#i-wallet"/></svg></span>Wallet</button>
-  <button><span><svg class="si"><use href="#i-chat"/></svg></span>Raju<i class="dot">2</i></button>
+  <button class="on"><span class="nv" style="--a:#FF6FA8;--b:#E8306F"><svg class="si"><use href="#i-home"/></svg></span>Home</button>
+  <button><span class="nv" style="--a:#7FE7F2;--b:#0E8FA8"><svg class="si"><use href="#i-map"/></svg></span>Map</button>
+  <button><span class="nv" style="--a:#FFC85A;--b:#F2780E"><svg class="si"><use href="#i-receipt"/></svg></span>Bookings<i class="dot" id="bkCnt" hidden>0</i></button>
+  <button><span class="nv" style="--a:#5ED39A;--b:#13827A"><svg class="si"><use href="#i-wallet"/></svg></span>Wallet</button>
+  <button><span class="nv" style="--a:#9B7BFF;--b:#5B3FD6"><svg class="si"><use href="#i-chat"/></svg></span>Raju</button>
 </nav>
+<div class="scr" id="scr" hidden></div>
+<div class="bdrop" id="bdrop" hidden></div>
+<div class="bsheet" id="bsheet" hidden></div>
 <div class="toast" id="toast"></div>
 <script>
 (function(){
@@ -505,47 +769,55 @@ button{font-family:inherit;color:inherit}
   var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
   var P="images/Photos/";
   function rnd(a,b){return a+Math.random()*(b-a)}
-  function buzz(){try{navigator.vibrate&&navigator.vibrate(8)}catch(e){}}
+  function buzz(){}
   function si(n,st){return '<svg class="si"'+(st?' style="'+st+'"':'')+'><use href="#i-'+n+'"/></svg>'}
   var C={pink:["#FF6FA8","#C2185B"],purple:["#9B7BFF","#5B3FD6"],blue:["#4FC3F7","#1565C0"],teal:["#5ED39A","#13827A"],orange:["#FFC85A","#F2780E"],red:["#FF8A3D","#E8306F"],cyan:["#7FE7F2","#0E8FA8"],gold:["#FFE07A","#B8860B"],grey:["#C9C3D6","#6E6780"]};
   function ico(n,c,s,round){c=C[c]||C.pink;return '<div class="i3'+(round?" round":"")+'" style="--a:'+c[0]+';--b:'+c[1]+(s?';--s:'+s+'px':'')+'">'+si(n)+'</div>'}
+  window.npIcoErr=function(im){im.parentNode.classList.add("nof");im.remove()};
+  function ic3(file,n,c,s,gold){c=C[c]||C.pink;return '<div class="pod'+(gold?" gold":"")+'" style="--a:'+c[0]+';--b:'+c[1]+(s?';--s:'+s+'px':'')+'"><div class="po"><img src="images/Icons/'+file+'.png" alt="" loading="lazy" onerror="npIcoErr(this)">'+'<div class="i3" style="--a:'+c[0]+';--b:'+c[1]+'">'+si(n)+'</div></div></div>'}
   function src(f){return f.indexOf("/")>-1?f:P+f}
-  function ph(f,ic,cls,st){return '<div class="ph '+(cls||"")+'"'+(st?' style="'+st+'"':'')+'>'+si(ic||"star").replace('class="si"','class="si fb"')+(f?'<img src="'+src(f)+'" alt="" loading="lazy" decoding="async" onerror="this.remove()">':"")+'</div>'}
+  window.npImgErr=function(im){var l=(im.getAttribute("data-alt")||"").split("|").filter(Boolean);if(l.length){im.setAttribute("data-alt",l.slice(1).join("|"));im.src=src(l[0])}else im.remove()};
+  function ph(f,ic,cls,st){var L=(f||"").split("|");return '<div class="ph '+(cls||"")+'"'+(st?' style="'+st+'"':'')+'>'+si(ic||"star").replace('class="si"','class="si fb"')+(L[0]?'<img src="'+src(L[0])+'" data-alt="'+L.slice(1).join("|")+'" alt="" loading="lazy" decoding="async" onerror="npImgErr(this)">':"")+'</div>'}
   function fillPh(el){el.innerHTML=si(el.dataset.ic||"star").replace('class="si"','class="si fb"')+'<img src="'+src(el.dataset.img)+'" alt="" loading="lazy" decoding="async" onerror="this.remove()">'}
   document.querySelectorAll("[data-img]").forEach(fillPh);
   var mode="night",scr="home";
 
   /* services: real photos from images/Photos */
   var SV=[["taxi.jpg","Taxi","taxi","HOT"],["private-jet.jpg","Private jet","plane","VIP"],["pattaya-viewpoint-sunset.jpg","3D map","map","NEW"],["xnashaaclub.jpg","Night clubs","music","HOT",1],["xcavebeachclub.jpg","Beach clubs","palm"],["pure-veg-thali.jpg","Pure veg","leaf"],["indian-food.jpg","Indian food","food"],["indian-groceries.jpg","Groceries","bag"],["hotels-resorts.jpg","Hotels","bed"],["car-rental-suv.jpg","Cars & bikes","car"],["spa.jpg","Spa","leaf"],["speedboat-island.jpg","Tours","boat"],["adventure-parasailing.jpg","Water sports","wave"],["golf-sunset.jpg","Golf","star"],["yacht-sunset.jpg","Yacht","boat","VIP"],["shopping-mall.jpg","Mall","bag","NEW"],["pink-cafe-lounge.jpg","Events","ticket"],["medical-pharmacy.jpg","Pharmacy","med"],["villa-infinity-pool.jpg","Concierge","bell"],["payments-money-passport.jpg","Visa info","globe"],["flights-tickets.jpg","Flights","plane"],["condos-property.jpg","Property","roof"],["boomer-friends.jpg","Friends","people"],["beach-walk.jpg","My trip","sparkle","-30%"]];
+  var SVF={"Taxi": ["taxi", "red"], "Private jet": ["private-jet", "purple"], "3D map": ["map", "cyan"], "Night clubs": ["night-clubs", "purple"], "Beach clubs": ["beach-clubs", "cyan"], "Pure veg": ["pure-veg", "teal"], "Indian food": ["indian-food", "orange"], "Groceries": ["groceries", "teal"], "Hotels": ["hotels", "blue"], "Cars & bikes": ["cars-bikes", "red"], "Spa": ["spa", "pink"], "Tours": ["tours", "cyan"], "Water sports": ["water-sports", "blue"], "Golf": ["golf", "teal"], "Yacht": ["yacht", "blue"], "Mall": ["mall", "pink"], "Events": ["events", "purple"], "Pharmacy": ["pharmacy", "red"], "Concierge": ["concierge", "gold"], "Visa info": ["visa", "grey"], "Flights": ["flights", "blue"], "Property": ["property", "orange"], "Friends": ["friends", "pink"], "My trip": ["my-trip", "orange"]};
   var g=$("svcGrid");
   SV.forEach(function(s,i){var a=document.createElement("button");a.className="svc";if(s[4])a.dataset.night=1;if(s[3]==="VIP")a.classList.add("vip");
-    a.innerHTML=(s[3]?'<span class="badge'+(s[3]==="NEW"?" n":s[3]==="VIP"?" g":"")+'">'+s[3]+'</span>':"")+ph(s[0],s[2],"pt g"+(i%5+1))+"<b>"+s[1]+"</b>";
-    a.onclick=function(){buzz();if(s[1]==="3D map"){go("map");return}toast(s[1]+" opens here")};g.appendChild(a)});
+    a.innerHTML=(s[3]?'<span class="badge'+(s[3]==="NEW"?" n":s[3]==="VIP"?" g":"")+'">'+s[3]+'</span>':"")+ic3(SVF[s[1]][0],s[2],SVF[s[1]][1],64,s[3]==="VIP")+"<b>"+s[1]+"</b>";
+    a.onclick=function(){buzz();if(s[1]==="3D map"){go("map");return}if(s[1]==="Taxi"){go("taxi");return}if(s[1]==="Night clubs"){go("clubs");return}if(s[1]==="Pay bill"){openWallet();return}openSvc(s[1],s[0],s[2])};g.appendChild(a)});
   var dw=$("svcDots");for(var p=0;p<3;p++){var d=document.createElement("i");if(!p)d.className="on";dw.appendChild(d)}
   g.addEventListener("scroll",function(){var n=dw.children.length,f=g.scrollLeft/(g.scrollWidth-g.clientWidth||1),k=Math.min(n-1,Math.round(f*(n-1)));[].forEach.call(dw.children,function(x,i){x.classList.toggle("on",i===k)})},{passive:true});
 
   /* tiles */
-  function tiles(el,arr){el.innerHTML=arr.map(function(t,i){return '<div class="tile tl rp" style="background:var(--t'+(i%6+1)+')"><div class="spot"></div>'+(t[3]?'<span class="badge">'+t[3]+'</span>':"")+ico(t[0],t[2])+t[1]+'</div>'}).join("")}
-  tiles($("tilesHome"),[["plane","Airport pickup","blue"],["taxi","Taxi now","teal"],["car","Car with driver","orange"],["bike","Bike rental","red","HOT"],["people","Book for family","purple"],["calendar","Ride later","gold"]]);
-  tiles($("tilesTaxi"),[["calendar","Advance booking","blue"],["bike","Bike","teal"],["clock","Rent by the hour","orange"],["bus","Group ride","red","~20% off"],["people","Book for family","purple"],["plane","Airport pickup","gold"]]);
-  $("tiles2").innerHTML=[["Customize my trip","sparkle","orange",1],["Refer and earn","gift","pink",3],["Split the bill","receipt","teal",2],["Currency converter","swap","blue",4]].map(function(t){return '<div class="tile tl rp" style="background:var(--t'+t[3]+')"><div class="spot"></div>'+t[0]+ico(t[1],t[2])+'</div>'}).join("");
+  function tiles(el,arr){el.innerHTML=arr.map(function(t,i){return '<div class="tile phot tl rp" data-i="'+i+'">'+ph(t[4],t[0],"g"+(i%5+1))+'<div class="ov"></div><div class="spot"></div>'+(t[3]?'<span class="badge">'+t[3]+'</span>':"")+ic3(t[6],t[0],t[2],56)+'<span class="tt">'+t[1]+'</span></div>'}).join("");
+    el.querySelectorAll(".tile").forEach(function(c,i){c.onclick=function(){arr[i][5]()}})}
+  tiles($("tilesHome"),[["plane","Airport pickup","blue","","flights-tickets.jpg",function(){openBook("Airport pickup","flights-tickets.jpg")},"airport"],["taxi","Taxi now","teal","","taxi.jpg",function(){go("taxi")},"taxi"],["car","Car with driver","orange","","car-rental-suv.jpg",function(){openBook("Car with driver","car-rental-suv.jpg")},"car-driver"],["bike","Bike rental","red","HOT","beach-walk.jpg",function(){openBook("Bike rental","beach-walk.jpg")},"bike"],["people","Book for family","purple","","yacht-sunset.jpg",function(){openBook("Family ride","yacht-sunset.jpg")},"family"],["calendar","Ride later","gold","","pattaya-viewpoint-sunset.jpg",function(){openBook("Scheduled ride","pattaya-viewpoint-sunset.jpg")},"ride-later"]]);
+  tiles($("tilesTaxi"),[["calendar","Advance booking","blue","","pattaya-viewpoint-sunset.jpg",function(){openBook("Advance taxi booking","taxi.jpg")},"ride-later"],["bike","Bike","teal","","beach-walk.jpg",function(){openBook("Bike taxi","beach-walk.jpg")},"bike"],["clock","Rent by the hour","orange","","car-rental-suv.jpg",function(){openBook("Car by the hour","car-rental-suv.jpg")},"by-hour"],["bus","Group ride","red","~20% off","boomer-friends.jpg",function(){openBook("Group ride","boomer-friends.jpg")},"group-ride"],["people","Book for family","purple","","yacht-sunset.jpg",function(){openBook("Family ride","yacht-sunset.jpg")},"family"],["plane","Airport pickup","gold","","flights-tickets.jpg",function(){openBook("Airport pickup","flights-tickets.jpg")},"airport"]]);
+  var T2=[["Customize my trip","sparkle","orange","villa-infinity-pool.jpg",function(){openSvc("Customize my trip","villa-infinity-pool.jpg","sparkle","Pick hotel, taxi, tours, food and clubs. Choose Budget, Mid-range or Namaste Gold and get one price.")},"customize"],["Refer and earn","gift","pink","boomer-friends.jpg",function(){openSvc("Refer and earn","boomer-friends.jpg","gift","Share your link with friends. When they book, you earn rewards.")},"refer"],["Split the bill","receipt","teal","indian-food.jpg",function(){openSvc("Split the bill","indian-food.jpg","receipt","Add friends and split any bill in seconds.")},"split-bill"],["Currency converter","swap","blue","payments-money-passport.jpg",function(){openFx()},"currency"]];
+  $("tiles2").innerHTML=T2.map(function(t,i){return '<div class="tile phot tl rp">'+ph(t[3],t[1],"g"+(i+1))+'<div class="ov"></div><div class="spot"></div><span class="tt" style="position:relative;z-index:2">'+t[0]+'</span>'+ic3(t[5],t[1],t[2],52)+'</div>'}).join("");
+  $("tiles2").querySelectorAll(".tile").forEach(function(c,i){c.onclick=function(){T2[i][4]()}});
   $("recent").innerHTML=[["clock","grey","Terminal 21 Pattaya","North Pattaya Rd, Bang Lamung"],["pin","red","Central Festival Pattaya Beach","Beach Rd, Pattaya"],["pin","red","Walking Street","South Pattaya"]].map(function(r){return '<div>'+ico(r[0],r[1],40,true)+'<span><b>'+r[2]+'</b><small>'+r[3]+'</small></span></div>'}).join("");
-  $("rc").innerHTML=[["nightclub.jpg","Night clubs","music"],["xbyblosbeachclub.jpg","Beach clubs","palm"],["xnashaaspace.jpg","After party","star"],["pink-cafe-lounge.jpg","Ladies night","heart"],["rooftop-bar-2.webp","Rooftop","roof"]].map(function(c,i){return '<button class="'+(i?"":"on")+'"><div class="o">'+ph(c[0],c[2],"g"+(i%5+1))+'<span class="ok">'+si("check")+'</span></div>'+c[1]+'</button>'}).join("");
+  $("rc").innerHTML=[["nightclub.jpg","Night clubs","music"],["xbyblosbeachclub.jpg","Beach clubs","palm"],["xnashaaspace.jpg|nightclub.jpg|np-club-crowd.jpg","After party","star"],["pink-cafe-lounge.jpg","Ladies night","heart"],["rooftop-bar-2.webp|sky-bar-2.webp|horizon-rooftop.webp|pattaya-viewpoint-sunset.jpg","Rooftop","roof"]].map(function(c,i){return '<button class="'+(i?"":"on")+'"><div class="o">'+ph(c[0],c[2],"g"+(i%5+1))+'<span class="ok">'+si("check")+'</span></div>'+c[1]+'</button>'}).join("");
   $("rc").querySelectorAll("button").forEach(function(b){b.onclick=function(){buzz();$("rc").querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b)})}});
   $("logos").innerHTML=[["xnashaaclub.jpg","The Nashaa Club","HOT"],["xjalwa.jpg","Jalwa Club",""],["xcavebeachclub.jpg","Cave Beach Club","NEW"],["xkamaa.jpg","Kamaa Club",""]].map(function(l,i){return '<div><div class="o">'+ph(l[0],"music","g"+(i+1))+(l[2]?'<em>'+l[2]+'</em>':"")+'</div>'+l[1]+'</div>'}).join("");
-  $("rajuFace").innerHTML=si("user").replace('class="si"','class="si fb"')+'<img src="images/Raju/raju-guide-face.webp" alt="Raju" loading="lazy" onerror="this.remove()">';
+  $("logos").querySelectorAll("div>.o").forEach(function(o,i){o.style.cursor="pointer";o.onclick=function(){var L=[["xnashaaclub.jpg","The Nashaa Club"],["xjalwa.jpg","Jalwa Club"],["xcavebeachclub.jpg","Cave Beach Club"],["xkamaa.jpg","Kamaa Club"]][i];openSvc(L[1],L[0],"music","Entry, VIP tables and bottle deals")}});
+  $("recent").querySelectorAll("div").forEach(function(d){d.style.cursor="pointer";d.onclick=function(){openBook("Taxi to "+d.querySelector("b").textContent,"taxi.jpg")}});
 
   /* stories (photos; flagged photos not used) */
-  var STN=[["np-club-crowd.jpg","Tonight","music","Tonight in Pattaya","Best clubs and parties, live now. Tap to book a table."],["pink-cafe-lounge.jpg","Ladies","heart","Ladies night","Special nights for ladies (sample offer)."],["xcavebeachclub.jpg","Beach","palm","Beach clubs","Day beds, pools and sunset DJs."],["sky-vibe-rooftop-sunset.webp","Rooftop","roof","Rooftop bars","Sunset views over Pattaya Bay."],["np-event-stage.jpg","Events","ticket","Events and parties","Groups, gala nights and celebrations."],["images/Raju/raju-guide-face.webp","Raju tips","user","Raju’s tip","Book clubs before 9 pm for the best tables."]];
+  var STN=[["np-club-crowd.jpg","Tonight","music","Tonight in Pattaya","Best clubs and parties, live now. Tap to book a table."],["pink-cafe-lounge.jpg","Ladies","heart","Ladies night","Special nights for ladies (sample offer)."],["xcavebeachclub.jpg","Beach","palm","Beach clubs","Day beds, pools and sunset DJs."],["sky-vibe-rooftop-sunset.webp|rooftop-bar-2.webp|horizon-rooftop.webp|sky-bar-2.webp|pattaya-viewpoint-sunset.jpg","Rooftop","roof","Rooftop bars","Sunset views over Pattaya Bay."],["np-event-stage.jpg","Events","ticket","Events and parties","Groups, gala nights and celebrations."],["images/Raju/raju-guide-face.webp","Raju tips","user","Raju’s tip","Book clubs before 9 pm for the best tables."]];
   var STF=[["koh-larn-snorkeling.jpg","Islands","boat","Koh Larn","Clear water and beaches, a short boat ride away."],["nong-nooch-garden.jpg","Gardens","leaf","Nong Nooch Garden","Gardens and shows for the whole family."],["pure-veg-thali.jpg","Veg food","food","Pure veg food","Indian thali near your hotel."],["ramayana-water-park.jpg","Water park","wave","Ramayana Water Park","A full day of fun for kids."],["underwater-world.jpg","Aquarium","star","Underwater World","See sharks and rays up close."],["images/Raju/raju-guide-face.webp","Raju tips","user","Raju’s tip","Book island tours a day early for the best boats."]];
   var ST=STN,stEl=$("stories");
-  function stBuild(){ST=mode==="night"?STN:STF;stEl.innerHTML="";ST.forEach(function(s,i){var b=document.createElement("button");b.className="sty";b.innerHTML='<div class="ring">'+ph(s[0],s[2],"g"+(i%5+1))+'</div>'+s[1];b.onclick=function(){openStory(i)};stEl.appendChild(b)})}
+  function stBuild(){if(!stEl)return;ST=mode==="night"?STN:STF;stEl.innerHTML="";ST.forEach(function(s,i){var b=document.createElement("button");b.className="sty";b.innerHTML='<div class="ring">'+ph(s[0],s[2],"g"+(i%5+1))+'</div>'+s[1];b.onclick=function(){openStory(i)};stEl.appendChild(b)})}
   var sv=null,svI=0,svT=null;
   function openStory(i){buzz();svI=i;if(!sv){sv=document.createElement("div");sv.className="sv";document.body.appendChild(sv)}sv.hidden=false;drawStory()}
   function drawStory(){clearTimeout(svT);var s=ST[svI];stEl.children[svI].classList.add("seen");
     sv.innerHTML='<div class="bars">'+ST.map(function(_,k){return '<i><b style="width:'+(k<svI?100:0)+'%"></b></i>'}).join("")+'</div><div class="top">'+ph(s[0],s[2],"g1")+s[1]+'<button aria-label="Close">'+si("close")+'</button></div><div class="body">'+ph(s[0],s[2],"g"+(svI%5+1))+'<div class="cap"><h2>'+s[3]+'</h2><p>'+s[4]+'</p><button class="cta">Book now</button></div></div>';
     sv.querySelector(".top button").onclick=function(e){e.stopPropagation();clearTimeout(svT);sv.hidden=true};
-    sv.querySelector(".cta").onclick=function(e){e.stopPropagation();sv.hidden=true;clearTimeout(svT);toast("Opens booking")};
+    sv.querySelector(".cta").onclick=function(e){e.stopPropagation();sv.hidden=true;clearTimeout(svT);openBook(s[3],s[0])};
     sv.querySelector(".body").onclick=function(e){var r=this.getBoundingClientRect();if(e.clientX<r.left+r.width/3){svI=Math.max(0,svI-1)}else{svI++}if(svI>=ST.length){sv.hidden=true;return}drawStory()};
     var bar=sv.querySelectorAll(".bars b")[svI];requestAnimationFrame(function(){bar.style.transition="width 4s linear";bar.style.width="100%"});
     svT=setTimeout(function(){svI++;if(svI>=ST.length){sv.hidden=true;return}drawStory()},4000)}
@@ -561,18 +833,18 @@ button{font-family:inherit;color:inherit}
   var bn=$("bn");
   bn.addEventListener("pointerdown",function(e){sx=e.clientX;hold=Date.now()+5000});
   bn.addEventListener("pointermove",function(e){if(sx===null)return;drag=e.clientX-sx;bset(false)});
-  function bup(){if(sx===null)return;if(drag<-40)bi++;else if(drag>40)bi--;drag=0;sx=null;bset(true)}
+  function bup(e){if(sx===null)return;var tap=Math.abs(drag)<8&&e&&e.type==="pointerup";if(drag<-40)bi++;else if(drag>40)bi--;drag=0;sx=null;bset(true);if(tap){var L=BN.map(function(b){return mode!=="night"&&b[5]?b[5]:b}),b=L[(bi-1+N)%N];if(b[1]==="Party tonight")go("clubs");else if(b[1]==="Airport taxi")openBook("Airport taxi",b[0]);else openSvc(b[1],b[0],b[4],b[2])}}
   ["pointerup","pointercancel","pointerleave"].forEach(function(t){bn.addEventListener(t,bup)});
   setInterval(function(){if(RM||document.hidden||scr!=="home"||Date.now()<hold||sx!==null)return;bi++;bset(true)},3500);
 
   /* 3D coverflow */
-  var EV={night:[["xnashaaclub.jpg","The Nashaa Club","10 pm · 1.9 km","25% off entry"],["xcavebeachclub.jpg","Cave Beach Club","Sunset · 6 km","Day bed deal"],["xjalwa.jpg","Jalwa Club","11 pm · 2.4 km",""],["horizon-rooftop.webp","Rooftop sunset","6 pm · Jomtien","Happy hour"],["xkamaa.jpg","Kamaa Club","10 pm · 2 km",""]],
+  var EV={night:[["xnashaaclub.jpg","The Nashaa Club","10 pm · 1.9 km","25% off entry"],["xcavebeachclub.jpg","Cave Beach Club","Sunset · 6 km","Day bed deal"],["xjalwa.jpg","Jalwa Club","11 pm · 2.4 km",""],["horizon-rooftop.webp|rooftop-bar-2.webp|sky-bar-2.webp|pattaya-viewpoint-sunset.jpg","Rooftop sunset","6 pm · Jomtien","Happy hour"],["xkamaa.jpg","Kamaa Club","10 pm · 2 km",""]],
           family:[["koh-larn-snorkeling.jpg","Coral Island tour","Full day · boat","20% off"],["nong-nooch-garden.jpg","Nong Nooch Garden","Half day","Kids free"],["pure-veg-thali.jpg","Pure veg thali","Dinner · 1 km","15% off"],["elephant-village.jpg","Elephant village","Half day",""],["ramayana-water-park.jpg","Water park","Full day","Family pack"]]};
   var cf=$("cf"),cfD=$("cfDots"),ci=0,cfHold=0;
   function cfBuild(){var L=EV[mode];cf.innerHTML="";cfD.innerHTML="";
     L.forEach(function(e,i){var c=document.createElement("div");c.className="cfc";c.innerHTML='<div class="img">'+ph(e[0],"star","g"+(i%5+1))+'<span class="live"><i></i>LIVE</span><button class="heart" aria-label="Save">'+si("heart")+'</button>'+(e[3]?'<div class="tag">'+e[3]+'</div>':"")+'</div><div class="info"><b>'+e[1]+'</b><small>'+si("bolt")+e[2]+'</small></div>';
-      c.onclick=function(ev){if(ev.target.closest(".heart"))return;if(i!==ci){ci=i;cfHold=Date.now()+5000;cfSet()}else toast(e[1]+" opens here")};
-      c.querySelector(".heart").onclick=function(ev){ev.stopPropagation();var h=this,on=h.classList.toggle("on");h.style.animation="none";void h.offsetWidth;h.style.animation="";if(on)burst(ev.clientX,ev.clientY);buzz()};
+      c.onclick=function(ev){if(ev.target.closest(".heart"))return;if(i!==ci){ci=i;cfHold=Date.now()+5000;cfSet()}else openSvc(e[1],e[0],"star",e[2]+(e[3]?" · "+e[3]:""))};
+      c.querySelector(".heart").onclick=function(ev){ev.stopPropagation();var h=this,on=h.classList.toggle("on");h.style.animation="none";void h.offsetWidth;h.style.animation="";if(on){burst(ev.clientX,ev.clientY);saved[e[1]]=1}else delete saved[e[1]];savedUpd();buzz()};
       cf.appendChild(c);cfD.appendChild(document.createElement("i"))});ci=0;cfSet()}
   function cfSet(off){off=off||0;var L=cf.children,n=L.length;[].forEach.call(L,function(c,i){var r=((i-ci+n+Math.floor(n/2))%n)-Math.floor(n/2),a=Math.abs(r),x=r*62+off/3;
       c.style.transform="translateX(-50%) translateX("+x+"%) translateZ("+(-a*140)+"px) rotateY("+(-r*32)+"deg) scale("+(1-a*.06)+")";c.style.zIndex=10-a;c.style.opacity=a>2?0:1;
@@ -595,13 +867,14 @@ button{font-family:inherit;color:inherit}
   function stkBind(c){var x0=null,dx=0;
     c.addEventListener("pointerdown",function(e){x0=e.clientX;c.style.transition="none"});
     c.addEventListener("pointermove",function(e){if(x0===null)return;dx=e.clientX-x0;c.style.transform="translateX("+dx+"px) rotate("+(dx/18)+"deg)"});
-    function up(){if(x0===null)return;x0=null;c.style.transition="";if(Math.abs(dx)>70){buzz();c.style.transform="translateX("+(dx>0?600:-600)+"px) rotate("+(dx>0?30:-30)+"deg)";c.style.opacity=0;setTimeout(function(){order.push(order.shift());stkDraw()},300)}else{c.style.transform=""}dx=0}
+    function up(ev){if(x0===null)return;x0=null;c.style.transition="";if(Math.abs(dx)<6&&ev&&ev.type==="pointerup"){var s0=SK[order[0]];openSvc(s0[1],s0[0],"sparkle",s0[2]);dx=0;c.style.transform="";return}if(Math.abs(dx)>70){buzz();c.style.transform="translateX("+(dx>0?600:-600)+"px) rotate("+(dx>0?30:-30)+"deg)";c.style.opacity=0;setTimeout(function(){order.push(order.shift());stkDraw()},300)}else{c.style.transform=""}dx=0}
     ["pointerup","pointercancel","pointerleave"].forEach(function(t){c.addEventListener(t,up)})}
   stkDraw();
 
   /* deals */
   var DL=[["xnashaaclub.jpg","VIP table for 4","Nashaa Club · 10 pm",5000,6000,"฿1,000 off"],["xjalwa.jpg","Bottle + mixers","Jalwa Club · 11 pm",3500,0,""],["yacht-sunset.jpg","Yacht half day","Up to 10 guests",18000,22000,"฿4,000 off"],["spa.jpg","Thai massage 90 min","Near your hotel",650,0,""]];
   $("deals").innerHTML=DL.map(function(d,i){return '<div class="vc tl"><div class="img">'+ph(d[0],"star","g"+(i+1))+'<div class="spot"></div><button class="plus" aria-label="Add">'+si("plus")+'</button>'+(d[5]?'<div class="tag">'+d[5]+'</div>':"")+'</div><div class="price'+(d[4]?" d":"")+'">฿<span class="cu" data-v="'+d[3]+'">0</span>'+(d[4]?"<s>฿"+d[4].toLocaleString("en-US")+"</s>":"")+'</div><b>'+d[1]+'</b><div class="meta">'+d[2]+'</div></div>'}).join("");
+  $("deals").querySelectorAll(".vc").forEach(function(c,i){c.onclick=function(){openSvc(DL[i][1],DL[i][0],"star",DL[i][2])}});
   $("deals").querySelectorAll(".plus").forEach(function(b){b.onclick=function(e){e.stopPropagation();buzz();var on=b.classList.toggle("ok");b.innerHTML=si(on?"check":"plus");if(on){confetti(e.clientX,e.clientY);toast("Added to your trip")}}});
 
   /* tiers */
@@ -609,11 +882,11 @@ button{font-family:inherit;color:inherit}
   var TP={budget:[["hotels-resorts.jpg","3-star hotel","Near the beach"],["beach-walk.jpg","Beach walk","Free and beautiful"],["indian-food.jpg","Indian street food","Tasty and cheap"],["koh-larn-snorkeling.jpg","Koh Larn ferry","Public boat from Bali Hai"],["np-club-crowd.jpg","Club entry","Entry only, no table",1]],
           mid:[["hotels-resorts.jpg","4-star beach hotel","With pool and breakfast"],["car-rental-suv.jpg","Private car","Door to door"],["speedboat-island.jpg","Speedboat island trip","Coral Island, half day"],["indian-food.jpg","Indian dinner","Veg or non-veg"],["xbyblosbeachclub.jpg","Beach club day bed","Pool and DJ",1]],
           gold:[["private-jet.jpg","Private jet","Charter flights"],["yacht-sunset.jpg","Private yacht","Half day, crew included"],["xnashaaclub.jpg","VIP club table","Best table, bottle service",1],["villa-infinity-pool.jpg","Pool villa","Private pool, chef on call"],["golf-sunset.jpg","Golf day","Private car and caddie"]]};
-  function tierDraw(){$("tiers").innerHTML=TI.map(function(t){return '<button class="tier rp'+(t[0]==="gold"?" gold shine":"")+(t[0]===tier?" on":"")+'" data-t="'+t[0]+'">'+ico(t[3],t[4],52)+'<b>'+t[1]+'</b><small>'+t[2]+'</small><span class="lv">'+t[5]+'</span></button>'}).join("");
+  function tierDraw(){$("tiers").innerHTML=TI.map(function(t){return '<button class="tier rp'+(t[0]==="gold"?" gold shine":"")+(t[0]===tier?" on":"")+'" data-t="'+t[0]+'">'+ic3({budget:"budget",mid:"mid-range",gold:"gold"}[t[0]],t[3],t[4],58,t[0]==="gold")+'<b>'+t[1]+'</b><small>'+t[2]+'</small><span class="lv">'+t[5]+'</span></button>'}).join("");
     $("tiers").querySelectorAll(".tier").forEach(function(b){b.onclick=function(e){var was=tier;tier=b.dataset.t;tierDraw();if(tier==="gold"&&was!=="gold")confetti(e.clientX,e.clientY)}});
     var T=TI.filter(function(t){return t[0]===tier})[0],L=TP[tier].filter(function(x){return !(x[3]&&mode!=="night")}),gd=tier==="gold";
     $("tierT").textContent=T[1]+" picks";
-    $("tierRow").innerHTML=L.map(function(x,i){return '<div class="vc tl tin'+(gd?" gold":"")+'" style="animation-delay:'+(i*70)+'ms"><div class="img">'+ph(x[0],"star","g"+(i%5+1))+'<div class="spot"></div>'+(gd?'<span class="gtag">'+si("crown")+'Namaste Gold</span>':"")+'</div><div class="lvl">'+T[5]+'</div><b>'+x[1]+'</b><div class="meta">'+x[2]+'</div></div>'}).join("");bindTilt($("tierRow"))}
+    $("tierRow").innerHTML=L.map(function(x,i){return '<div class="vc tl tin'+(gd?" gold":"")+'" style="animation-delay:'+(i*70)+'ms"><div class="img">'+ph(x[0],"star","g"+(i%5+1))+'<div class="spot"></div>'+(gd?'<span class="gtag">'+si("crown")+'Namaste Gold</span>':"")+'</div><div class="lvl">'+T[5]+'</div><b>'+x[1]+'</b><div class="meta">'+x[2]+'</div></div>'}).join("");$("tierRow").querySelectorAll(".vc").forEach(function(c,i){c.onclick=function(){openSvc(L[i][1],L[i][0],"star",L[i][2])}});bindTilt($("tierRow"))}
 
   /* effects */
   function toast(t){var el=$("toast");el.textContent=t;el.classList.add("show");clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove("show")},1600)}
@@ -629,6 +902,20 @@ button{font-family:inherit;color:inherit}
   var io=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIntersecting)return;en.target.classList.add("in");en.target.querySelectorAll(".cu").forEach(function(c){if(!c.dataset.d){c.dataset.d=1;RM?c.textContent=(+c.dataset.v).toLocaleString("en-US"):countUp(c)}});io.unobserve(en.target)})},{threshold:.12});
   function watch(){document.querySelectorAll(".rv:not(.in)").forEach(function(el){io.observe(el)})}
   $("pills").querySelectorAll("button").forEach(function(b){b.addEventListener("click",function(){$("pills").querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b)})})});
+
+
+  /* ---- tours & attractions (your 16 photographed places) ---- */
+  var TR=[["Nong Nooch Garden","Gardens and cultural show","nong-nooch-garden.jpg","nature",1],["Khao Kheow Open Zoo","Safari ride","khao-kheow-zoo.jpg","nature",1],["Ramayana Water Park","Big water park","ramayana-water-park.jpg","fun",1],["Underwater World","Aquarium with a walk-through tunnel","underwater-world.jpg","fun",1],["Koh Larn snorkelling","Boat from Bali Hai Pier","koh-larn-snorkeling.jpg","water",0],["Buddha Mountain","Golden Buddha on the cliff","buddha-mountain.jpg","culture",0],["Pattaya Viewpoint","City and bay views","pattaya-viewpoint-sunset.jpg","culture",0],["Teddy Island","Teddy bear museum","teddy-island.jpg","fun",1],["Sheep Farm","Farm animals and photos","sheep-farm.jpg","nature",1],["Mini Siam","Famous landmarks in miniature","mini-siam.jpg","culture",0],["Frost Ice of Siam","Ice sculptures","frost-ice-of-siam.jpg","fun",0],["Upside Down House","Fun upside-down photos","upside-down-house.jpg","fun",0],["Bottle Art Museum","Art built inside bottles","bottle-art-museum.jpg","culture",0],["Elephant Village","Meet elephants","elephant-village.jpg","nature",0],["Silverlake Vineyard","Vineyard and lake views","silverlake-vineyard.jpg","nature",0],["Flyboard and jet ski","Water adventure","water-sports-flyboard.jpg","water",0]];
+  var TF=[["all","All",""],["family","Family","people"],["nature","Nature","leaf"],["culture","Culture","temple"],["fun","Fun","star"],["water","Islands and water","boat"]],tfil="all",tAll=false;
+  $("tf").innerHTML=TF.map(function(f,i){return '<button class="rp'+(i?"":" on")+'" data-tf="'+f[0]+'">'+(f[2]?si(f[2]):"")+f[1]+'</button>'}).join("");
+  $("tf").querySelectorAll("button").forEach(function(b){b.onclick=function(){tfil=b.dataset.tf;tAll=false;$("tf").querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b)});tDraw()}});
+  function tDraw(){var L=TR.filter(function(t){return tfil==="all"||(tfil==="family"?t[4]:t[3]===tfil)}),show=tAll?L:L.slice(0,6);
+    $("tCount").textContent=TR.length+" places";
+    $("tgrid").innerHTML=show.map(function(t,i){return '<div class="tcard tl tin" style="animation-delay:'+(i*50)+'ms">'+ph(t[2],"palm","g"+(i%5+1))+'<div class="spot"></div>'+(t[4]?'<span class="fam">'+si("people")+'Family</span>':"")+'<div class="tx"><b>'+t[0]+'</b><small>'+t[1]+'</small></div></div>'}).join("");
+    $("tgrid").querySelectorAll(".tcard").forEach(function(c,i){c.onclick=function(){openSvc(show[i][0],show[i][2],"palm",show[i][1])}});
+    var m=$("tMore");m.hidden=L.length<=6;m.textContent=tAll?"Show less":"Show all "+L.length;bindTilt($("tgrid"))}
+  $("tMore").onclick=function(){tAll=!tAll;tDraw();if(!tAll)$("toursSec").scrollIntoView({behavior:"smooth"})};
+  tDraw();
 
   /* ===== 3D map ===== */
   var plane=$("plane"),mapv=$("mapv"),W=700,H=900;
@@ -659,7 +946,7 @@ button{font-family:inherit;color:inherit}
   function selPin(i){buzz();pins.forEach(function(p,k){p.classList.toggle("sel",k===i)});var m=MP[i],d=Math.hypot(m[4]-ME.x,m[5]-ME.y),km=(d/45).toFixed(1),min=Math.max(3,Math.round(d/45*3)),isl=m[0]==="Koh Larn";
     $("sheet").innerHTML='<div class="h">'+(m[2]?ph(m[2],m[3],"g1"):ico(m[3],MC[m[1]],58))+'<div><b>'+m[0]+'</b><small>'+m[6]+(isl?'<br>Taxi to Bali Hai Pier, then boat':'<br>About '+km+' km · '+min+' min by taxi (estimate)')+'</small></div><button class="x" aria-label="Close">'+si("close")+'</button></div><div class="acts"><button class="rp pr">Book</button><button class="rp">'+si("taxi")+(isl?"Taxi to pier":"Taxi here")+'</button><button class="rp">'+si("pin")+'Directions</button></div>';
     $("sheet").classList.add("show");$("sheet").querySelector(".x").onclick=function(){$("sheet").classList.remove("show");pins.forEach(function(p){p.classList.remove("sel")})};
-    $("sheet").querySelectorAll(".acts button").forEach(function(b){b.onclick=function(){toast(b.textContent+" opens here")}});
+    var ab=$("sheet").querySelectorAll(".acts button");ab[0].onclick=function(){openBook(m[0],m[2]||"taxi.jpg")};ab[1].onclick=function(){openBook((isl?"Taxi to Bali Hai Pier":"Taxi to "+m[0]),"taxi.jpg")};ab[2].onclick=function(){window.open("https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent((isl?"Bali Hai Pier":m[0])+", Pattaya"),"_blank","noopener")};
     if(M.z<1.2)M.z=1.2;centerOn(m[4],m[5],true,70)}
   var ptrs={},g0=null,moved=0;
   function pts(){return Object.keys(ptrs).map(function(k){return ptrs[k]})}
@@ -687,6 +974,114 @@ button{font-family:inherit;color:inherit}
   requestAnimationFrame(carLoop);
   function mapShow(){pinVis();if(!mapOn){mapOn=true;M.z=.9;centerOn(375,440,false);setTimeout(function(){M.z=1.05;mset(true)},300)}else mset(false)}
 
+
+  /* ===== working parts: screens, booking, bookings list, wallet, saved, currency ===== */
+  var BK=[],saved={};
+  function closeScr(){$("scr").hidden=true;$("scr").innerHTML=""}
+  function heroTop(){return '<div class="top"><button class="ibtn g3d rp" style="--a:#9B7BFF;--b:#5B3FD6" data-x aria-label="Back">'+si("back")+'</button><button class="ibtn g3d rp" style="--a:#FF6FA8;--b:#E8306F" data-sv aria-label="Save">'+si("heart")+'</button></div>'}
+  function openSvc(name,img,icn,desc){var el=$("scr"),isSaved=!!saved[name];
+    el.innerHTML='<div class="hero">'+ph(img,icn||"star","g1")+'<div class="ov"></div>'+heroTop()+'<h1>'+name+'</h1></div><div class="body"><p>'+(desc||"Choose your date and guests. Our team confirms your booking.")+'</p><div class="tiers" id="sTiers"></div><button class="cta2 rp" data-b>Book '+name+'</button><button class="cta2 sec2 rp" data-r>Ask Raju about this</button><p style="font-size:12px;margin-top:14px">Design preview: bookings here are a demo and are not sent anywhere.</p></div>';
+    el.hidden=false;el.scrollTop=0;
+    el.querySelector("#sTiers").innerHTML=TI.map(function(t){return '<button class="tier rp'+(t[0]==="gold"?" gold shine":"")+(t[0]===tier?" on":"")+'" data-t="'+t[0]+'">'+ico(t[3],t[4],44)+'<b>'+t[1]+'</b><span class="lv">'+t[5]+'</span></button>'}).join("");
+    el.querySelectorAll("#sTiers .tier").forEach(function(b){b.onclick=function(){tier=b.dataset.t;el.querySelectorAll("#sTiers .tier").forEach(function(x){x.classList.toggle("on",x===b)});tierDraw()}});
+    el.querySelector("[data-x]").onclick=closeScr;
+    var sb=el.querySelector("[data-sv]");if(isSaved)sb.style.setProperty("--a","#FF4D8D");
+    sb.onclick=function(e){if(saved[name]){delete saved[name];toast("Removed from saved")}else{saved[name]=1;burst(e.clientX,e.clientY);toast("Saved")}savedUpd()};
+    el.querySelector("[data-b]").onclick=function(){openBook(name,img)};
+    el.querySelector("[data-r]").onclick=function(){closeScr();go("home");rAsk(name)}}
+  function sheet(html){$("bsheet").innerHTML='<div class="grab"></div><button class="sx rp" aria-label="Close">'+si("close")+'</button>'+html;$("bsheet").hidden=false;$("bdrop").hidden=false;$("bsheet").querySelector(".sx").onclick=closeSheet;return $("bsheet")}
+  function closeSheet(){$("bsheet").hidden=true;$("bdrop").hidden=true}
+  $("bdrop").onclick=closeSheet;
+  function openBook(name,img){var g=2,tm=new Date(Date.now()+864e5),d=tm.toISOString().slice(0,10),t2=tier;
+    var b=sheet('<div class="hd2">'+ph(img,"star","g1")+'<div><h2>'+name+'</h2><small style="color:var(--muted)">Booking request</small></div></div>'+
+      '<label class="fld">Date<input type="date" id="bkD" value="'+d+'" min="'+new Date().toISOString().slice(0,10)+'"></label>'+
+      '<label class="fld">Time<input type="time" id="bkT" value="20:00"></label>'+
+      '<div class="fld">Guests<div class="step"><button class="g3d rp" style="--a:#9B7BFF;--b:#5B3FD6" id="gm" aria-label="Fewer">'+si("minus")+'</button><b id="gv">2</b><button class="g3d rp" style="--a:#FF6FA8;--b:#E8306F" id="gp" aria-label="More">'+si("plus")+'</button></div></div>'+
+      '<div class="fld">Style<div class="seg3">'+TI.map(function(t){return '<button data-t="'+t[0]+'" class="'+(t[0]===t2?"on":"")+'">'+t[1]+'</button>'}).join("")+'</div></div>'+
+      '<label class="fld">Note for our team (optional)<textarea id="bkN" rows="2" placeholder="Pure veg, birthday, pickup from hotel…"></textarea></label>'+
+      '<div class="err" id="bkE"></div><button class="cta2 rp" id="bkGo">Confirm booking</button>');
+    b.querySelector("#gm").onclick=function(){g=Math.max(1,g-1);b.querySelector("#gv").textContent=g};
+    b.querySelector("#gp").onclick=function(){g=Math.min(30,g+1);b.querySelector("#gv").textContent=g};
+    b.querySelectorAll(".seg3 button").forEach(function(x){x.onclick=function(){t2=x.dataset.t;b.querySelectorAll(".seg3 button").forEach(function(y){y.classList.toggle("on",y===x)})}});
+    b.querySelector("#bkD").oninput=function(){b.querySelector("#bkE").textContent=""};
+    b.querySelector("#bkGo").onclick=function(e){var dv=b.querySelector("#bkD").value;if(!dv){b.querySelector("#bkE").textContent="Choose a date first.";return}
+      BK.unshift({n:name,img:img,d:dv,t:b.querySelector("#bkT").value,g:g,tier:t2});bkUpd();closeSheet();confetti(e.clientX,e.clientY);toast("Booking saved (demo)")}}
+  function bkUpd(){var c=$("bkCnt");c.textContent=BK.length;c.hidden=!BK.length}
+  function plainScr(title,inner){var el=$("scr");el.innerHTML='<div class="plain"><div class="row1"><button class="ibtn g3d rp" data-x aria-label="Back">'+si("back")+'</button></div><h1>'+title+'</h1>'+inner+'</div>';el.hidden=false;el.scrollTop=0;el.querySelector("[data-x]").onclick=closeScr;return el}
+  function tierName(k){return TI.filter(function(t){return t[0]===k})[0][1]}
+  function openBookings(){var el=plainScr("My bookings",BK.length?BK.map(function(b){return '<div class="bkrow">'+ph(b.img,"star","g1")+'<div><b>'+b.n+'</b><small>'+b.d+' · '+b.t+' · '+b.g+' guests · '+tierName(b.tier)+'</small></div><span class="stt">Requested</span></div>'}).join("")+'<p style="color:var(--muted);font-size:12.5px">Demo bookings, kept only until you close this page.</p>':'<div class="empty">'+ico("receipt","orange",70)+'<b>No bookings yet</b><p>Book anything and it shows up here.</p><button class="cta2 rp" data-e>Explore Pattaya</button></div>');
+    var e=el.querySelector("[data-e]");if(e)e.onclick=function(){closeScr();go("home")}}
+  function openWallet(){var el=plainScr("Wallet",'<div class="wcard shine"><small>Namaste balance (demo)</small><b>฿0</b><small>Namaste points: 0</small></div><button class="cta2 rp" data-p>'+si("receipt")+'Pay a bill</button><button class="cta2 sec2 rp" data-f>'+si("swap")+'Currency converter</button><p style="font-size:12.5px">Payments connect to your real payment system in the live app.</p>');
+    el.querySelector("[data-p]").onclick=function(){toast("Pay bill connects in the real app")};el.querySelector("[data-f]").onclick=openFx}
+  function savedUpd(){var n=Object.keys(saved).length,c=$("savedCnt");c.textContent=n;c.hidden=!n}
+  function openSaved(){var k=Object.keys(saved);plainScr("Saved",k.length?k.map(function(n){return '<div class="bkrow">'+ico("heart","pink",48)+'<div><b>'+n+'</b><small>Saved place</small></div></div>'}).join(""):'<div class="empty">'+ico("heart","pink",70)+'<b>Nothing saved yet</b><p>Tap the heart on any place to save it.</p></div>')}
+  $("savedBtn").onclick=openSaved;
+  function openFx(){var b=sheet('<h2>Currency converter</h2><small style="color:var(--muted)">Thai baht and Indian rupee</small><div class="fxr"><label class="fld">Amount in ฿<input id="fxA" type="number" inputmode="decimal" value="1000" min="0"></label><label class="fld">1 ฿ = ? ₹<input id="fxR" type="number" inputmode="decimal" step="0.01" min="0" placeholder="Today’s rate"></label></div><div class="fxout" id="fxO">Enter today’s rate</div><p style="color:var(--muted);font-size:12.5px">Type today’s rate from your bank or a money changer.</p>');
+    function upd(){var a=+b.querySelector("#fxA").value,r=+b.querySelector("#fxR").value;b.querySelector("#fxO").textContent=r>0?"₹"+(a*r).toLocaleString("en-IN",{maximumFractionDigits:2}):"Enter today’s rate"}
+    b.querySelector("#fxA").oninput=upd;b.querySelector("#fxR").oninput=upd}
+
+  /* ===== Raju chat (demo replies; the real app uses your live Raju) ===== */
+  var rm=$("rmsgs");
+  function rScroll(){rm.scrollTop=rm.scrollHeight}
+  function addMe(t){var d=document.createElement("div");d.className="m mine";d.textContent=t;rm.appendChild(d);rScroll()}
+  function addBot(t,acts){var w=document.createElement("div");w.className="m wait";w.innerHTML="<i></i><i></i><i></i>";rm.appendChild(w);rScroll();
+    setTimeout(function(){w.className="m";w.innerHTML="";$("rStage").classList.add("raju-talk");var sp=document.createElement("span");w.appendChild(sp);var i=0;
+      (function step(){if(i<t.length+2){sp.textContent=t.slice(0,i);i+=2;rScroll();setTimeout(step,16);return}sp.textContent=t;$("rStage").classList.remove("raju-talk");if(acts&&acts.length){var a=document.createElement("div");a.className="acts";acts.forEach(function(x){var b=document.createElement("button");b.textContent=x[0];b.onclick=x[1];a.appendChild(b)});w.appendChild(a);rScroll()}})()},RM?0:550)}
+  function rAsk(q){addMe(q);var t=q.toLowerCase(),n=mode==="night";
+    if(/taxi|ride|cab|airport|pickup|transfer/.test(t))return addBot("I can get you a ride. Where are you going?",[["Open taxi",function(){go("taxi")}],["Airport pickup",function(){openBook("Airport pickup","flights-tickets.jpg")}]]);
+    if(/club|party|night|dj|table|bar|ladies/.test(t))return n?addBot("Tonight’s best clubs are ready. Want a VIP table?",[["See clubs",function(){go("clubs")}],["Book VIP table",function(){openBook("VIP club table","xnashaaclub.jpg")}]]):addBot("You are in Family mode, so I show family places. Switch to Friends for nightlife.",[["Switch to Friends",function(){mode="night";apply()}]]);
+    if(/veg|food|thali|dinner|lunch|restaurant|eat|khana/.test(t))return addBot("Pure veg or veg and non-veg? I know the best Indian places.",[["Pure veg",function(){openSvc("Pure veg","pure-veg-thali.jpg","leaf")}],["Indian food",function(){openSvc("Indian food","indian-food.jpg","food")}]]);
+    if(/hotel|stay|room|resort|villa/.test(t))return addBot("Which style suits you: Budget, Mid-range or Namaste Gold?",[["Hotels",function(){openSvc("Hotels","hotels-resorts.jpg","bed")}],["Pool villa",function(){openSvc("Pool villa","villa-infinity-pool.jpg","bed")}]]);
+    if(/jet|yacht|vip|luxury|gold|premium/.test(t)){tier="gold";tierDraw();return addBot("Namaste Gold it is. Private jet, yacht and VIP service.",[["Private jet",function(){openSvc("Private jet","private-jet.jpg","plane")}],["Private yacht",function(){openSvc("Private yacht","yacht-sunset.jpg","boat")}]])}
+    if(/budget|cheap|low cost|sasta/.test(t)){tier="budget";tierDraw();return addBot("Smart choice. I switched you to Budget picks.",[["See picks",function(){$("tierT").scrollIntoView({behavior:"smooth",block:"center"})}]])}
+    if(/tour|island|nong|zoo|garden|park|trip|plan|visit|sightseeing|koh/.test(t))return addBot("Here are the top tours. Or I can plan your whole trip.",[["See tours",function(){$("toursSec").scrollIntoView({behavior:"smooth"})}],["Plan my trip",function(){openSvc("Customize my trip","villa-infinity-pool.jpg","sparkle")}]]);
+    if(/map|where|near|location/.test(t))return addBot("Opening the Pattaya map for you.",[["Open map",function(){go("map")}]]);
+    if(/hi|hello|namaste|hey/.test(t))return addBot("Namaste! Tell me what you need: taxi, club, hotel, veg food or tours.");
+    addBot("In this preview I understand taxi, clubs, hotels, veg food, tours, map and private jet. In the real app I answer everything.")}
+  function rChips(){var L=mode==="night"?["Plan my trip","Airport taxi","Pure veg food","Tonight’s party"]:["Plan my trip","Airport taxi","Pure veg food","Family tours"];
+    $("rchips").innerHTML=L.map(function(c){return '<button class="rp">'+c+'</button>'}).join("");$("rchips").querySelectorAll("button").forEach(function(b){b.onclick=function(){rAsk(b.textContent)}})}
+  $("rform").onsubmit=function(e){e.preventDefault();var v=$("rq").value.trim();if(!v){$("rq").focus();return}$("rq").value="";rAsk(v)};
+  $("rmic").onclick=function(){var SR=window.SpeechRecognition||window.webkitSpeechRecognition,b=this;if(!SR){toast("Voice is not supported in this browser");return}
+    var r=new SR();r.lang=(LG.filter(function(l){return l[0]===curLang})[0]||LG[0])[3];r.interimResults=false;b.classList.add("rec");
+    r.onresult=function(ev){var t=ev.results[0][0].transcript;rAsk(t)};r.onerror=function(){toast("Could not hear you. Try again.")};r.onend=function(){b.classList.remove("rec")};try{r.start()}catch(e){b.classList.remove("rec")}};
+  addBot("Namaste! I’m Raju, your Pattaya guide. What shall we plan today?");
+  (function(){var st=$("rStage"),pu=st.querySelector(".r-pupils"),hd=st.querySelector(".r-head");
+    function look(e){var r=st.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/3),m=Math.hypot(dx,dy)||1,k=Math.min(1,m/260);
+      if(pu)pu.style.transform="translate("+(dx/m*3*k).toFixed(2)+"px,"+(dy/m*2.4*k).toFixed(2)+"px)";if(hd)hd.style.transform="rotate("+(dx/m*5*k).toFixed(2)+"deg)"}
+    $("homeHd").addEventListener("pointermove",look);$("homeHd").addEventListener("pointerdown",look);
+    st.style.cursor="pointer";st.onclick=function(){buzz();addBot(mode==="night"?"Ready for tonight? Ask me for clubs, a taxi or a table.":"Family day out? Ask me for islands, gardens or veg food.")}})();
+
+  /* ===== 10 languages (same list, np_lang key and Google Translate as your app) ===== */
+  var LG=[["en","English","English","en-IN"],["hi","हिंदी","Hindi","hi-IN"],["pa","ਪੰਜਾਬੀ","Punjabi","pa-IN"],["gu","ગુજરાતી","Gujarati","gu-IN"],["mr","मराठी","Marathi","mr-IN"],["ta","தமிழ்","Tamil","ta-IN"],["th","ไทย","Thai","th-TH"],["bn","বাংলা","Bengali","bn-IN"],["te","తెలుగు","Telugu","te-IN"],["bho","भोजपुरी","Bhojpuri","hi-IN"]];
+  function lsg(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  var curLang=lsg("np_lang")||"en";
+  function setGoogTrans(l){var exp=(l==="en")?"; expires=Thu, 01 Jan 1970 00:00:00 GMT":"",v=(l==="en")?"":"/en/"+l;document.cookie="googtrans="+v+"; path=/"+exp;document.cookie="googtrans="+v+"; path=/; domain="+location.hostname+exp}
+  function loadTranslate(){if(document.getElementById("gtScript"))return;var d=document.createElement("div");d.id="google_translate_element";d.style.display="none";document.body.appendChild(d);
+    window.npGT=function(){try{new google.translate.TranslateElement({pageLanguage:"en",autoDisplay:false},"google_translate_element")}catch(e){}};
+    var sc=document.createElement("script");sc.id="gtScript";sc.src="https://translate.google.com/translate_a/element.js?cb=npGT";document.body.appendChild(sc)}
+  $("langName").textContent=(LG.filter(function(l){return l[0]===curLang})[0]||LG[0])[1];
+  $("langName").classList.add("notranslate");
+  if(curLang!=="en")loadTranslate();
+  $("langBtn").onclick=function(){var b=sheet('<h2>Choose your language</h2><small style="color:var(--muted)">Raju and the whole app switch language</small><div class="langs notranslate">'+LG.map(function(l){return '<button data-l="'+l[0]+'" class="'+(l[0]===curLang?"on":"")+'"><b>'+l[1]+'</b><small>'+l[2]+'</small></button>'}).join("")+'</div>');
+    b.querySelectorAll("[data-l]").forEach(function(x){x.onclick=function(){var l=x.dataset.l;lsg("np_lang",l);setGoogTrans(l);toast("Switching language…");setTimeout(function(){location.reload()},350)}})};
+
+
+  /* nav icons: use your 3D PNGs when they exist */
+  ["home","nav-map","bookings","wallet","chat"].forEach(function(f,k){var sp=$("nav").querySelectorAll("span.nv")[k],im=new Image();im.alt="";im.onload=function(){sp.appendChild(im);sp.classList.add("hasimg")};im.src="images/Icons/"+f+".png"});
+  /* accounts: venue partners, agents, travellers (open your app's existing screens) */
+  var ACC=[["Partners","store","orange","app.html#partner","Venue partners: manage your venue, offers and bookings."],["Agents","badge","purple","app.html#agent","Agents: book for your guests and earn commission."],["Travellers","user","teal","app.html#login","Travellers: your bookings, saved places and rewards."]];
+  $("accts").innerHTML=ACC.map(function(a,i){return '<button class="accb rp" data-a="'+i+'">'+ico(a[1],a[2],28)+'<span>'+a[0]+'</span></button>'}).join("");
+  $("accts").querySelectorAll(".accb").forEach(function(b){b.onclick=function(){var a=ACC[+b.dataset.a];sheet('<div class="hd2">'+ico(a[1],a[2],52)+'<div><h2>'+a[0]+'</h2><small style="color:var(--muted)">'+a[4]+'</small></div></div><a class="cta2 rp" href="'+a[3]+'" style="text-decoration:none">Sign in</a><a class="cta2 sec2 rp" href="'+a[3]+'" style="text-decoration:none">Sign up</a>')}});
+  /* Pattaya time + weather (Open-Meteo, cached 30 min) */
+  function ptClock(){try{$("ptTime").textContent=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Bangkok",hour:"numeric",minute:"2-digit"}).format(new Date())}catch(e){}}
+  ptClock();setInterval(ptClock,20000);
+  function wxIcon(c){var h=+new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Bangkok",hour:"2-digit",hour12:false}).format(new Date()),night=h>=19||h<6;
+    if(c===0||c===1)return night?"moon":"sun";if(c===2)return night?"moon":"cloudsun";if(c===3)return "cloud";if(c===45||c===48)return "fog";if(c>=95)return "storm";if((c>=51&&c<=67)||(c>=80&&c<=82))return "rain";return "cloud"}
+  function wxShow(w){$("ptWx").innerHTML=si(wxIcon(w.c))+Math.round(w.t)+"°C"}
+  (function(){var k="nl_wx",c=null;try{c=JSON.parse(localStorage.getItem(k)||"null")}catch(e){}
+    if(c&&Date.now()-c.at<18e5){wxShow(c);return}
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=12.9236&longitude=100.8825&current=temperature_2m,weather_code&timezone=Asia%2FBangkok").then(function(r){return r.json()}).then(function(d){var w={t:d.current.temperature_2m,c:d.current.weather_code,at:Date.now()};wxShow(w);try{localStorage.setItem(k,JSON.stringify(w))}catch(e){}}).catch(function(){if(c)wxShow(c)})})();
+
   /* ---- mode / screens ---- */
   function go(s){scr=s;apply();scrollTo(0,0)}
   function apply(){
@@ -696,32 +1091,29 @@ button{font-family:inherit;color:inherit}
     $("homeHd").style.setProperty("--hdink",n?"#fff":"#1D1630");
     $("taxiHd").style.setProperty("--hd",n?"linear-gradient(135deg,#0E4D64,#13827A)":"#BFEDE2");
     $("taxiHd").style.setProperty("--hdink",n?"#fff":"#10392F");
-    $("promoT").textContent=n?"Tonight in Pattaya":"Family fun in Pattaya";
-    $("promoS").textContent=n?"Clubs and parties, booked in your language":"Islands, gardens and pure veg food";
-    $("promoArt").innerHTML='<div class="pframe ph g1">'+si(n?"music":"palm").replace('class="si"','class="si fb"')+'<img src="'+P+(n?"np-club-crowd.jpg":"yacht-sunset.jpg")+'" alt="" onerror="this.remove()"></div>';
     $("evT").textContent=n?"Tonight near you":"Family picks today";
     document.querySelectorAll("[data-s]").forEach(function(b){b.classList.toggle("on",b.dataset.s===scr)});
     ["home","taxi","clubs","map"].forEach(function(k){$("s-"+k).hidden=k!==scr});
     $("flash").hidden=scr==="map";
     $("nav").querySelectorAll("button").forEach(function(x,k){x.classList.toggle("on",(k===1&&scr==="map")||(k===0&&scr!=="map"))});
     g.querySelectorAll("[data-night]").forEach(function(x){x.hidden=!n});
-    stBuild();bnBuild();tierDraw();cfBuild();bindTilt(document);watch();
+    stBuild();bnBuild();tierDraw();cfBuild();rChips();bindTilt(document);watch();
     if(scr==="map")mapShow();
   }
   $("mN").onclick=function(){mode="night";apply()};$("mF").onclick=function(){mode="family";apply()};
   document.querySelectorAll("[data-s]").forEach(function(b){b.onclick=function(){go(b.dataset.s)}});
   document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){go(b.dataset.go)}});
   document.querySelectorAll(".back").forEach(function(b){b.onclick=function(){go("home")}});
-  $("nav").querySelectorAll("button").forEach(function(b,k){b.onclick=function(){if(k<2)go(k?"map":"home");else{$("nav").querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b)});toast(b.textContent.replace(/[0-9]/g,"")+" opens here")}}});
+  function navTo(k){if(k===0)go("home");else if(k===1)go("map");else if(k===2)openBookings();else if(k===3)openWallet();else{go("home");setTimeout(function(){$("rq").focus()},300)}}
+  $("nav").querySelectorAll("button").forEach(function(b,k){b.onclick=function(){navTo(k)}});
+  document.querySelectorAll("[data-nav]").forEach(function(b){b.onclick=function(){navTo(+b.dataset.nav)}});
+  document.querySelectorAll("[data-saved]").forEach(function(b){b.onclick=openSaved});
 
   /* night scene */
   var st=$("stars");for(var i=0;i<55;i++){var s=document.createElement("i");s.className="star";var z=rnd(1,2.4);s.style.width=s.style.height=z+"px";s.style.left=rnd(0,100)+"%";s.style.top=rnd(0,55)+"%";s.style.animationDuration=rnd(2,5)+"s";s.style.animationDelay=(-rnd(0,5))+"s";st.appendChild(s)}
   var w=$("wins"),ns="http://www.w3.org/2000/svg";for(var j=0;j<30;j++){var r=document.createElementNS(ns,"rect");r.setAttribute("class","win");r.setAttribute("x",rnd(4,394).toFixed(1));r.setAttribute("y",rnd(58,94).toFixed(1));r.setAttribute("width","2.4");r.setAttribute("height","3");r.style.animationDelay=(-rnd(0,4))+"s";w.appendChild(r)}
   function fire(){if(RM||document.hidden||$("nightFx").hidden||scr!=="home"||scrollY>300)return;var f=document.createElement("i"),c1=cols[Math.floor(rnd(0,6))],c2=cols[Math.floor(rnd(0,6))];f.className="fw";f.style.left=rnd(10,60)+"%";f.style.top=rnd(10,40)+"%";var sh=[];for(var k=0;k<12;k++){var a=k/12*Math.PI*2;sh.push((Math.cos(a)*30).toFixed(1)+"px "+(Math.sin(a)*30).toFixed(1)+"px 0 "+(k%2?c1:c2))}f.style.boxShadow=sh.join(",");f.style.background=c1;$("fwBox").appendChild(f);void f.offsetWidth;f.classList.add("go2");setTimeout(function(){f.remove()},1900)}
   setTimeout(fire,1800);setInterval(fire,9000);
-  var phs=["Search clubs, hotels, taxi…","Try “pure veg near me”","Try “airport taxi”","Try “private jet”"],pi=0;
-  setInterval(function(){var el=$("ph");el.style.opacity=0;setTimeout(function(){pi=(pi+1)%phs.length;el.textContent=phs[pi];el.style.opacity=1},300)},3200);
-  (function(el,t){var i=0;(function step(){if(i<=t.length){el.textContent=t.slice(0,i++);setTimeout(step,28)}else el.classList.remove("typing")})()})($("greet"),"Namaste! I’m Raju, your Pattaya guide. What shall we plan today?");
   var left=14*60+50;setInterval(function(){left=left>0?left-1:899;$("cdM").textContent=String(Math.floor(left/60)).padStart(2,"0");$("cdS").textContent=String(left%60).padStart(2,"0")},1000);
   /* scroll: mini search + back to top (no header movement) */
   var tick=false;
