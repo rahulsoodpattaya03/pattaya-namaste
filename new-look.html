@@ -520,6 +520,37 @@ button{font-family:inherit;color:inherit}
 .accb .i3{--s:28px;border-radius:9px}
 [hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* PREVIEW 12 Nov: night scene to top, real Raju, no gap */
+#homeHd{padding-top:calc(10px + env(safe-area-inset-top,0px))}
+#homeHd .topbar{background:none;border:0;padding:0 0 2px;color:#fff}
+#homeHd .topbar .btxt b,#homeHd .topbar .tw b{color:#fff}
+#homeHd .topbar .accb,#homeHd .topbar .seg.mode{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18);color:#fff}
+#homeHd .topbar .seg.mode button:not(.on){color:rgba(255,255,255,.75)}
+.rchat{margin-top:4px}
+.rscene{min-height:0;align-items:center}
+.rstage{width:118px;height:170px;margin-left:-4px;transition:filter .3s}
+.rstage .rimg{width:100%;height:100%;object-fit:cover;object-position:50% 0;display:block;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent);animation:rFloat 4s ease-in-out infinite}
+.rstage.raju-talk{filter:drop-shadow(0 0 14px rgba(255,111,168,.75)) drop-shadow(0 14px 16px rgba(0,0,0,.55))}
+.rcol{padding-bottom:0}
+
+/* 12 Nov: bigger icons, no podium circle, soft shadow */
+.pod{--s:76px}
+.tile .pod{--s:64px}.tiles2 .tile .pod{--s:58px}.tier .pod{--s:68px}
+.pod::before,.pod::after,.pod.gold::after{display:none!important}
+.pod .po{left:0;right:0;top:0;bottom:0}
+.pod .po img{filter:drop-shadow(0 6px 5px rgba(0,0,0,.35)) drop-shadow(0 14px 12px rgba(0,0,0,.3))}
+.nav span.nv img{inset:-9px;width:calc(100% + 18px);height:calc(100% + 18px);filter:drop-shadow(0 4px 4px rgba(0,0,0,.35))}
+.nav button:not(.on) span.nv.hasimg img{filter:grayscale(.8) drop-shadow(0 4px 4px rgba(0,0,0,.35))}
+
+/* 12 Nov: real sea video behind the home screen */
+.app{z-index:1}
+#seaBg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#0A1730}
+#seaBg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#seaBg .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,22,.55),rgba(8,10,22,.45) 50%,rgba(8,10,22,.7))}
+:root[data-theme="light"] #seaBg{background:#AEE3EA}
+:root[data-theme="light"] #seaBg .ov{background:linear-gradient(180deg,rgba(255,250,240,.55),rgba(255,250,240,.35) 50%,rgba(255,250,240,.6))}
+#homeHd .wave{color:transparent}
 </style>
 </head>
 <body class="loading">
@@ -587,13 +618,22 @@ button{font-family:inherit;color:inherit}
   <symbol id="i-bus" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="13" rx="2"/><path d="M4 11h16M7 20v-3M17 20v-3"/></symbol>
   <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17l.6 1.4L21 19l-1.4.6L19 21l-.6-1.4L17 19l1.4-.6z"/></symbol>
 </svg>
+<div id="seaBg" aria-hidden="true"><video id="seaVid" muted playsinline loop preload="metadata" poster="images/Video/sea-night.jpg"></video><i class="ov"></i></div>
 <div class="app">
 
   <div class="mini" id="mini"><div class="search"><svg class="si"><use href="#i-search"/></svg><span>Search clubs, hotels, taxi…</span></div><button class="ibtn g3d rp" data-nav="2" aria-label="My bookings"><svg class="si"><use href="#i-receipt"/></svg></button></div>
 
   <!-- HOME -->
   <section id="s-home">
-    <div class="topbar">
+    <header class="hd" id="homeHd" style="--hd:#0B0910">
+      <div class="fx night" id="nightFx">
+        <div id="stars"></div>
+        <div class="city"><svg viewBox="0 0 400 100" preserveAspectRatio="none"><path class="b2" d="M0 100V60h18V44h14v16h12V34h20v66zM60 100V50h10V26h6v-8h4v8h6v24h14v50zM120 100V56h22V42h18v58zM170 100V30h8V16h12v14h8v70zM210 100V52h24V40h20v60zM260 100V38h14V24h4V10h4v14h4v14h14v62zM310 100V58h20V46h16v54zM350 100V34h10V22h16v12h10v66zM396 100V52h4v48z"/><path class="b1" d="M0 100V74h26V64h16v36zM40 100V70h18V58h22v42zM90 100V78h20V62h14v38zM130 100V68h26v32zM160 100V54h12V44h14v10h10v46zM210 100V74h30v26zM246 100V62h16V50h18v50zM290 100V76h22V66h18v34zM336 100V62h14V52h20v48zM376 100V72h24v28z"/><g id="wins"></g></svg></div>
+        <div class="seaS"><svg viewBox="0 0 400 16" preserveAspectRatio="none"><path d="M0 8 Q25 0 50 8 T100 8 T150 8 T200 8 T250 8 T300 8 T350 8 T400 8 V16 H0Z"/></svg></div>
+        <div id="fwBox"></div>
+      </div>
+      <div class="fx mesh" id="meshFx" hidden></div>
+      <div class="topbar">
         <div class="brand">
           <div class="blogo"><b>NP</b><img src="icon-512.png" alt="Namaste Pattaya" onerror="this.remove()"></div>
           <div class="btxt"><b>Namaste Pattaya</b><small>BHARAT KE LIYE EK BHARTIYE KA TOHFA · JAI HIND</small></div>
@@ -607,72 +647,9 @@ button{font-family:inherit;color:inherit}
           <button class="lbtn g3d rp" id="langBtn" aria-label="Change language" style="--a:#9B7BFF;--b:#5B3FD6"><svg class="si"><use href="#i-globe"/></svg><span id="langName">English</span><svg class="si" style="width:15px;height:15px"><use href="#i-chev"/></svg></button>
         </div>
     </div>
-    <header class="hd" id="homeHd" style="--hd:#0B0910">
-      <div class="fx night" id="nightFx">
-        <div id="stars"></div>
-        <div class="city"><svg viewBox="0 0 400 100" preserveAspectRatio="none"><path class="b2" d="M0 100V60h18V44h14v16h12V34h20v66zM60 100V50h10V26h6v-8h4v8h6v24h14v50zM120 100V56h22V42h18v58zM170 100V30h8V16h12v14h8v70zM210 100V52h24V40h20v60zM260 100V38h14V24h4V10h4v14h4v14h14v62zM310 100V58h20V46h16v54zM350 100V34h10V22h16v12h10v66zM396 100V52h4v48z"/><path class="b1" d="M0 100V74h26V64h16v36zM40 100V70h18V58h22v42zM90 100V78h20V62h14v38zM130 100V68h26v32zM160 100V54h12V44h14v10h10v46zM210 100V74h30v26zM246 100V62h16V50h18v50zM290 100V76h22V66h18v34zM336 100V62h14V52h20v48zM376 100V72h24v28z"/><g id="wins"></g></svg></div>
-        <div class="seaS"><svg viewBox="0 0 400 16" preserveAspectRatio="none"><path d="M0 8 Q25 0 50 8 T100 8 T150 8 T200 8 T250 8 T300 8 T350 8 T400 8 V16 H0Z"/></svg></div>
-        <div id="fwBox"></div>
-      </div>
-      <div class="fx mesh" id="meshFx" hidden></div>
       <div class="rchat" id="rchat">
         <div class="rscene">
-          <div class="rstage" id="rStage"><svg viewBox="0 0 200 210" class="raju" aria-hidden="true">
-<defs>
- <radialGradient id="rSkin" cx=".38" cy=".32" r=".75"><stop offset="0" stop-color="#E9B48A"/><stop offset=".55" stop-color="#C98C60"/><stop offset="1" stop-color="#7E4A2B"/></radialGradient>
- <radialGradient id="rHair" cx=".4" cy=".25" r=".8"><stop offset="0" stop-color="#4A3A36"/><stop offset=".6" stop-color="#1B1210"/><stop offset="1" stop-color="#0A0605"/></radialGradient>
- <linearGradient id="rShirt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2FD1FF"/><stop offset=".5" stop-color="#6A4BFF"/><stop offset="1" stop-color="#2A1466"/></linearGradient>
- <radialGradient id="rShirtL" cx=".3" cy=".2" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
- <linearGradient id="rLens" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9DF4FF"/><stop offset=".35" stop-color="#C8A2FF"/><stop offset=".7" stop-color="#FFB8E6"/><stop offset="1" stop-color="#FFF1B8"/></linearGradient>
- <linearGradient id="rGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1C6"/><stop offset="1" stop-color="#B9904A"/></linearGradient>
- <radialGradient id="rHalo" cx=".5" cy=".5" r=".5"><stop offset=".55" stop-color="#C8A2FF" stop-opacity=".0"/><stop offset=".8" stop-color="#C8A2FF" stop-opacity=".35"/><stop offset="1" stop-color="#9DF4FF" stop-opacity="0"/></radialGradient>
- <filter id="rSoft" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity=".45"/></filter>
-</defs>
-<circle cx="100" cy="100" r="98" fill="url(#rHalo)"/>
-<g class="r-float">
- <g filter="url(#rSoft)">
-  <!-- body -->
-  <path d="M34 210c0-40 28-62 66-62s66 22 66 62z" fill="url(#rShirt)"/>
-  <path d="M34 210c0-40 28-62 66-62s66 22 66 62z" fill="url(#rShirtL)"/>
-  <g opacity=".35" fill="#fff"><circle cx="62" cy="182" r="5"/><circle cx="138" cy="176" r="4"/><circle cx="120" cy="198" r="6"/><circle cx="76" cy="202" r="3"/><path d="M146 196c6-6 12-4 14 2-6 0-10 2-14-2z"/><path d="M52 164c5 2 7 8 3 12-2-5-4-8-3-12z"/></g>
-  <path d="M84 150l16 24 16-24" fill="#F6E7D8"/><path d="M84 150l16 24-10 6-14-22z M116 150l-16 24 10 6 14-22z" fill="#1B1036" opacity=".55"/>
-  <rect x="124" y="178" width="30" height="12" rx="3" fill="url(#rGold)"/><text x="139" y="187" text-anchor="middle" font-family="Syne,Geist,Arial,sans-serif" font-weight="800" font-size="7.5" fill="#1A1406" letter-spacing=".6">RAJU</text>
-  <!-- neck -->
-  <path d="M88 132h24v22c-7 5-17 5-24 0z" fill="#A86A42"/>
-  <!-- head -->
-  <g class="r-head">
-   <ellipse cx="57" cy="98" rx="8" ry="11" fill="#B77A50"/><ellipse cx="143" cy="98" rx="8" ry="11" fill="#B77A50"/>
-   <ellipse cx="100" cy="94" rx="42" ry="48" fill="url(#rSkin)"/>
-   <ellipse cx="86" cy="72" rx="16" ry="10" fill="#fff" opacity=".18"/>
-   <!-- hair -->
-   <path d="M58 88c-4-34 18-52 44-52 28 0 46 18 42 50-6-14-14-22-22-24-10 8-30 10-44 6-8 4-16 10-20 20z" fill="url(#rHair)"/>
-   <path d="M96 42c10-8 28-6 36 4-10-2-22 0-36-4z" fill="#5A4640" opacity=".6"/>
-   <!-- sunglasses on head -->
-   <g transform="translate(0 -2)"><rect x="70" y="52" width="24" height="12" rx="6" fill="url(#rLens)" stroke="#0A0605" stroke-width="2"/><rect x="106" y="52" width="24" height="12" rx="6" fill="url(#rLens)" stroke="#0A0605" stroke-width="2"/><path d="M94 57h12" stroke="#0A0605" stroke-width="2"/></g>
-   <!-- brows -->
-   <path class="r-brow" d="M72 80c6-5 14-5 20-1" stroke="#1B1210" stroke-width="4" fill="none" stroke-linecap="round"/>
-   <path class="r-brow" d="M108 79c6-4 14-4 20 1" stroke="#1B1210" stroke-width="4" fill="none" stroke-linecap="round"/>
-   <!-- eyes -->
-   <g class="r-eyes">
-    <ellipse cx="82" cy="94" rx="8" ry="9" fill="#fff"/><ellipse cx="118" cy="94" rx="8" ry="9" fill="#fff"/>
-    <g class="r-pupils"><circle cx="83" cy="95" r="5" fill="#2A1A12"/><circle cx="119" cy="95" r="5" fill="#2A1A12"/><circle cx="85" cy="93" r="1.8" fill="#fff"/><circle cx="121" cy="93" r="1.8" fill="#fff"/></g>
-   </g>
-   <!-- nose, cheeks -->
-   <path d="M100 98c-3 8-5 12-1 14 3 1 6 0 7-2" stroke="#8A5234" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-   <ellipse cx="72" cy="112" rx="7" ry="4" fill="#FF7A8A" opacity=".25"/><ellipse cx="128" cy="112" rx="7" ry="4" fill="#FF7A8A" opacity=".25"/>
-   <!-- mouth -->
-   <g class="r-mouth"><path d="M82 118c10 14 26 14 36 0z" fill="#5A1A1A"/><path d="M85 119c9 5 21 5 30 0v3c-9 4-21 4-30 0z" fill="#fff"/></g>
-   <!-- headset -->
-   <path d="M56 92c-2-34 20-58 44-58s46 24 44 58" stroke="#12121C" stroke-width="4" fill="none" opacity=".85"/>
-   <rect x="138" y="86" width="12" height="20" rx="5" fill="url(#rGold)"/>
-   <path d="M144 104c0 16-12 24-30 22" stroke="#12121C" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="113" cy="126" r="4" fill="url(#rGold)"/>
-  </g>
- </g>
- <!-- waving hand -->
- <g class="r-wave"><path d="M160 160c8-14 12-30 10-44" stroke="#2A1466" stroke-width="16" stroke-linecap="round" fill="none"/>
-  <g transform="translate(170 104)"><ellipse rx="11" ry="13" fill="url(#rSkin)"/><path d="M-8 -10v-10 M-2 -12v-13 M4 -12v-12 M9 -8v-8" stroke="#C98C60" stroke-width="5" stroke-linecap="round"/><path d="M-11 2c-6-2-9-6-8-10" stroke="#C98C60" stroke-width="5" stroke-linecap="round" fill="none"/></g></g>
-</g>
-</svg><span class="rname"><i class="dotg"></i>Raju</span></div>
+          <div class="rstage" id="rStage"><img class="rimg" src="images/Raju/raju-guide.webp" alt="Raju, your Pattaya guide" onerror="this.style.visibility='hidden'"><span class="rname"><i class="dotg"></i>Raju</span></div>
           <div class="rcol"><div class="rmsgs" id="rmsgs"></div></div>
         </div>
         <div class="chips" id="rchips"></div>
@@ -1123,6 +1100,16 @@ button{font-family:inherit;color:inherit}
   setTimeout(function(){document.body.classList.remove("loading")},900);
 })();
 
+</script>
+<script>
+/* 12 Nov: sea video - night for Friends, day for Family; only on Home; paused when hidden */
+(function(){var bg=document.getElementById("seaBg"),v=document.getElementById("seaVid"),R=document.documentElement,home=document.getElementById("s-home"),scr=document.getElementById("scr"),cur="";
+if(!bg||!v)return;var still=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches,save=navigator.connection&&navigator.connection.saveData;
+v.addEventListener("error",function(){v.removeAttribute("src")});
+function pick(){var k=R.getAttribute("data-theme")==="light"?"sea-day":"sea-night";if(k!==cur){cur=k;v.poster="images/Video/"+k+".jpg";if(!still&&!save){v.src="images/Video/"+k+".mp4";v.load()}}}
+function upd(){pick();var on=home&&!home.hidden&&(!scr||scr.hidden);bg.style.display=on?"":"none";if(still||save||!v.src)return;if(on&&!document.hidden){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()}
+var mo=new MutationObserver(upd);mo.observe(R,{attributes:true,attributeFilter:["data-theme"]});if(home)mo.observe(home,{attributes:true,attributeFilter:["hidden"]});if(scr)mo.observe(scr,{attributes:true,attributeFilter:["hidden"]});
+document.addEventListener("visibilitychange",upd);upd()})();
 </script>
 </body>
 </html>
