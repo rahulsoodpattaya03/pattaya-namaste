@@ -621,7 +621,7 @@ button{font-family:inherit;color:inherit}
   <symbol id="i-bus" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="13" rx="2"/><path d="M4 11h16M7 20v-3M17 20v-3"/></symbol>
   <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17l.6 1.4L21 19l-1.4.6L19 21l-.6-1.4L17 19l1.4-.6z"/></symbol>
 </svg>
-<div id="seaBg" aria-hidden="true"><video id="seaVid" muted playsinline loop preload="metadata" poster="images/Video/sea-night.jpg"></video><i class="ov"></i></div>
+<div id="seaBg" aria-hidden="true"><video id="seaVid" muted playsinline loop preload="metadata" poster="images/Video/sea-night-2.jpg"></video><i class="ov"></i></div>
 <div class="app">
 
   <div class="mini" id="mini"><div class="search"><svg class="si"><use href="#i-search"/></svg><span>Search clubs, hotels, taxi…</span></div><button class="ibtn g3d rp" data-nav="2" aria-label="My bookings"><svg class="si"><use href="#i-receipt"/></svg></button></div>
@@ -1109,7 +1109,7 @@ button{font-family:inherit;color:inherit}
 (function(){var bg=document.getElementById("seaBg"),v=document.getElementById("seaVid"),R=document.documentElement,home=document.getElementById("s-home"),scr=document.getElementById("scr"),cur="";
 if(!bg||!v)return;var still=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches,save=navigator.connection&&navigator.connection.saveData;
 v.addEventListener("error",function(){v.removeAttribute("src")});
-function pick(){var k=R.getAttribute("data-theme")==="light"?"sea-day":"sea-night";if(k!==cur){cur=k;v.poster="images/Video/"+k+".jpg";if(!still&&!save){v.src="images/Video/"+k+".mp4";v.load()}}}
+function pick(){var k=R.getAttribute("data-theme")==="light"?"sea-day":"sea-night";if(k!==cur){cur=k;var F={"sea-night":["sea-night-2.jpg","sea-night-3.mp4"],"sea-day":["sea-day-1.jpg","sea-day-1.mp4"]}[k];v.poster="images/Video/"+F[0];if(!still&&!save){v.src="images/Video/"+F[1];v.load()}}}
 function upd(){pick();var on=home&&!home.hidden&&(!scr||scr.hidden);bg.style.display=on?"":"none";if(still||save||!v.src)return;if(on&&!document.hidden){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()}
 var mo=new MutationObserver(upd);mo.observe(R,{attributes:true,attributeFilter:["data-theme"]});if(home)mo.observe(home,{attributes:true,attributeFilter:["hidden"]});if(scr)mo.observe(scr,{attributes:true,attributeFilter:["hidden"]});
 document.addEventListener("visibilitychange",upd);upd()})();
