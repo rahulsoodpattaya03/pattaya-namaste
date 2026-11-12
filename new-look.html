@@ -1144,6 +1144,7 @@ button{font-family:inherit;color:inherit}
 (function(){var bg=document.getElementById("seaBg"),v=document.getElementById("seaVid"),R=document.documentElement,home=document.getElementById("s-home"),scr=document.getElementById("scr"),cur="";
 if(!bg||!v)return;var still=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches,save=navigator.connection&&navigator.connection.saveData;
 v.addEventListener("error",function(){v.removeAttribute("src")});
+var SLOW=0.6;function slow(){try{v.defaultPlaybackRate=SLOW;v.playbackRate=SLOW}catch(e){}}v.addEventListener("loadedmetadata",slow);v.addEventListener("play",slow);slow();
 function pick(){var k=R.getAttribute("data-theme")==="light"?"sea-day":"sea-night";if(k!==cur){cur=k;var F={"sea-night":["bg-night.jpg","bg-night.mp4"],"sea-day":["bg-day.jpg","bg-day.mp4"]}[k];v.poster="images/Video/"+F[0];if(!still&&!save){v.src="images/Video/"+F[1];v.load()}}}
 function upd(){pick();var on=home&&!home.hidden&&(!scr||scr.hidden);bg.style.display=on?"":"none";if(still||save||!v.src)return;if(on&&!document.hidden){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()}
 var mo=new MutationObserver(upd);mo.observe(R,{attributes:true,attributeFilter:["data-theme"]});if(home)mo.observe(home,{attributes:true,attributeFilter:["hidden"]});if(scr)mo.observe(scr,{attributes:true,attributeFilter:["hidden"]});
