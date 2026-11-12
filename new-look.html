@@ -554,6 +554,36 @@ button{font-family:inherit;color:inherit}
 
 /* 12 Nov: photo tiles show the photo only; 3D icon shows only if the photo is missing */
 .phot:has(.ph img) .pod{display:none}
+
+/* 13 Nov: party video cards + night skyline video in header */
+.pv2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pvc{position:relative;aspect-ratio:3/4;border-radius:22px;overflow:hidden;border:0;padding:0;background:#1D1630;color:#fff;text-align:left;box-shadow:0 10px 24px rgba(0,0,0,.35);cursor:pointer}
+.pvc video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pvc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.75))}
+.pvl{position:absolute;left:14px;right:12px;bottom:12px;z-index:2;display:flex;flex-direction:column;gap:2px}
+.pvl b{font-size:17px;line-height:1.2}.pvl small{font-size:12.5px;opacity:.85}
+.pvt{position:absolute;top:10px;left:10px;z-index:2;background:#E8306F;color:#fff;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px}
+:root[data-theme="light"] #partySec{display:none}
+.fx .skyv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s}
+.fx.vid .skyv{opacity:1}
+#meshFx.vid::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,248,238,.55),rgba(255,248,238,.25) 45%,rgba(255,248,238,.6))}
+#nightFx.vid .city,#nightFx.vid #stars{opacity:0;transition:opacity 1s}
+#nightFx.vid::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,22,.62),rgba(10,8,22,.30) 45%,rgba(10,8,22,.62))}
+
+/* 13 Nov: Family header over daytime video - dark text on light glass */
+#homeHd:has(#meshFx.vid) .topbar,#homeHd:has(#meshFx.vid) .topbar .btxt b,#homeHd:has(#meshFx.vid) .topbar .tw b{color:#1D1630}
+#homeHd:has(#meshFx.vid) .topbar .accb,#homeHd:has(#meshFx.vid) .topbar .seg.mode{background:rgba(255,255,255,.72);border-color:rgba(29,22,48,.12);color:#1D1630}
+#homeHd:has(#meshFx.vid) .topbar .seg.mode button:not(.on){color:rgba(29,22,48,.7)}
+#homeHd:has(#meshFx.vid) .topbar .tw,#homeHd:has(#meshFx.vid) .topbar .tw *{color:#1D1630}
+
+/* 13 Nov: one 30-second video from top to bottom of Home (header is see-through) */
+#homeHd{background:transparent!important}
+#homeHd #nightFx,#homeHd #meshFx{display:none!important}
+#seaBg .ov{background:linear-gradient(180deg,rgba(8,10,22,.62) 0%,rgba(8,10,22,.35) 30%,rgba(8,10,22,.55) 60%,rgba(8,10,22,.72) 100%)}
+:root[data-theme="light"] #seaBg .ov{background:linear-gradient(180deg,rgba(255,250,240,.6) 0%,rgba(255,250,240,.3) 30%,rgba(255,250,240,.55) 60%,rgba(255,250,240,.7) 100%)}
+:root[data-theme="light"] #homeHd .topbar,:root[data-theme="light"] #homeHd .topbar .btxt b,:root[data-theme="light"] #homeHd .topbar .tw,:root[data-theme="light"] #homeHd .topbar .tw *{color:#1D1630}
+:root[data-theme="light"] #homeHd .topbar .accb,:root[data-theme="light"] #homeHd .topbar .seg.mode{background:rgba(255,255,255,.72);border-color:rgba(29,22,48,.12);color:#1D1630}
+:root[data-theme="light"] #homeHd .topbar .seg.mode button:not(.on){color:rgba(29,22,48,.7)}
 </style>
 </head>
 <body class="loading">
@@ -621,7 +651,7 @@ button{font-family:inherit;color:inherit}
   <symbol id="i-bus" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="13" rx="2"/><path d="M4 11h16M7 20v-3M17 20v-3"/></symbol>
   <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17l.6 1.4L21 19l-1.4.6L19 21l-.6-1.4L17 19l1.4-.6z"/></symbol>
 </svg>
-<div id="seaBg" aria-hidden="true"><video id="seaVid" muted playsinline loop preload="metadata" poster="images/Video/sea-night-2.jpg"></video><i class="ov"></i></div>
+<div id="seaBg" aria-hidden="true"><video id="seaVid" muted playsinline loop preload="metadata" poster="images/Video/bg-night.jpg"></video><i class="ov"></i></div>
 <div class="app">
 
   <div class="mini" id="mini"><div class="search"><svg class="si"><use href="#i-search"/></svg><span>Search clubs, hotels, taxi…</span></div><button class="ibtn g3d rp" data-nav="2" aria-label="My bookings"><svg class="si"><use href="#i-receipt"/></svg></button></div>
@@ -671,6 +701,10 @@ button{font-family:inherit;color:inherit}
     <div class="bn shine" id="bn"><div class="track" id="bnTrack"></div><div class="bdots" id="bnDots"></div></div>
 
 
+    <div class="sec rv" id="partySec"><div class="sh"><h2>Party tonight</h2></div><div class="pv2">
+      <button class="pvc rp" data-go="clubs"><video data-npv="images/Video/party-club.mp4" muted playsinline loop preload="none" poster="images/Video/party-club.jpg"></video><span class="pvt">Tonight</span><span class="pvl"><b>Club nights</b><small>Top clubs · VIP tables</small></span></button>
+      <button class="pvc rp" data-go="clubs"><video data-npv="images/Video/party-beach.mp4" muted playsinline loop preload="none" poster="images/Video/party-beach.jpg"></video><span class="pvt">Sunset</span><span class="pvl"><b>Beach parties</b><small>Sunset · DJs · beach clubs</small></span></button>
+    </div></div>
     <div style="margin-top:22px" class="pills rv" id="pills"><button class="on rp">Tonight</button><button class="rp">Tomorrow</button><button class="rp">This weekend</button><button class="rp">Offers</button></div>
     <div class="sec rv" style="margin-top:18px"><div class="sh"><h2 id="evT">Tonight near you</h2><button class="arr rp" aria-label="View all"><svg class="si"><use href="#i-arrow"/></svg></button></div></div>
     <div class="cf rv" id="cf"></div>
@@ -1064,6 +1098,7 @@ button{font-family:inherit;color:inherit}
 
   /* ---- mode / screens ---- */
   function go(s){scr=s;apply();scrollTo(0,0)}
+  window.npGo=go;
   function apply(){
     var n=mode==="night";R.setAttribute("data-theme",n?"dark":"light");
     $("mN").classList.toggle("on",n);$("mF").classList.toggle("on",!n);
@@ -1109,10 +1144,21 @@ button{font-family:inherit;color:inherit}
 (function(){var bg=document.getElementById("seaBg"),v=document.getElementById("seaVid"),R=document.documentElement,home=document.getElementById("s-home"),scr=document.getElementById("scr"),cur="";
 if(!bg||!v)return;var still=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches,save=navigator.connection&&navigator.connection.saveData;
 v.addEventListener("error",function(){v.removeAttribute("src")});
-function pick(){var k=R.getAttribute("data-theme")==="light"?"sea-day":"sea-night";if(k!==cur){cur=k;var F={"sea-night":["sea-night-2.jpg","sea-night-3.mp4"],"sea-day":["sea-day-1.jpg","sea-day-1.mp4"]}[k];v.poster="images/Video/"+F[0];if(!still&&!save){v.src="images/Video/"+F[1];v.load()}}}
+function pick(){var k=R.getAttribute("data-theme")==="light"?"sea-day":"sea-night";if(k!==cur){cur=k;var F={"sea-night":["bg-night.jpg","bg-night.mp4"],"sea-day":["bg-day.jpg","bg-day.mp4"]}[k];v.poster="images/Video/"+F[0];if(!still&&!save){v.src="images/Video/"+F[1];v.load()}}}
 function upd(){pick();var on=home&&!home.hidden&&(!scr||scr.hidden);bg.style.display=on?"":"none";if(still||save||!v.src)return;if(on&&!document.hidden){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()}
 var mo=new MutationObserver(upd);mo.observe(R,{attributes:true,attributeFilter:["data-theme"]});if(home)mo.observe(home,{attributes:true,attributeFilter:["hidden"]});if(scr)mo.observe(scr,{attributes:true,attributeFilter:["hidden"]});
 document.addEventListener("visibilitychange",upd);upd()})();
+</script>
+<script>
+/* 13 Nov: lazy-play small videos (party cards, header sky) only when on screen */
+(function(){var V=[].slice.call(document.querySelectorAll("video[data-npv]"));if(!V.length)return;
+var still=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches,save=navigator.connection&&navigator.connection.saveData;
+document.querySelectorAll(".pvc[data-go]").forEach(function(b){b.addEventListener("click",function(){if(window.npGo)npGo(b.getAttribute("data-go"))})});
+V.forEach(function(v){v.addEventListener("playing",function(){var f=v.closest(".fx");if(f)f.classList.add("vid")});v.addEventListener("error",function(){var f=v.closest(".fx");if(f)f.classList.remove("vid")})});
+if(still||save||!("IntersectionObserver" in window))return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting&&!document.hidden){if(!v.src){v.src=v.getAttribute("data-npv")}var p=v.play();if(p&&p.catch)p.catch(function(){})}else{v.pause()}})},{threshold:.15});
+V.forEach(function(v){io.observe(v)});
+document.addEventListener("visibilitychange",function(){if(document.hidden)V.forEach(function(v){v.pause()})})})();
 </script>
 </body>
 </html>
