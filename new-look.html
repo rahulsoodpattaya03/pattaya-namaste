@@ -628,6 +628,15 @@ button{font-family:inherit;color:inherit}
 .grid2{grid-template-rows:repeat(3,auto)!important}
 #homeHd .wave{display:none!important}#homeHd{padding-bottom:6px!important}#tierSec{margin-top:4px!important}
 #tiers .tier::after{display:none!important}#tiers .tier.on b{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+
+/* 13 Nov: quick row - Customize / Ladies Lounge / Boomer (sharp) */
+.q3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.q3c{position:relative;display:block;aspect-ratio:3/4;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,.25);padding:0;background:linear-gradient(160deg,#5B3FD6,#E8306F);color:#fff;text-decoration:none;text-align:left;cursor:pointer}
+.q3c img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.q3c::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.8))}
+.q3t{position:absolute;left:8px;right:6px;bottom:8px;z-index:2;display:flex;flex-direction:column;gap:2px}
+.q3t b{font-size:13.5px;line-height:1.2}.q3t small{font-size:10.5px;opacity:.85;line-height:1.25}
+.q3b{position:absolute;top:6px;right:6px;z-index:2;background:#E8306F;color:#fff;font-size:10.5px;font-weight:800;padding:2px 6px;border-radius:3px}
 </style>
 </head>
 <body class="loading">
@@ -739,6 +748,11 @@ button{font-family:inherit;color:inherit}
     <div class="grid2" id="svcGrid"></div>
     <div class="dots" id="svcDots"></div>
 
+    <div class="sec" id="q3Sec"><div class="q3">
+      <button class="q3c rp" data-q="custom"><img src="images/Photos/villa-infinity-pool.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="q3t"><b>Customize my trip</b><small>Hotel, rides, tours</small></span></button>
+      <a class="q3c rp" href="app.html#ladies"><img src="images/Photos/pink-cafe-lounge.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="q3t"><b>Ladies Lounge</b><small>Ladies only</small></span></a>
+      <a class="q3c rp" href="app.html#boomer"><img src="images/Photos/boomer-friends.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="q3b">18+</span><span class="q3t"><b>Boomer</b><small>Meet people near Walking St</small></span></a>
+    </div></div>
     <div class="sec" style="margin-top:16px"><div class="sh"><h2 id="tierT">Mid-range picks</h2><button class="arr rp" aria-label="View all"><svg class="si"><use href="#i-arrow"/></svg></button></div></div>
     <div class="hs" id="tierRow"></div>
 
@@ -1147,7 +1161,7 @@ button{font-family:inherit;color:inherit}
 
   /* ---- mode / screens ---- */
   function go(s){scr=s;apply();scrollTo(0,0)}
-  window.npGo=go;
+  window.npGo=go;window.npOpenSvc=openSvc;
   function apply(){
     var n=mode==="night";R.setAttribute("data-theme",n?"dark":"light");
     $("mN").classList.toggle("on",n);$("mF").classList.toggle("on",!n);
@@ -1209,6 +1223,10 @@ if(still||save||!("IntersectionObserver" in window))return;
 var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting&&!document.hidden){if(!v.src){v.src=v.getAttribute("data-npv")}var p=v.play();if(p&&p.catch)p.catch(function(){})}else{v.pause()}})},{threshold:.15});
 V.forEach(function(v){io.observe(v)});
 document.addEventListener("visibilitychange",function(){if(document.hidden)V.forEach(function(v){v.pause()})})})();
+</script>
+<script>
+/* 13 Nov: Customize card opens the existing Customize my trip screen */
+(function(){var b=document.querySelector('.q3c[data-q="custom"]');if(!b)return;b.addEventListener("click",function(){if(window.npOpenSvc)npOpenSvc("Customize my trip","villa-infinity-pool.jpg","sparkle","Pick hotel, taxi, tours, food and clubs. Choose Budget, Mid-range or Namaste Gold and get one price.")})})();
 </script>
 </body>
 </html>
