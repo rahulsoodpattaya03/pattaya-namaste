@@ -689,6 +689,71 @@ html:has(#mF.on){background:#FFFFFF!important}
 .xth{display:flex;gap:8px;flex-wrap:wrap}.xth button{height:36px;padding:0 14px;border-radius:10px;border:1px solid #E6E1EE;background:#fff;font:600 13px Inter,sans-serif;color:#1D1630}.xth button.on{background:#1D1630;color:#fff}
 #xFest{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 1s}
 </style>
+<style>/* 15 Nov: header buttons styled like Friends/Family bar + readable tier colours */
+#homeHd .topbar #accts{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);border-radius:12px;padding:3px;gap:0;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+#homeHd .topbar #accts > *{background:transparent!important;background-image:none!important;border:0!important;box-shadow:none!important;border-radius:9px!important;color:#1D1630!important}
+#homeHd .topbar #accts > * + *{border-left:1px solid rgba(29,22,48,.12)!important;border-radius:0!important}
+#homeHd .topbar .seg{background:rgba(255,255,255,.55)!important;border:1px solid rgba(255,255,255,.8)!important;border-radius:12px!important;padding:3px!important;box-shadow:none!important}
+#homeHd .topbar .seg button{border-radius:9px!important}
+#homeHd .topbar #savedBtn,#homeHd .topbar #langBtn{background:rgba(255,255,255,.55)!important;background-image:none!important;border:1px solid rgba(255,255,255,.8)!important;border-radius:12px!important;box-shadow:none!important;color:#1D1630!important;height:44px}
+#homeHd .topbar #savedBtn{width:44px}
+#homeHd .topbar #savedBtn::before,#homeHd .topbar #savedBtn::after,#homeHd .topbar #langBtn::before,#homeHd .topbar #langBtn::after{display:none!important}
+#tiers .tier b{color:#1D1630!important}
+#tiers .tier.on b{color:#C2410C!important;text-decoration-color:#C2410C}
+#tiers .tier.gold b{color:#9A6A00!important}
+#tiers .tier.gold.on b{text-decoration-color:#9A6A00}
+#tiers .tier small{color:#5E5670!important}
+#tiers .tier .lv{color:#C2410C!important}
+#tiers .tier.gold .lv,#tiers .tier.gold small{color:#9A6A00!important}
+</style>
+<style>/* 15 Nov: Refer and earn card on top */
+.xref{display:flex;align-items:center;gap:12px;margin:14px 16px 4px;padding:14px;border-radius:16px;background:linear-gradient(135deg,#FFE3EE,#FFF1D6);box-shadow:0 6px 18px rgba(232,48,111,.12);cursor:pointer;color:#1D1630}
+.xref img{width:60px;height:60px;object-fit:contain;flex:none}.xref b{display:block;font-size:17px}.xref small{font-size:12.5px;color:#5E5670}
+.xref .xbtn{margin:0 0 0 auto;flex:none}
+</style>
+<style>/* 15 Nov b: header buttons like original look - separate outlined glass boxes */
+#homeHd .topbar #accts{background:none!important;border:0!important;padding:0!important;gap:8px!important;-webkit-backdrop-filter:none;backdrop-filter:none}
+#homeHd .topbar #accts > *,#homeHd .topbar #accts > * + *,#homeHd .topbar #savedBtn,#homeHd .topbar #langBtn,#homeHd .topbar .seg{background:rgba(255,255,255,.14)!important;background-image:none!important;border:1.5px solid rgba(255,255,255,.55)!important;border-radius:6px!important;box-shadow:none!important;color:#fff!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+#homeHd .topbar .seg button{border-radius:4px!important;color:#1D1630!important;opacity:1!important}
+#homeHd .topbar .seg button.on{background:#fff!important;color:#1D1630!important}
+#homeHd .topbar #langBtn *,#homeHd .topbar #savedBtn *{color:inherit}
+#homeHd:has(#mF.on) .topbar #accts > *,#homeHd:has(#mF.on) .topbar #savedBtn,#homeHd:has(#mF.on) .topbar #langBtn,#homeHd:has(#mF.on) .topbar .seg{background:rgba(255,255,255,.55)!important;border-color:rgba(29,22,48,.22)!important;color:#1D1630!important}
+#homeHd:has(#mF.on) .topbar .seg button{color:#5E5670!important}
+#homeHd:has(#mF.on) .topbar .seg button.on{background:#1D1630!important;color:#fff!important}
+</style>
+<style>/* 15 Nov c: no underline, selected style highlighted; black bar outlines */
+#tiers .tier b,#tiers .tier.on b{text-decoration:none!important}
+#tiers .tier{border-radius:14px!important;transition:background .25s}
+#tiers .tier.on{background:rgba(232,48,111,.09)!important;box-shadow:0 0 0 1.5px rgba(232,48,111,.35) inset!important}
+#tiers .tier.gold.on{background:rgba(201,149,43,.12)!important;box-shadow:0 0 0 1.5px rgba(154,106,0,.4) inset!important}
+#tiers .tier .pod{transition:transform .25s,filter .25s}
+#tiers .tier.on .pod{transform:scale(1.08);filter:drop-shadow(0 8px 12px rgba(232,48,111,.35))}
+#tiers .tier.gold.on .pod{filter:drop-shadow(0 8px 12px rgba(201,149,43,.45))}
+#tiers .tier:not(.on) .pod{opacity:.8}
+#homeHd .topbar #accts > *,#homeHd .topbar #accts > * + *,#homeHd .topbar #savedBtn,#homeHd .topbar #langBtn,#homeHd .topbar .seg,#homeHd:has(#mF.on) .topbar #accts > *,#homeHd:has(#mF.on) .topbar #savedBtn,#homeHd:has(#mF.on) .topbar #langBtn,#homeHd:has(#mF.on) .topbar .seg{border-color:#1D1630!important}
+</style>
+<style>/* 15 Nov d: bars = shape 1 + colours 6; style picker = H */
+:root[data-theme] #homeHd .topbar #accts > *,:root[data-theme] #homeHd .topbar #accts > * + *,:root[data-theme] #homeHd .topbar #savedBtn,:root[data-theme] #homeHd .topbar #langBtn,:root[data-theme] #homeHd .topbar .seg,:root[data-theme] #homeHd:has(#mF.on) .topbar #accts > *,:root[data-theme] #homeHd:has(#mF.on) .topbar #savedBtn,:root[data-theme] #homeHd:has(#mF.on) .topbar #langBtn,:root[data-theme] #homeHd:has(#mF.on) .topbar .seg{background:rgba(20,10,30,.38)!important;border:1.5px solid rgba(255,255,255,.3)!important;border-radius:6px!important;color:#fff!important}
+:root[data-theme] #homeHd .topbar .seg button,:root[data-theme] #homeHd:has(#mF.on) .topbar .seg button{color:#fff!important;background:transparent!important}
+:root[data-theme] #homeHd .topbar .seg button.on,:root[data-theme] #homeHd:has(#mF.on) .topbar .seg button.on{background:linear-gradient(135deg,#FFB547,#FF7A2F)!important;color:#1D1630!important}
+#tiers .tier.on,#tiers .tier.gold.on{background:linear-gradient(160deg,#FF7A2F,#E8306F)!important;box-shadow:0 10px 22px rgba(232,48,111,.3)!important;border-radius:14px!important}
+#tiers .tier.on b,#tiers .tier.on small,#tiers .tier.on .lv,#tiers .tier.gold.on b,#tiers .tier.gold.on small,#tiers .tier.gold.on .lv{color:#fff!important}
+#tiers .tier.on .pod,#tiers .tier.gold.on .pod{filter:none;transform:scale(1.05)}
+#tiers .tier:not(.on) .pod{opacity:1}
+</style>
+<style>/* 15 Nov e */
+:root[data-theme] #homeHd .topbar .seg.mode,:root[data-theme] #homeHd:has(#mF.on) .topbar .seg.mode{background:rgba(20,10,30,.38)!important;border:1.5px solid rgba(255,255,255,.3)!important;border-radius:6px!important}
+:root[data-theme] #homeHd:has(#mF.on) .topbar #accts > *,:root[data-theme] #homeHd:has(#mF.on) .topbar #savedBtn,:root[data-theme] #homeHd:has(#mF.on) .topbar #langBtn,:root[data-theme] #homeHd:has(#mF.on) .topbar .seg.mode{background:rgba(29,22,48,.78)!important;border-color:rgba(29,22,48,.9)!important}
+</style>
+<style>/* 15 Nov f: Raju chips same as header bars */
+:root[data-theme] body #homeHd #rchips > *{background:rgba(29,22,48,.82)!important;background-image:none!important;border:1.5px solid rgba(255,255,255,.3)!important;border-radius:6px!important;color:#fff!important;box-shadow:0 4px 10px rgba(29,22,48,.15)!important}
+:root[data-theme] body #homeHd #rchips > *:first-child{background:linear-gradient(135deg,#FFB547,#FF7A2F)!important;color:#1D1630!important;border-color:rgba(29,22,48,.25)!important}
+</style>
+<style>/* 15 Nov g: Raju reply buttons same style */
+:root[data-theme] body #rmsgs .acts > *{background:rgba(29,22,48,.82)!important;background-image:none!important;border:1.5px solid rgba(255,255,255,.3)!important;border-radius:6px!important;color:#fff!important;box-shadow:0 4px 10px rgba(29,22,48,.15)!important}
+:root[data-theme] body #rmsgs .acts > *:first-child{background:linear-gradient(135deg,#FFB547,#FF7A2F)!important;color:#1D1630!important;border-color:rgba(29,22,48,.25)!important}
+:root[data-theme] body #rmsgs .m.mine{border-radius:6px!important}
+</style>
 </head>
 <body class="loading">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" fill="none" stroke="currentColor">
@@ -805,7 +870,8 @@ html:has(#mF.on){background:#FFFFFF!important}
       <a class="q3c rp" href="app.html#ladies"><img src="images/Photos/pink-cafe-lounge.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="q3t"><b>Ladies Lounge</b><small>Ladies only</small></span></a>
       <a class="q3c rp" href="app.html#boomer"><img src="images/Photos/boomer-friends.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="q3b">18+</span><span class="q3t"><b>Boomer</b><small>Meet people near Walking St</small></span></a>
     </div></div>
-    <div id="xA">
+    <div class="xref" id="xRef" role="button" tabindex="0"><img data-ic="refer" alt=""><div><b>Refer and earn</b><small>Invite friends. When they book, you earn rewards.</small></div><span class="xbtn">Invite</span></div>
+<div id="xA">
 <div class="xw"><div class="xh"><h2>I eat</h2><small>Remembered for the whole app</small></div>
 <div class="xveg" id="xVeg"><button class="on">Pure veg</button><button>Jain</button><button>Veg &amp; non-veg</button></div></div>
 <div class="xw"><div class="xh"><h2>Your trip today</h2><small>Sample</small></div><div class="xc xtrip">
@@ -942,8 +1008,8 @@ html:has(#mF.on){background:#FFFFFF!important}
   var mode="night",scr="home";
 
   /* services: real photos from images/Photos */
-  var SV=[["taxi.jpg","Taxi","taxi","HOT"],["private-jet.jpg","Private jet","plane","VIP"],["pattaya-viewpoint-sunset.jpg","3D map","map","NEW"],["xnashaaclub.jpg","Night clubs","music","HOT",1],["xcavebeachclub.jpg","Beach clubs","palm"],["pure-veg-thali.jpg","Pure veg","leaf"],["indian-food.jpg","Indian food","food"],["indian-groceries.jpg","Groceries","bag"],["hotels-resorts.jpg","Hotels","bed"],["car-rental-suv.jpg","Cars & bikes","car"],["spa.jpg","Spa","leaf"],["speedboat-island.jpg","Tours","boat"],["adventure-parasailing.jpg","Water sports","wave"],["golf-sunset.jpg","Golf","star"],["yacht-sunset.jpg","Yacht party","boat","VIP"],["shopping-mall.jpg","Namaste Mall","bag","NEW"],["pink-cafe-lounge.jpg","Events","ticket"],["medical-pharmacy.jpg","Pharmacy","med"],["villa-infinity-pool.jpg","Concierge","bell"],["payments-money-passport.jpg","Visa info","globe"],["flights-tickets.jpg","Flights","plane"],["condos-property.jpg","Property","roof"],["boomer-friends.jpg","Friends","people"],["beach-walk.jpg","My trip","sparkle","-30%"]];
-  var SVF={"Taxi": ["taxi", "red"], "Private jet": ["private-jet", "purple"], "3D map": ["map", "cyan"], "Night clubs": ["night-clubs", "purple"], "Beach clubs": ["beach-clubs", "cyan"], "Pure veg": ["pure-veg", "teal"], "Indian food": ["indian-food", "orange"], "Groceries": ["groceries", "teal"], "Hotels": ["hotels", "blue"], "Cars & bikes": ["cars-bikes", "red"], "Spa": ["spa", "pink"], "Tours": ["tours", "cyan"], "Water sports": ["water-sports", "blue"], "Golf": ["golf", "teal"], "Yacht party": ["yacht", "blue"], "Namaste Mall": ["mall", "pink"], "Events": ["events", "purple"], "Pharmacy": ["pharmacy", "red"], "Concierge": ["concierge", "gold"], "Visa info": ["visa", "grey"], "Flights": ["flights", "blue"], "Property": ["property", "orange"], "Friends": ["friends", "pink"], "My trip": ["my-trip", "orange"]};
+  var SV=[["taxi.jpg","Taxi","taxi","HOT"],["private-jet.jpg","Private jet","plane","VIP"],["pattaya-viewpoint-sunset.jpg","3D map","map","NEW"],["xnashaaclub.jpg","Night clubs","music","HOT",1],["xcavebeachclub.jpg","Beach clubs","palm"],["pure-veg-thali.jpg","Pure veg","leaf"],["indian-food.jpg","Indian food","food"],["indian-groceries.jpg","Indian groceries","bag"],["hotels-resorts.jpg","Hotels","bed"],["car-rental-suv.jpg","Rent cars & bikes","car"],["car-rental-suv.jpg","Superbikes & supercars","car","VIP"],["villa-infinity-pool.jpg","Personal security","bell","NEW"],["spa.jpg","Spa","leaf"],["speedboat-island.jpg","Tours","boat"],["adventure-parasailing.jpg","Water sports","wave"],["golf-sunset.jpg","Golf","star"],["yacht-sunset.jpg","Yacht party","boat","VIP"],["shopping-mall.jpg","Namaste Mall","bag","NEW"],["pink-cafe-lounge.jpg","Events","ticket"],["medical-pharmacy.jpg","Pharmacy","med"],["villa-infinity-pool.jpg","Concierge","bell"],["payments-money-passport.jpg","Visa info","globe"],["flights-tickets.jpg","Flights","plane"],["condos-property.jpg","Property","roof"],["boomer-friends.jpg","Friends","people"],["beach-walk.jpg","My trip","sparkle","-30%"]];
+  var SVF={"Taxi": ["taxi", "red"], "Private jet": ["private-jet", "purple"], "3D map": ["map", "cyan"], "Night clubs": ["night-clubs", "purple"], "Beach clubs": ["beach-clubs", "cyan"], "Pure veg": ["pure-veg", "teal"], "Indian food": ["indian-food", "orange"], "Indian groceries": ["groceries", "teal"], "Hotels": ["hotels", "blue"], "Rent cars & bikes": ["cars-bikes", "red"], "Superbikes & supercars": ["bike", "red"], "Personal security": ["concierge", "gold"], "Spa": ["spa", "pink"], "Tours": ["tours", "cyan"], "Water sports": ["water-sports", "blue"], "Golf": ["golf", "teal"], "Yacht party": ["yacht", "blue"], "Namaste Mall": ["mall", "pink"], "Events": ["events", "purple"], "Pharmacy": ["pharmacy", "red"], "Concierge": ["concierge", "gold"], "Visa info": ["visa", "grey"], "Flights": ["flights", "blue"], "Property": ["property", "orange"], "Friends": ["friends", "pink"], "My trip": ["my-trip", "orange"]};
   var g=$("svcGrid");
   SV.forEach(function(s,i){var a=document.createElement("button");a.className="svc";if(s[4])a.dataset.night=1;if(s[3]==="VIP")a.classList.add("vip");
     a.innerHTML=(s[3]?'<span class="badge'+(s[3]==="NEW"?" n":s[3]==="VIP"?" g":"")+'">'+s[3]+'</span>':"")+ic3(SVF[s[1]][0],s[2],SVF[s[1]][1],64,s[3]==="VIP")+"<b>"+s[1]+"</b>";
@@ -1316,5 +1382,8 @@ document.querySelectorAll("#xVeg button").forEach(function(b){b.onclick=function
 var end=Date.now()+7199000;setInterval(function(){var t=Math.max(0,end-Date.now())/1000|0,h=t/3600|0,m=(t%3600)/60|0,s=t%60;var e=document.getElementById("xCd");if(e)e.textContent=[h,m,s].map(function(n){return(n<10?"0":"")+n}).join(":")},1000);
 var f=document.getElementById("flash");if(f){f.style.cursor="pointer";f.addEventListener("click",function(){document.getElementById("xDeals").scrollIntoView({behavior:"smooth",block:"center"})})}
 })()</script>
+<script>(function(){var r=document.getElementById("xRef");if(!r)return;var i=r.querySelector("img");i.src=(window.NPIC&&NPIC.refer)||"images/Icons/refer.png";
+function go(){try{npOpenSvc("Refer and earn","boomer-friends.jpg","gift","Share your link with friends. When they book, you earn rewards.")}catch(e){}}
+r.onclick=go;r.onkeydown=function(e){if(e.key==="Enter")go()}})()</script>
 </body>
 </html>
